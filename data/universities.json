@@ -1,0 +1,1303 @@
+{
+  "universities": [
+    {
+      "id": 1,
+      "name_ru": "Казахский национальный университет имени аль-Фараби",
+      "name_en": "Al-Farabi Kazakh National University",
+      "city": "Алматы",
+      "focus": "Классический",
+      "website": "https://www.kaznu.kz",
+      "description": "Ведущий классический университет Казахстана, основан в 1934 году. Крупнейший научно-образовательный центр страны с 16 факультетами и более 20 000 студентов.",
+      "image_url": "/assets/img/kaznu.jpg",
+      "address": "пр. аль-Фараби, 71, Алматы, 050040",
+      "phone": "+7 (727) 377-33-33",
+      "email": "info@kaznu.kz",
+      "rating": 4.9,
+      "reviews": [
+        "Отличный университет с сильной научной базой и международными связями.",
+        "Много возможностей для стажировок за рубежом.",
+        "Преподаватели — настоящие профессионалы своего дела."
+      ],
+      "programs_bachelor": [
+        "Информационные системы",
+        "Юриспруденция",
+        "Международные отношения",
+        "Экономика",
+        "Журналистика",
+        "Биология",
+        "Химия",
+        "Физика",
+        "Математика",
+        "Филология"
+      ],
+      "programs_master": [
+        "Data Science",
+        "Международное право",
+        "Финансы",
+        "Биотехнологии"
+      ],
+      "tuition_kzt_year": 1200000,
+      "tuition_master_kzt_year": 1500000,
+      "ent_min_score": 110,
+      "admission_requirements": "ЕНТ от 110 баллов, аттестат о среднем образовании, медицинская справка 086-У, фото 3x4 (6 шт), удостоверение личности",
+      "admission_deadline_month": "Август",
+      "scholarships": "Государственные образовательные гранты, стипендия ректора, именные стипендии",
+      "international_exchange": true,
+      "partner_universities": "500+ университетов в 60 странах (Европа, Азия, США)",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": true,
+      "comparison_feature": {
+        "academic_rating": 5,
+        "infrastructure": 5,
+        "career_prospects": 5
+      }
+    },
+    {
+      "id": 2,
+      "name_ru": "Евразийский национальный университет имени Л.Н. Гумилева",
+      "name_en": "L.N. Gumilyov Eurasian National University",
+      "city": "Астана",
+      "focus": "Классический",
+      "website": "https://www.enu.kz",
+      "description": "Один из ведущих университетов столицы, основан в 1996 году. Назван в честь выдающегося ученого Льва Гумилева, сочетает классическое образование с инновациями.",
+      "image_url": "/assets/img/enu.jpg",
+      "address": "ул. Сатпаева, 2, Астана, 010008",
+      "phone": "+7 (7172) 70-95-00",
+      "email": "info@enu.kz",
+      "rating": 4.8,
+      "reviews": [
+        "Прекрасный кампус в центре столицы.",
+        "Сильные технические и юридические факультеты.",
+        "Хорошие условия для иностранных студентов."
+      ],
+      "programs_bachelor": [
+        "Информатика",
+        "Юриспруденция",
+        "Государственное управление",
+        "Экономика",
+        "Международные отношения",
+        "Строительство",
+        "Архитектура",
+        "Филология"
+      ],
+      "programs_master": [
+        "Публичное управление",
+        "IT-менеджмент",
+        "Международное право"
+      ],
+      "tuition_kzt_year": 1100000,
+      "tuition_master_kzt_year": 1400000,
+      "ent_min_score": 105,
+      "admission_requirements": "ЕНТ от 105 баллов, аттестат, медсправка, документы на казахском или русском языке",
+      "admission_deadline_month": "Август",
+      "scholarships": "Государственные гранты, стипендия Президента РК, социальные стипендии",
+      "international_exchange": true,
+      "partner_universities": "300+ университетов (Россия, Турция, Китай, Европа)",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": true,
+      "comparison_feature": {
+        "academic_rating": 5,
+        "infrastructure": 5,
+        "career_prospects": 5
+      }
+    },
+    {
+      "id": 3,
+      "name_ru": "Назарбаев Университет",
+      "name_en": "Nazarbayev University",
+      "city": "Астана",
+      "focus": "Исследовательский",
+      "website": "https://nu.edu.kz",
+      "description": "Автономный исследовательский университет мирового класса, основан в 2010 году. Обучение полностью на английском языке по стандартам ведущих университетов мира.",
+      "image_url": "/assets/img/nu.jpg",
+      "address": "ул. Кабанбай батыра, 53, Астана, 010000",
+      "phone": "+7 (7172) 70-66-88",
+      "email": "admissions@nu.edu.kz",
+      "rating": 5.0,
+      "reviews": [
+        "Лучший университет в Центральной Азии, мировой уровень образования.",
+        "100% трудоустройство выпускников.",
+        "Отличная инфраструктура и общежития."
+      ],
+      "programs_bachelor": [
+        "Computer Science",
+        "Economics",
+        "Engineering",
+        "Biology",
+        "Chemistry",
+        "Mathematics",
+        "Political Science",
+        "History"
+      ],
+      "programs_master": [
+        "MBA",
+        "Data Science",
+        "Public Policy",
+        "Engineering Management"
+      ],
+      "tuition_kzt_year": 0,
+      "tuition_master_kzt_year": 2500000,
+      "ent_min_score": 130,
+      "admission_requirements": "Внутренний экзамен NU, SAT/ACT, IELTS 6.5+, мотивационное письмо, рекомендации, интервью",
+      "admission_deadline_month": "Март",
+      "scholarships": "100% грантовое обучение на бакалавриате, стипендия на проживание",
+      "international_exchange": true,
+      "partner_universities": "Duke, Cambridge, NUS, ведущие университеты мира",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": false,
+      "comparison_feature": {
+        "academic_rating": 5,
+        "infrastructure": 5,
+        "career_prospects": 5
+      }
+    },
+    {
+      "id": 4,
+      "name_ru": "Казахстанско-Британский технический университет",
+      "name_en": "Kazakh-British Technical University",
+      "city": "Алматы",
+      "focus": "Технический",
+      "website": "https://www.kbtu.kz",
+      "description": "Ведущий технический университет с британскими стандартами образования, основан в 2001 году. Специализируется на IT, нефтегазовой отрасли и бизнесе.",
+      "image_url": "/assets/img/kbtu.jpg",
+      "address": "ул. Толе би, 59, Алматы, 050000",
+      "phone": "+7 (727) 272-58-29",
+      "email": "info@kbtu.kz",
+      "rating": 4.8,
+      "reviews": [
+        "Лучший IT-университет в Казахстане.",
+        "Выпускники работают в Google, Microsoft, Kaspi.",
+        "Современные лаборатории и оборудование."
+      ],
+      "programs_bachelor": [
+        "Computer Science",
+        "Information Systems",
+        "Petroleum Engineering",
+        "Finance",
+        "Business Administration",
+        "Mathematics",
+        "Геология"
+      ],
+      "programs_master": [
+        "Software Engineering",
+        "Data Science",
+        "MBA",
+        "Petroleum Engineering"
+      ],
+      "tuition_kzt_year": 2200000,
+      "tuition_master_kzt_year": 2800000,
+      "ent_min_score": 115,
+      "admission_requirements": "ЕНТ от 115 баллов, английский язык (IELTS 5.5+ желательно), аттестат, собеседование",
+      "admission_deadline_month": "Июль",
+      "scholarships": "Гранты КБТУ, скидки за успеваемость до 50%, государственные гранты",
+      "international_exchange": true,
+      "partner_universities": "University of London, партнеры в UK, USA, Европе",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": true,
+      "comparison_feature": {
+        "academic_rating": 5,
+        "infrastructure": 5,
+        "career_prospects": 5
+      }
+    },
+    {
+      "id": 5,
+      "name_ru": "Университет Нархоз",
+      "name_en": "Narxoz University",
+      "city": "Алматы",
+      "focus": "Бизнес",
+      "website": "https://narxoz.edu.kz",
+      "description": "Ведущий бизнес-университет Центральной Азии, основан в 1963 году. Специализируется на экономике, финансах, менеджменте и праве.",
+      "image_url": "/assets/img/narxoz.jpg",
+      "address": "ул. Жандосова, 55, Алматы, 050035",
+      "phone": "+7 (727) 377-11-11",
+      "email": "info@narxoz.kz",
+      "rating": 4.7,
+      "reviews": [
+        "Отличная бизнес-школа с практическим подходом.",
+        "Много стажировок в крупных компаниях.",
+        "Современный кампус и библиотека."
+      ],
+      "programs_bachelor": [
+        "Финансы",
+        "Учет и аудит",
+        "Менеджмент",
+        "Маркетинг",
+        "Юриспруденция",
+        "IT-менеджмент",
+        "Международные отношения",
+        "Туризм"
+      ],
+      "programs_master": [
+        "MBA",
+        "Финансы",
+        "Маркетинг",
+        "HR-менеджмент"
+      ],
+      "tuition_kzt_year": 1800000,
+      "tuition_master_kzt_year": 2200000,
+      "ent_min_score": 100,
+      "admission_requirements": "ЕНТ от 100 баллов, аттестат, мотивационное письмо, собеседование для грантов",
+      "admission_deadline_month": "Август",
+      "scholarships": "Гранты Нархоз до 100%, скидки за ЕНТ, социальные гранты",
+      "international_exchange": true,
+      "partner_universities": "100+ партнеров (Европа, Азия, США)",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": false,
+      "comparison_feature": {
+        "academic_rating": 5,
+        "infrastructure": 5,
+        "career_prospects": 5
+      }
+    },
+    {
+      "id": 6,
+      "name_ru": "Казахский национальный технический университет имени К.И. Сатпаева",
+      "name_en": "Satbayev University",
+      "city": "Алматы",
+      "focus": "Технический",
+      "website": "https://satbayev.university",
+      "description": "Ведущий технический университет страны, основан в 1934 году. Специализируется на инженерии, горном деле и IT.",
+      "image_url": "/assets/img/satbayev.jpg",
+      "address": "ул. Сатпаева, 22а, Алматы, 050013",
+      "phone": "+7 (727) 292-63-00",
+      "email": "info@satbayev.university",
+      "rating": 4.7,
+      "reviews": [
+        "Сильнейший технический вуз с богатой историей.",
+        "Отличные связи с промышленностью."
+      ],
+      "programs_bachelor": [
+        "Информационные системы",
+        "Горное дело",
+        "Нефтегазовое дело",
+        "Строительство",
+        "Машиностроение",
+        "Электроэнергетика"
+      ],
+      "programs_master": [
+        "IT",
+        "Нефтегазовая инженерия",
+        "Управление проектами"
+      ],
+      "tuition_kzt_year": 1300000,
+      "tuition_master_kzt_year": 1600000,
+      "ent_min_score": 105,
+      "admission_requirements": "ЕНТ, аттестат, медсправка, фото",
+      "admission_deadline_month": "Август",
+      "scholarships": "Государственные гранты, стипендии предприятий-партнеров",
+      "international_exchange": true,
+      "partner_universities": "200+ университетов мира",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": true,
+      "comparison_feature": {
+        "academic_rating": 5,
+        "infrastructure": 4,
+        "career_prospects": 5
+      }
+    },
+    {
+      "id": 7,
+      "name_ru": "Казахский национальный медицинский университет имени С.Д. Асфендиярова",
+      "name_en": "Asfendiyarov Kazakh National Medical University",
+      "city": "Алматы",
+      "focus": "Медицинский",
+      "website": "https://kaznmu.kz",
+      "description": "Старейший и крупнейший медицинский университет Казахстана, основан в 1930 году.",
+      "image_url": "/assets/img/kaznmu.jpg",
+      "address": "ул. Толе би, 94, Алматы, 050012",
+      "phone": "+7 (727) 292-79-37",
+      "email": "info@kaznmu.kz",
+      "rating": 4.6,
+      "reviews": [
+        "Лучший медицинский вуз страны.",
+        "Клинические базы в ведущих больницах."
+      ],
+      "programs_bachelor": [
+        "Общая медицина",
+        "Стоматология",
+        "Фармация",
+        "Общественное здравоохранение",
+        "Сестринское дело"
+      ],
+      "programs_master": [
+        "Клиническая медицина",
+        "Общественное здравоохранение"
+      ],
+      "tuition_kzt_year": 1800000,
+      "tuition_master_kzt_year": 2000000,
+      "ent_min_score": 120,
+      "admission_requirements": "ЕНТ от 120 баллов (биология, химия), аттестат, медсправка",
+      "admission_deadline_month": "Август",
+      "scholarships": "Государственные гранты, целевые гранты от акиматов",
+      "international_exchange": true,
+      "partner_universities": "Партнеры в Европе, Азии, США",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": false,
+      "comparison_feature": {
+        "academic_rating": 5,
+        "infrastructure": 4,
+        "career_prospects": 5
+      }
+    },
+    {
+      "id": 8,
+      "name_ru": "Алматинский технологический университет",
+      "name_en": "Almaty Technological University",
+      "city": "Алматы",
+      "focus": "Технический",
+      "website": "https://atu.edu.kz",
+      "description": "Ведущий университет в области пищевых технологий и легкой промышленности.",
+      "image_url": "/assets/img/uni_default.jpg",
+      "address": "ул. Толе би, 100, Алматы, 050012",
+      "phone": "+7 (727) 293-52-86",
+      "email": "info@atu.edu.kz",
+      "rating": 4.3,
+      "reviews": [
+        "Хороший вуз для пищевой промышленности.",
+        "Практические занятия на производстве."
+      ],
+      "programs_bachelor": [
+        "Пищевые технологии",
+        "Технология продовольственных продуктов",
+        "Легкая промышленность",
+        "Экономика"
+      ],
+      "programs_master": [
+        "Пищевая инженерия"
+      ],
+      "tuition_kzt_year": 950000,
+      "tuition_master_kzt_year": 1200000,
+      "ent_min_score": 90,
+      "admission_requirements": "ЕНТ, аттестат, медсправка",
+      "admission_deadline_month": "Август",
+      "scholarships": "Государственные гранты",
+      "international_exchange": true,
+      "partner_universities": "Университеты России, Турции",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": false,
+      "comparison_feature": {
+        "academic_rating": 4,
+        "infrastructure": 3,
+        "career_prospects": 4
+      }
+    },
+    {
+      "id": 9,
+      "name_ru": "Международный университет информационных технологий",
+      "name_en": "International IT University",
+      "city": "Алматы",
+      "focus": "Технический",
+      "website": "https://iitu.edu.kz",
+      "description": "Специализированный IT-университет, основан в 2009 году. Фокус на программировании и кибербезопасности.",
+      "image_url": "/assets/img/iitu.jpg",
+      "address": "ул. Манаса, 34/1, Алматы, 050040",
+      "phone": "+7 (727) 330-85-00",
+      "email": "info@iitu.edu.kz",
+      "rating": 4.5,
+      "reviews": [
+        "Современный IT-вуз с актуальными программами.",
+        "Хорошие связи с IT-компаниями."
+      ],
+      "programs_bachelor": [
+        "Computer Science",
+        "Кибербезопасность",
+        "Data Science",
+        "Разработка ПО",
+        "Сети и телекоммуникации"
+      ],
+      "programs_master": [
+        "Software Engineering",
+        "Cybersecurity"
+      ],
+      "tuition_kzt_year": 1600000,
+      "tuition_master_kzt_year": 2000000,
+      "ent_min_score": 100,
+      "admission_requirements": "ЕНТ, аттестат, тест по математике",
+      "admission_deadline_month": "Август",
+      "scholarships": "Гранты МУИТ до 50%, государственные гранты",
+      "international_exchange": true,
+      "partner_universities": "Университеты Европы, Кореи",
+      "foreign_students_welcome": true,
+      "dormitory": false,
+      "military_department": true,
+      "comparison_feature": {
+        "academic_rating": 4,
+        "infrastructure": 4,
+        "career_prospects": 5
+      }
+    },
+    {
+      "id": 10,
+      "name_ru": "Университет КИМЭП",
+      "name_en": "KIMEP University",
+      "city": "Алматы",
+      "focus": "Бизнес",
+      "website": "https://www.kimep.kz",
+      "description": "Первый американский университет в Центральной Азии, основан в 1992 году. Обучение на английском языке.",
+      "image_url": "/assets/img/kimep.jpg",
+      "address": "пр. Абая, 2, Алматы, 050010",
+      "phone": "+7 (727) 270-44-40",
+      "email": "admissions@kimep.kz",
+      "rating": 4.7,
+      "reviews": [
+        "Престижный университет с международными стандартами.",
+        "Сильная бизнес-школа."
+      ],
+      "programs_bachelor": [
+        "Business Administration",
+        "Finance",
+        "Accounting",
+        "Economics",
+        "Law",
+        "Journalism",
+        "International Relations"
+      ],
+      "programs_master": [
+        "MBA",
+        "LLM",
+        "Public Administration"
+      ],
+      "tuition_kzt_year": 2400000,
+      "tuition_master_kzt_year": 3000000,
+      "ent_min_score": 110,
+      "admission_requirements": "ЕНТ/SAT, IELTS 5.5+, аттестат, эссе",
+      "admission_deadline_month": "Июль",
+      "scholarships": "Гранты КИМЭП до 100%, скидки за успеваемость",
+      "international_exchange": true,
+      "partner_universities": "150+ университетов мира",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": false,
+      "comparison_feature": {
+        "academic_rating": 5,
+        "infrastructure": 5,
+        "career_prospects": 5
+      }
+    },
+    {
+      "id": 11,
+      "name_ru": "Казахский национальный аграрный исследовательский университет",
+      "name_en": "Kazakh National Agrarian Research University",
+      "city": "Алматы",
+      "focus": "Аграрный",
+      "website": "https://kaznaru.edu.kz",
+      "description": "Ведущий аграрный университет Казахстана с исследовательской направленностью.",
+      "image_url": "/assets/img/uni_default.jpg",
+      "address": "пр. Абая, 8, Алматы, 050010",
+      "phone": "+7 (727) 262-04-23",
+      "email": "info@kaznaru.edu.kz",
+      "rating": 4.2,
+      "reviews": [
+        "Лучший вуз для агрономии и ветеринарии.",
+        "Собственные поля и фермы для практики."
+      ],
+      "programs_bachelor": [
+        "Агрономия",
+        "Ветеринария",
+        "Зоотехния",
+        "Лесное хозяйство",
+        "Агроинженерия"
+      ],
+      "programs_master": [
+        "Агробизнес",
+        "Ветеринарная медицина"
+      ],
+      "tuition_kzt_year": 900000,
+      "tuition_master_kzt_year": 1100000,
+      "ent_min_score": 90,
+      "admission_requirements": "ЕНТ, аттестат, медсправка",
+      "admission_deadline_month": "Август",
+      "scholarships": "Государственные гранты, гранты МСХ",
+      "international_exchange": true,
+      "partner_universities": "Аграрные университеты СНГ и Европы",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": true,
+      "comparison_feature": {
+        "academic_rating": 4,
+        "infrastructure": 3,
+        "career_prospects": 4
+      }
+    },
+    {
+      "id": 12,
+      "name_ru": "Казахская национальная академия искусств имени Т. Жургенова",
+      "name_en": "T. Zhurgenov Kazakh National Academy of Arts",
+      "city": "Алматы",
+      "focus": "Творческий",
+      "website": "https://kaznai.kz",
+      "description": "Главный творческий вуз Казахстана, готовит режиссеров, актеров, художников.",
+      "image_url": "/assets/img/uni_default.jpg",
+      "address": "ул. Панфилова, 127, Алматы, 050000",
+      "phone": "+7 (727) 261-67-55",
+      "email": "info@kaznai.kz",
+      "rating": 4.5,
+      "reviews": [
+        "Кузница талантов казахского кино и театра.",
+        "Творческая атмосфера."
+      ],
+      "programs_bachelor": [
+        "Режиссура",
+        "Актерское мастерство",
+        "Операторское искусство",
+        "Дизайн",
+        "Живопись",
+        "Хореография"
+      ],
+      "programs_master": [
+        "Режиссура",
+        "Искусствоведение"
+      ],
+      "tuition_kzt_year": 1000000,
+      "tuition_master_kzt_year": 1300000,
+      "ent_min_score": 85,
+      "admission_requirements": "ЕНТ, творческий экзамен, портфолио",
+      "admission_deadline_month": "Июль",
+      "scholarships": "Государственные гранты для творческих специальностей",
+      "international_exchange": true,
+      "partner_universities": "Театральные академии России, Европы",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": false,
+      "comparison_feature": {
+        "academic_rating": 4,
+        "infrastructure": 4,
+        "career_prospects": 4
+      }
+    },
+    {
+      "id": 13,
+      "name_ru": "Казахская национальная консерватория имени Курмангазы",
+      "name_en": "Kurmangazy Kazakh National Conservatory",
+      "city": "Алматы",
+      "focus": "Творческий",
+      "website": "https://conservatoire.kz",
+      "description": "Ведущий музыкальный вуз страны, основан в 1944 году.",
+      "image_url": "/assets/img/uni_default.jpg",
+      "address": "пр. Абылай хана, 86, Алматы, 050000",
+      "phone": "+7 (727) 261-63-64",
+      "email": "info@conservatoire.kz",
+      "rating": 4.6,
+      "reviews": [
+        "Лучшее музыкальное образование в Казахстане.",
+        "Концертная практика с первого курса."
+      ],
+      "programs_bachelor": [
+        "Фортепиано",
+        "Вокал",
+        "Оркестровые инструменты",
+        "Композиция",
+        "Дирижирование",
+        "Музыковедение"
+      ],
+      "programs_master": [
+        "Исполнительское искусство",
+        "Музыковедение"
+      ],
+      "tuition_kzt_year": 1100000,
+      "tuition_master_kzt_year": 1400000,
+      "ent_min_score": 85,
+      "admission_requirements": "ЕНТ, вступительный экзамен по специальности, сольфеджио",
+      "admission_deadline_month": "Июль",
+      "scholarships": "Государственные гранты",
+      "international_exchange": true,
+      "partner_universities": "Консерватории России, Европы",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": false,
+      "comparison_feature": {
+        "academic_rating": 5,
+        "infrastructure": 4,
+        "career_prospects": 4
+      }
+    },
+    {
+      "id": 14,
+      "name_ru": "Казахский национальный педагогический университет имени Абая",
+      "name_en": "Abai Kazakh National Pedagogical University",
+      "city": "Алматы",
+      "focus": "Педагогический",
+      "website": "https://kaznpu.kz",
+      "description": "Старейший педагогический вуз Казахстана, основан в 1928 году.",
+      "image_url": "/assets/img/uni_default.jpg",
+      "address": "пр. Достык, 13, Алматы, 050010",
+      "phone": "+7 (727) 291-89-28",
+      "email": "info@kaznpu.kz",
+      "rating": 4.3,
+      "reviews": [
+        "Лучший вуз для будущих учителей.",
+        "Богатая история и традиции."
+      ],
+      "programs_bachelor": [
+        "Педагогика",
+        "Психология",
+        "Филология",
+        "Математика",
+        "История",
+        "Физическая культура",
+        "Начальное образование"
+      ],
+      "programs_master": [
+        "Педагогика и психология",
+        "Менеджмент в образовании"
+      ],
+      "tuition_kzt_year": 900000,
+      "tuition_master_kzt_year": 1100000,
+      "ent_min_score": 90,
+      "admission_requirements": "ЕНТ, аттестат, медсправка",
+      "admission_deadline_month": "Август",
+      "scholarships": "Государственные гранты, гранты МОН",
+      "international_exchange": true,
+      "partner_universities": "Педагогические университеты СНГ",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": true,
+      "comparison_feature": {
+        "academic_rating": 4,
+        "infrastructure": 3,
+        "career_prospects": 4
+      }
+    },
+    {
+      "id": 15,
+      "name_ru": "Казахский университет международных отношений и мировых языков имени Абылай хана",
+      "name_en": "Ablai Khan Kazakh University of International Relations and World Languages",
+      "city": "Алматы",
+      "focus": "Гуманитарный",
+      "website": "https://ablaikhan.kz",
+      "description": "Ведущий лингвистический университет страны, специализируется на иностранных языках и международных отношениях.",
+      "image_url": "/assets/img/uni_default.jpg",
+      "address": "ул. Муратбаева, 200, Алматы, 050022",
+      "phone": "+7 (727) 292-03-48",
+      "email": "info@ablaikhan.kz",
+      "rating": 4.4,
+      "reviews": [
+        "Лучший вуз для изучения языков.",
+        "Сильная подготовка переводчиков."
+      ],
+      "programs_bachelor": [
+        "Переводческое дело",
+        "Международные отношения",
+        "Иностранная филология",
+        "Туризм",
+        "Журналистика"
+      ],
+      "programs_master": [
+        "Лингвистика",
+        "Международные отношения"
+      ],
+      "tuition_kzt_year": 1000000,
+      "tuition_master_kzt_year": 1300000,
+      "ent_min_score": 95,
+      "admission_requirements": "ЕНТ, тест по иностранному языку",
+      "admission_deadline_month": "Август",
+      "scholarships": "Государственные гранты",
+      "international_exchange": true,
+      "partner_universities": "Университеты Европы, Азии, США",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": false,
+      "comparison_feature": {
+        "academic_rating": 4,
+        "infrastructure": 4,
+        "career_prospects": 4
+      }
+    },
+    {
+      "id": 16,
+      "name_ru": "Карагандинский университет имени Е.А. Букетова",
+      "name_en": "Buketov Karaganda University",
+      "city": "Караганда",
+      "focus": "Классический",
+      "website": "https://ksu.kz",
+      "description": "Крупнейший университет Центрального Казахстана, основан в 1972 году.",
+      "image_url": "/assets/img/uni_default.jpg",
+      "address": "ул. Университетская, 28, Караганда, 100024",
+      "phone": "+7 (7212) 77-04-22",
+      "email": "office@ksu.kz",
+      "rating": 4.3,
+      "reviews": [
+        "Ведущий вуз Центрального Казахстана.",
+        "Хорошее соотношение цена-качество."
+      ],
+      "programs_bachelor": [
+        "Информатика",
+        "Юриспруденция",
+        "Экономика",
+        "Филология",
+        "Биология",
+        "Химия"
+      ],
+      "programs_master": [
+        "IT",
+        "Право",
+        "Экономика"
+      ],
+      "tuition_kzt_year": 850000,
+      "tuition_master_kzt_year": 1000000,
+      "ent_min_score": 90,
+      "admission_requirements": "ЕНТ, аттестат, медсправка",
+      "admission_deadline_month": "Август",
+      "scholarships": "Государственные гранты",
+      "international_exchange": true,
+      "partner_universities": "Университеты России, Европы",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": true,
+      "comparison_feature": {
+        "academic_rating": 4,
+        "infrastructure": 4,
+        "career_prospects": 4
+      }
+    },
+    {
+      "id": 17,
+      "name_ru": "Карагандинский технический университет имени А. Сагинова",
+      "name_en": "Saginov Karaganda Technical University",
+      "city": "Караганда",
+      "focus": "Технический",
+      "website": "https://kstu.kz",
+      "description": "Ведущий технический вуз промышленного региона, специализация — горное дело и металлургия.",
+      "image_url": "/assets/img/uni_default.jpg",
+      "address": "бульвар Мира, 56, Караганда, 100027",
+      "phone": "+7 (7212) 56-59-35",
+      "email": "info@kstu.kz",
+      "rating": 4.2,
+      "reviews": [
+        "Сильная подготовка для горнодобывающей отрасли.",
+        "Партнерство с ArcelorMittal."
+      ],
+      "programs_bachelor": [
+        "Горное дело",
+        "Металлургия",
+        "Машиностроение",
+        "IT",
+        "Строительство"
+      ],
+      "programs_master": [
+        "Горная инженерия",
+        "Металлургия"
+      ],
+      "tuition_kzt_year": 900000,
+      "tuition_master_kzt_year": 1100000,
+      "ent_min_score": 90,
+      "admission_requirements": "ЕНТ, аттестат, медсправка",
+      "admission_deadline_month": "Август",
+      "scholarships": "Государственные гранты, корпоративные гранты",
+      "international_exchange": true,
+      "partner_universities": "Технические университеты СНГ",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": true,
+      "comparison_feature": {
+        "academic_rating": 4,
+        "infrastructure": 4,
+        "career_prospects": 4
+      }
+    },
+    {
+      "id": 18,
+      "name_ru": "Карагандинский медицинский университет",
+      "name_en": "Karaganda Medical University",
+      "city": "Караганда",
+      "focus": "Медицинский",
+      "website": "https://kgmu.kz",
+      "description": "Один из ведущих медицинских вузов Казахстана, основан в 1950 году.",
+      "image_url": "/assets/img/uni_default.jpg",
+      "address": "ул. Гоголя, 40, Караганда, 100008",
+      "phone": "+7 (7212) 50-38-44",
+      "email": "info@kgmu.kz",
+      "rating": 4.4,
+      "reviews": [
+        "Качественное медицинское образование.",
+        "Хорошие клинические базы."
+      ],
+      "programs_bachelor": [
+        "Общая медицина",
+        "Стоматология",
+        "Фармация",
+        "Общественное здравоохранение"
+      ],
+      "programs_master": [
+        "Клиническая медицина"
+      ],
+      "tuition_kzt_year": 1500000,
+      "tuition_master_kzt_year": 1800000,
+      "ent_min_score": 115,
+      "admission_requirements": "ЕНТ (биология, химия), аттестат, медсправка",
+      "admission_deadline_month": "Август",
+      "scholarships": "Государственные гранты",
+      "international_exchange": true,
+      "partner_universities": "Медицинские университеты СНГ и Европы",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": false,
+      "comparison_feature": {
+        "academic_rating": 4,
+        "infrastructure": 4,
+        "career_prospects": 5
+      }
+    },
+    {
+      "id": 19,
+      "name_ru": "Западно-Казахстанский университет имени М. Утемисова",
+      "name_en": "M. Utemisov West Kazakhstan University",
+      "city": "Уральск",
+      "focus": "Классический",
+      "website": "https://wku.edu.kz",
+      "description": "Ведущий университет Западного Казахстана, основан в 1932 году.",
+      "image_url": "/assets/img/uni_default.jpg",
+      "address": "пр. Достык, 162, Уральск, 090000",
+      "phone": "+7 (7112) 50-61-00",
+      "email": "info@wku.edu.kz",
+      "rating": 4.1,
+      "reviews": [
+        "Хороший региональный университет.",
+        "Доступные цены."
+      ],
+      "programs_bachelor": [
+        "Информатика",
+        "Юриспруденция",
+        "Экономика",
+        "Педагогика",
+        "Филология"
+      ],
+      "programs_master": [
+        "Право",
+        "Педагогика"
+      ],
+      "tuition_kzt_year": 750000,
+      "tuition_master_kzt_year": 900000,
+      "ent_min_score": 85,
+      "admission_requirements": "ЕНТ, аттестат, медсправка",
+      "admission_deadline_month": "Август",
+      "scholarships": "Государственные гранты",
+      "international_exchange": true,
+      "partner_universities": "Университеты России",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": true,
+      "comparison_feature": {
+        "academic_rating": 3,
+        "infrastructure": 3,
+        "career_prospects": 3
+      }
+    },
+    {
+      "id": 20,
+      "name_ru": "Актюбинский региональный университет имени К. Жубанова",
+      "name_en": "K. Zhubanov Aktobe Regional University",
+      "city": "Актобе",
+      "focus": "Классический",
+      "website": "https://arsu.kz",
+      "description": "Крупнейший университет Актюбинской области.",
+      "image_url": "/assets/img/uni_default.jpg",
+      "address": "пр. А. Молдагуловой, 34, Актобе, 030000",
+      "phone": "+7 (7132) 56-36-43",
+      "email": "info@arsu.kz",
+      "rating": 4.0,
+      "reviews": [
+        "Хороший региональный университет.",
+        "Связи с нефтегазовыми компаниями."
+      ],
+      "programs_bachelor": [
+        "Нефтегазовое дело",
+        "Информатика",
+        "Экономика",
+        "Педагогика"
+      ],
+      "programs_master": [
+        "Нефтегазовая инженерия"
+      ],
+      "tuition_kzt_year": 800000,
+      "tuition_master_kzt_year": 950000,
+      "ent_min_score": 85,
+      "admission_requirements": "ЕНТ, аттестат, медсправка",
+      "admission_deadline_month": "Август",
+      "scholarships": "Государственные гранты, гранты от местных компаний",
+      "international_exchange": true,
+      "partner_universities": "Университеты России, Турции",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": true,
+      "comparison_feature": {
+        "academic_rating": 3,
+        "infrastructure": 3,
+        "career_prospects": 3
+      }
+    },
+    {
+      "id": 21,
+      "name_ru": "Восточно-Казахстанский технический университет имени Д. Серикбаева",
+      "name_en": "D. Serikbayev East Kazakhstan Technical University",
+      "city": "Усть-Каменогорск",
+      "focus": "Технический",
+      "website": "https://ektu.kz",
+      "description": "Крупный технический университет Восточного Казахстана, специализируется на металлургии, машиностроении и IT.",
+      "image_url": "/assets/img/uni_default.jpg",
+      "address": "ул. Серикбаева, 19, Усть-Каменогорск, 070004",
+      "phone": "+7 (7232) 54-07-26",
+      "email": "info@ektu.kz",
+      "rating": 4.1,
+      "reviews": [
+        "Сильный технический вуз.",
+        "Тесные связи с промышленными предприятиями региона."
+      ],
+      "programs_bachelor": [
+        "Металлургия",
+        "Машиностроение",
+        "Информационные системы",
+        "Строительство",
+        "Энергетика"
+      ],
+      "programs_master": [
+        "Инженерные науки",
+        "IT-менеджмент"
+      ],
+      "tuition_kzt_year": 850000,
+      "tuition_master_kzt_year": 1050000,
+      "ent_min_score": 90,
+      "admission_requirements": "ЕНТ, аттестат, медсправка",
+      "admission_deadline_month": "Август",
+      "scholarships": "Государственные гранты, гранты от KAZ Minerals и других компаний",
+      "international_exchange": true,
+      "partner_universities": "Университеты России, Китая",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": true,
+      "comparison_feature": {
+        "academic_rating": 4,
+        "infrastructure": 3,
+        "career_prospects": 4
+      }
+    },
+    {
+      "id": 22,
+      "name_ru": "Павлодарский университет",
+      "name_en": "Pavlodar University",
+      "city": "Павлодар",
+      "focus": "Классический",
+      "website": "https://pu.edu.kz",
+      "description": "Крупнейший университет Павлодарской области, с широким спектром специальностей.",
+      "image_url": "/assets/img/uni_default.jpg",
+      "address": "ул. Ломова, 45, Павлодар, 140008",
+      "phone": "+7 (7182) 67-36-50",
+      "email": "info@pu.edu.kz",
+      "rating": 4.0,
+      "reviews": [
+        "Университет с хорошими традициями.",
+        "Развитая инфраструктура."
+      ],
+      "programs_bachelor": [
+        "Информатика",
+        "Педагогика",
+        "Экономика",
+        "Химия",
+        "Юриспруденция"
+      ],
+      "programs_master": [
+        "Технические науки",
+        "Педагогика"
+      ],
+      "tuition_kzt_year": 780000,
+      "tuition_master_kzt_year": 900000,
+      "ent_min_score": 85,
+      "admission_requirements": "ЕНТ, аттестат, медсправка",
+      "admission_deadline_month": "Август",
+      "scholarships": "Государственные гранты",
+      "international_exchange": true,
+      "partner_universities": "Университеты России",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": true,
+      "comparison_feature": {
+        "academic_rating": 3,
+        "infrastructure": 3,
+        "career_prospects": 3
+      }
+    },
+    {
+      "id": 23,
+      "name_ru": "Южно-Казахстанский университет имени М. Ауэзова",
+      "name_en": "M. Auezov South Kazakhstan University",
+      "city": "Шымкент",
+      "focus": "Классический",
+      "website": "https://ukgu.kz",
+      "description": "Крупнейший университет Южного Казахстана, широкий спектр специальностей: от технических до гуманитарных.",
+      "image_url": "/assets/img/uni_default.jpg",
+      "address": "пр. Тауке хана, 5, Шымкент, 160012",
+      "phone": "+7 (7252) 21-19-72",
+      "email": "info@ukgu.kz",
+      "rating": 4.1,
+      "reviews": [
+        "Большой вуз, много направлений.",
+        "Сильные технические специальности."
+      ],
+      "programs_bachelor": [
+        "Нефтегазовое дело",
+        "Информационные системы",
+        "Педагогика",
+        "Юриспруденция",
+        "Экономика"
+      ],
+      "programs_master": [
+        "Инженерия",
+        "Право"
+      ],
+      "tuition_kzt_year": 820000,
+      "tuition_master_kzt_year": 980000,
+      "ent_min_score": 85,
+      "admission_requirements": "ЕНТ, аттестат, медсправка",
+      "admission_deadline_month": "Август",
+      "scholarships": "Государственные гранты, гранты акимата",
+      "international_exchange": true,
+      "partner_universities": "Университеты СНГ",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": true,
+      "comparison_feature": {
+        "academic_rating": 3,
+        "infrastructure": 3,
+        "career_prospects": 3
+      }
+    },
+    {
+      "id": 24,
+      "name_ru": "Каспийский государственный университет технологий и инжиниринга имени Ш. Есенова",
+      "name_en": "Sh. Yessenov Caspian State University of Technologies and Engineering",
+      "city": "Актау",
+      "focus": "Технический",
+      "website": "https://yu.edu.kz",
+      "description": "Университет, специализирующийся на нефтегазовой и морской инженерии, расположен на побережье Каспия.",
+      "image_url": "/assets/img/uni_default.jpg",
+      "address": "мкр. 3Б, 17, Актау, 130000",
+      "phone": "+7 (7292) 42-57-00",
+      "email": "info@yu.edu.kz",
+      "rating": 4.0,
+      "reviews": [
+        "Отличный вуз для работы в нефтегазовой сфере.",
+        "Практика в местных компаниях."
+      ],
+      "programs_bachelor": [
+        "Нефтегазовое дело",
+        "Морская инженерия",
+        "Строительство",
+        "Информационные системы",
+        "Туризм"
+      ],
+      "programs_master": [
+        "Нефтегазовая инженерия",
+        "Управление проектами"
+      ],
+      "tuition_kzt_year": 800000,
+      "tuition_master_kzt_year": 950000,
+      "ent_min_score": 85,
+      "admission_requirements": "ЕНТ, аттестат, медсправка",
+      "admission_deadline_month": "Август",
+      "scholarships": "Государственные гранты, корпоративные гранты (Tengizchevroil, NCOC)",
+      "international_exchange": true,
+      "partner_universities": "Технические университеты России, Норвегии",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": true,
+      "comparison_feature": {
+        "academic_rating": 3,
+        "infrastructure": 3,
+        "career_prospects": 4
+      }
+    },
+    {
+      "id": 25,
+      "name_ru": "Кокшетауский университет имени Ш. Уалиханова",
+      "name_en": "Sh. Ualikhanov Kokshetau University",
+      "city": "Кокшетау",
+      "focus": "Классический",
+      "website": "https://kgu.edu.kz",
+      "description": "Университет северного региона, один из старейших в области.",
+      "image_url": "/assets/img/uni_default.jpg",
+      "address": "ул. Абая, 76, Кокшетау, 020000",
+      "phone": "+7 (7162) 25-13-13",
+      "email": "info@kgu.edu.kz",
+      "rating": 3.9,
+      "reviews": [
+        "Хороший региональный вуз.",
+        "Сильные педагогические направления."
+      ],
+      "programs_bachelor": [
+        "Педагогика",
+        "Информатика",
+        "Агрономия",
+        "Ветеринария",
+        "Юриспруденция"
+      ],
+      "programs_master": [
+        "Педагогика",
+        "Агрономия"
+      ],
+      "tuition_kzt_year": 700000,
+      "tuition_master_kzt_year": 850000,
+      "ent_min_score": 80,
+      "admission_requirements": "ЕНТ, аттестат, медсправка",
+      "admission_deadline_month": "Август",
+      "scholarships": "Государственные гранты",
+      "international_exchange": true,
+      "partner_universities": "Университеты России",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": true,
+      "comparison_feature": {
+        "academic_rating": 3,
+        "infrastructure": 3,
+        "career_prospects": 3
+      }
+    },
+    {
+      "id": 26,
+      "name_ru": "Северо-Казахстанский университет имени М. Козыбаева",
+      "name_en": "M. Kozybayev North Kazakhstan University",
+      "city": "Петропавловск",
+      "focus": "Классический",
+      "website": "https://nkzu.edu.kz",
+      "description": "Крупнейший вуз Северного Казахстана с давними традициями.",
+      "image_url": "/assets/img/uni_default.jpg",
+      "address": "ул. Пушкина, 86, Петропавловск, 150000",
+      "phone": "+7 (7152) 46-13-23",
+      "email": "info@nkzu.edu.kz",
+      "rating": 3.9,
+      "reviews": [
+        "Хороший вуз для региона.",
+        "Сильные педагогические программы."
+      ],
+      "programs_bachelor": [
+        "Педагогика",
+        "Агрономия",
+        "Информатика",
+        "Юриспруденция",
+        "Экономика"
+      ],
+      "programs_master": [
+        "Педагогика",
+        "Агрономия"
+      ],
+      "tuition_kzt_year": 750000,
+      "tuition_master_kzt_year": 880000,
+      "ent_min_score": 80,
+      "admission_requirements": "ЕНТ, аттестат, медсправка",
+      "admission_deadline_month": "Август",
+      "scholarships": "Государственные гранты",
+      "international_exchange": true,
+      "partner_universities": "Университеты России",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": true,
+      "comparison_feature": {
+        "academic_rating": 3,
+        "infrastructure": 3,
+        "career_prospects": 3
+      }
+    },
+    {
+      "id": 27,
+      "name_ru": "Таразский региональный университет имени М.Х. Дулати",
+      "name_en": "M.Kh. Dulaty Taraz Regional University",
+      "city": "Тараз",
+      "focus": "Классический",
+      "website": "https://targu.kz",
+      "description": "Крупный региональный университет Южного Казахстана с фокусом на технических и аграрных специальностях.",
+      "image_url": "/assets/img/uni_default.jpg",
+      "address": "ул. Толе би, 60, Тараз, 080000",
+      "phone": "+7 (7262) 45-76-20",
+      "email": "info@targu.kz",
+      "rating": 4.0,
+      "reviews": [
+        "Сильные технические направления.",
+        "Обучение близко к производству."
+      ],
+      "programs_bachelor": [
+        "Химическая технология",
+        "Строительство",
+        "Информационные системы",
+        "Педагогика",
+        "Экономика",
+        "Сельское хозяйство"
+      ],
+      "programs_master": [
+        "Технологии и инжиниринг",
+        "Педагогика"
+      ],
+      "tuition_kzt_year": 780000,
+      "tuition_master_kzt_year": 920000,
+      "ent_min_score": 85,
+      "admission_requirements": "ЕНТ, аттестат, медсправка",
+      "admission_deadline_month": "Август",
+      "scholarships": "Государственные гранты",
+      "international_exchange": true,
+      "partner_universities": "Университеты Турции, России",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": true,
+      "comparison_feature": {
+        "academic_rating": 3,
+        "infrastructure": 3,
+        "career_prospects": 3
+      }
+    },
+    {
+      "id": 28,
+      "name_ru": "Международный университет Астаны",
+      "name_en": "Astana International University",
+      "city": "Астана",
+      "focus": "Технический/Менеджмент",
+      "website": "https://aiu.edu.kz",
+      "description": "Современный международный университет, основанный в столице с фокусом на IT, инженерии и бизнес-менеджменте.",
+      "image_url": "/assets/img/uni_default.jpg",
+      "address": "пр. Мангилик Ел, С4.2, Астана, 010000",
+      "phone": "+7 (7172) 64-57-57",
+      "email": "admissions@aiu.edu.kz",
+      "rating": 4.5,
+      "reviews": [
+        "Новый, современный кампус.",
+        "Актуальные программы по IT и инженерии.",
+        "Много международных преподавателей."
+      ],
+      "programs_bachelor": [
+        "Information Technology",
+        "Computer Engineering",
+        "Finance",
+        "International Business",
+        "Architecture",
+        "Robotics"
+      ],
+      "programs_master": [
+        "Data Science",
+        "Project Management",
+        "MBA"
+      ],
+      "tuition_kzt_year": 1400000,
+      "tuition_master_kzt_year": 1800000,
+      "ent_min_score": 105,
+      "admission_requirements": "ЕНТ от 105 баллов, IELTS/TOEFL (желательно), аттестат, мотивационное письмо",
+      "admission_deadline_month": "Август",
+      "scholarships": "Гранты AIU до 50%, государственные гранты",
+      "international_exchange": true,
+      "partner_universities": "Университеты США, Европы, Азии",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": false,
+      "comparison_feature": {
+        "academic_rating": 4,
+        "infrastructure": 5,
+        "career_prospects": 4
+      }
+    }
+  ]
+}

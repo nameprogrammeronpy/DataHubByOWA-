@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+
+{% block title %}{{ university.name_ru }} — DataHub ВУЗ-ов РК{% endblock %}
+
+{% block content %}
+<!-- University Hero -->
+<section class="university-hero">
+    <div class="container">
+        <h1>{{ university.name_ru }}</h1>
+        <p style="opacity: 0.9; margin-bottom: 20px;">{{ university.name_en }}</p>
+        <div class="university-meta">
+            <span><i class="fas fa-map-marker-alt"></i> {{ university.city }}</span>
+            <span><i class="fas fa-star"></i> {{ university.rating }} / 5.0</span>
+            <span><i class="fas fa-graduation-cap"></i> {{ university.focus }}</span>
+        </div>
+    </div>
+</section>
+
+<!-- University Content -->
+<section class="university-content">
+    <div class="container">
+        <div class="university-grid">
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- Описание -->
+                <div class="info-card">
+                    <h2><i class="fas fa-info-circle"></i> Об университете</h2>
+                    <p>{{ university.description }}</p>
+                </div>
+
+                <!-- 3D Тур -->
+                <div class="info-card">
+                    <h2><i class="fas fa-vr-cardboard"></i> Виртуальный 3D-тур</h2>
+                    {% if university.tour_url %}
+                    <iframe class="tour-frame" src="{{ university.tour_url }}" allowfullscreen></iframe>
+                    {% else %}
+                    <div class="tour-placeholder">
+                        <i class="fas fa-cube"></i>
+                        <p>3D-тур скоро будет доступен</p>
+                        <small style="opacity: 0.7; margin-top: 10px;">Мы работаем над добавлением виртуальных туров для всех университетов</small>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- Программы бакалавриата -->
+                <div class="info-card">
+                    <h2><i class="fas fa-book-open"></i> Программы бакалавриата</h2>
+                    <div class="programs-list">
+                        {% for program in university.programs_bachelor %}
+                        <span class="program-tag">{{ program }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Программы магистратуры -->
+                <div class="info-card">
+                    <h2><i class="fas fa-user-graduate"></i> Программы магистратуры</h2>
+                    <div class="programs-list">
+                        {% for program in university.programs_master %}
+                        <span class="program-tag">{{ program }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Требования для поступления -->
+                <div class="info-card">
+                    <h2><i class="fas fa-clipboard-list"></i> Требования для поступления</h2>
+                    <p>{{ university.admission_requirements }}</p>
+                    <div style="margin-top: 20px; padding: 15px; background: var(--light); border-radius: 8px;">
+                        <strong><i class="fas fa-calendar-alt"></i> Дедлайн подачи документов:</strong> {{ university.admission_deadline_month }}
+                    </div>
+                </div>
+
+                <!-- Стипендии -->
+                <div class="info-card">
+                    <h2><i class="fas fa-award"></i> Стипендии и гранты</h2>
+                    <p>{{ university.scholarships }}</p>
+                </div>
+
+                <!-- Международное сотрудничество -->
+                {% if university.international_exchange %}
+                <div class="info-card">
+                    <h2><i class="fas fa-globe"></i> Международное сотрудничество</h2>
+                    <p><strong>Партнёрские университеты:</strong> {{ university.partner_universities }}</p>
+                    <div style="margin-top: 15px; display: flex; gap: 15px; flex-wrap: wrap;">
+                        {% if university.foreign_students_welcome %}
+                        <span class="tag" style="background: #10b981; color: white;"><i class="fas fa-check"></i> Приём иностранных студентов</span>
+                        {% endif %}
+                        <span class="tag" style="background: #6366f1; color: white;"><i class="fas fa-exchange-alt"></i> Программы обмена</span>
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- Отзывы -->
+                <div class="info-card">
+                    <h2><i class="fas fa-comments"></i> Отзывы студентов</h2>
+                    <div class="reviews-list">
+                        {% for review in university.reviews %}
+                        <div class="review-item">
+                            <i class="fas fa-quote-left" style="color: var(--primary); margin-right: 10px;"></i>
+                            {{ review }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Стоимость -->
+                <div class="sidebar-card">
+                    <h3><i class="fas fa-money-bill-wave"></i> Стоимость обучения</h3>
+                    <div style="margin-bottom: 20px;">
+                        <small style="color: var(--gray);">Бакалавриат</small>
+                        {% if university.tuition_kzt_year == 0 %}
+                        <span class="price-big" style="color: #10b981;">Бесплатно</span>
+                        <small style="color: var(--gray);">100% грантовое обучение</small>
+                        {% else %}
+                        <span class="price-big">{{ "{:,.0f}".format(university.tuition_kzt_year).replace(",", " ") }} ₸</span>
+                        <small style="color: var(--gray);">в год</small>
+                        {% endif %}
+                    </div>
+                    <div>
+                        <small style="color: var(--gray);">Магистратура</small>
+                        <span class="price-big" style="font-size: 1.5rem;">{{ "{:,.0f}".format(university.tuition_master_kzt_year).replace(",", " ") }} ₸</span>
+                        <small style="color: var(--gray);">в год</small>
+                    </div>
+                </div>
+
+                <!-- Мин. балл ЕНТ -->
+                <div class="sidebar-card">
+                    <h3><i class="fas fa-chart-line"></i> Мин. балл ЕНТ</h3>
+                    <span class="price-big">{{ university.ent_min_score }}</span>
+                    <small style="color: var(--gray);">баллов</small>
+                </div>
+
+                <!-- Возможности -->
+                <div class="sidebar-card">
+                    <h3><i class="fas fa-check-circle"></i> Возможности</h3>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        {% if university.dormitory %}
+                        <span style="color: #10b981;"><i class="fas fa-check"></i> Общежитие</span>
+                        {% else %}
+                        <span style="color: var(--gray);"><i class="fas fa-times"></i> Общежитие</span>
+                        {% endif %}
+
+                        {% if university.military_department %}
+                        <span style="color: #10b981;"><i class="fas fa-check"></i> Военная кафедра</span>
+                        {% else %}
+                        <span style="color: var(--gray);"><i class="fas fa-times"></i> Военная кафедра</span>
+                        {% endif %}
+
+                        {% if university.international_exchange %}
+                        <span style="color: #10b981;"><i class="fas fa-check"></i> Обмен студентами</span>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Контакты -->
+                <div class="sidebar-card">
+                    <h3><i class="fas fa-address-book"></i> Контакты</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>{{ university.address }}</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>{{ university.phone }}</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>{{ university.email }}</span>
+                    </div>
+                    <a href="{{ university.website }}" target="_blank" class="btn btn-primary btn-full" style="margin-top: 15px;">
+                        <i class="fas fa-external-link-alt"></i> Официальный сайт
+                    </a>
+                </div>
+
+                <!-- Кнопка сравнения -->
+                <button class="btn btn-outline btn-full" onclick="addToCompare({{ university.id }}, '{{ university.name_ru }}')">
+                    <i class="fas fa-balance-scale"></i> Добавить к сравнению
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

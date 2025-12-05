@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+
+{% block title %}DataHub ВУЗ-ов РК — Каталог университетов Казахстана{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+        <h1>Найди свой <span class="gradient-text">идеальный университет</span></h1>
+        <p>Сравнивай, выбирай и поступай в лучшие ВУЗы Казахстана с помощью AI-ассистента</p>
+        <div class="hero-search">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Поиск по названию, городу или программе..." oninput="filterUniversities()">
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-number">28+</span>
+                <span class="stat-label">Университетов</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">200+</span>
+                <span class="stat-label">Программ</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">AI</span>
+                <span class="stat-label">Консультант</span>
+            </div>
+        </div>
+    </div>
+    <div class="hero-decoration">
+        <div class="floating-card card-1">🎓</div>
+        <div class="floating-card card-2">📚</div>
+        <div class="floating-card card-3">🏛️</div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section">
+    <div class="container">
+        <h2 class="section-title">Что мы предлагаем</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-university"></i></div>
+                <h3>Об университете</h3>
+                <p>Информация о миссии, истории, лидерстве и достижениях университета</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-book-open"></i></div>
+                <h3>Академ. программы</h3>
+                <p>Перечень и подробная информация о предлагаемых учебных программах</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-user-graduate"></i></div>
+                <h3>Приём и поступление</h3>
+                <p>Требования к поступлению, сроки, стипендии и финансовая помощь</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-vr-cardboard"></i></div>
+                <h3>3D-тур</h3>
+                <p>Виртуальное путешествие для исследования кампуса</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-globe"></i></div>
+                <h3>Международное сотрудничество</h3>
+                <p>Программы обмена и партнёрские университеты</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-balance-scale"></i></div>
+                <h3>Функция сравнения</h3>
+                <p>Возможность сравнивать ВУЗы и их программы</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Filters Section -->
+<section class="filters-section">
+    <div class="container">
+        <div class="filters-bar">
+            <div class="filter-group">
+                <label>Город:</label>
+                <select id="filterCity" onchange="filterUniversities()">
+                    <option value="">Все города</option>
+                    <option value="Алматы">Алматы</option>
+                    <option value="Астана">Астана</option>
+                    <option value="Караганда">Караганда</option>
+                    <option value="Шымкент">Шымкент</option>
+                    <option value="Актобе">Актобе</option>
+                    <option value="Павлодар">Павлодар</option>
+                    <option value="Семей">Семей</option>
+                    <option value="Костанай">Костанай</option>
+                    <option value="Атырау">Атырау</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Направление:</label>
+                <select id="filterFocus" onchange="filterUniversities()">
+                    <option value="">Все</option>
+                    <option value="Классический">Классический</option>
+                    <option value="Технический">Технический</option>
+                    <option value="Медицинский">Медицинский</option>
+                    <option value="Экономический">Экономический</option>
+                    <option value="Педагогический">Педагогический</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Сортировка:</label>
+                <select id="sortBy" onchange="filterUniversities()">
+                    <option value="rating">По рейтингу</option>
+                    <option value="price_low">Цена (сначала дешевле)</option>
+                    <option value="price_high">Цена (сначала дороже)</option>
+                    <option value="ent">По мин. баллу ЕНТ</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Universities Grid -->
+<section class="universities-section">
+    <div class="container">
+        <h2 class="section-title">Университеты Казахстана</h2>
+        <div class="universities-grid" id="universitiesGrid">
+            {% for uni in universities %}
+            <div class="university-card"
+                 data-name="{{ uni.name_ru.lower() }}"
+                 data-city="{{ uni.city }}"
+                 data-focus="{{ uni.focus }}"
+                 data-rating="{{ uni.rating }}"
+                 data-price="{{ uni.tuition_kzt_year }}"
+                 data-ent="{{ uni.ent_min_score }}">
+                <div class="card-image">
+                    <div class="card-overlay">
+                        <span class="card-city"><i class="fas fa-map-marker-alt"></i> {{ uni.city }}</span>
+                        <span class="card-rating"><i class="fas fa-star"></i> {{ uni.rating }}</span>
+                    </div>
+                    <div class="card-placeholder">
+                        <i class="fas fa-university"></i>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">{{ uni.name_ru }}</h3>
+                    <p class="card-description">{{ uni.description[:120] }}...</p>
+                    <div class="card-tags">
+                        <span class="tag">{{ uni.focus }}</span>
+                        <span class="tag">ЕНТ от {{ uni.ent_min_score }}</span>
+                    </div>
+                    <div class="card-price">
+                        <span class="price-label">от</span>
+                        <span class="price-value">{{ "{:,.0f}".format(uni.tuition_kzt_year).replace(",", " ") }} ₸</span>
+                        <span class="price-period">/год</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="/university/{{ uni.id }}" class="btn btn-primary">Подробнее</a>
+                        <button class="btn btn-outline" onclick="addToCompare({{ uni.id }}, '{{ uni.name_ru }}')">
+                            <i class="fas fa-plus"></i> Сравнить
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Compare Float Panel -->
+<div class="compare-panel" id="comparePanel">
+    <div class="compare-header">
+        <span><i class="fas fa-balance-scale"></i> Сравнение (<span id="compareCount">0</span>)</span>
+        <button onclick="clearCompare()"><i class="fas fa-trash"></i></button>
+    </div>
+    <div class="compare-list" id="compareList"></div>
+    <a href="/compare" class="btn btn-primary btn-full" id="goCompareBtn" onclick="saveCompareToStorage()">Сравнить выбранные</a>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Данные университетов для фильтрации
+    const universities = {{ universities | tojson | safe }};
+</script>
+{% endblock %}
+

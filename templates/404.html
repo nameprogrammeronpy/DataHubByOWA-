@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}404 — Страница не найдена{% endblock %}
+
+{% block content %}
+<section class="error-page">
+    <div class="error-content">
+        <h1>404</h1>
+        <h2 style="margin-bottom: 10px;">Страница не найдена</h2>
+        <p>Возможно, эта страница была удалена или вы перешли по неверной ссылке</p>
+        <a href="/" class="btn btn-primary">
+            <i class="fas fa-home"></i> Вернуться на главную
+        </a>
+    </div>
+</section>
+{% endblock %}
+

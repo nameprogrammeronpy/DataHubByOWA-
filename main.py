@@ -1,0 +1,143 @@
+from fastapi import FastAPI, Request
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse
+from pydantic import BaseModel
+import json
+import os
+from dotenv import load_dotenv
+import google.generativeai as genai
+
+load_dotenv()
+
+# Конфигурация Gemini
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+model = genai.GenerativeModel('gemini-2.0-flash')
+
+app = FastAPI(title="DataHub ВУЗ-ов РК", version="1.0.0")
+
+# CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Статика и шаблоны
+app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/assets", StaticFiles(directory="assets"), name="assets")
+templates = Jinja2Templates(directory="templates")
+
+# Загрузка данных университетов
+def load_universities():
+    with open("data/universities.json", "r", encoding="utf-8") as f:
+        return json.load(f)
+
+universities_data = load_universities()
+
+# Модели
+class ChatMessage(BaseModel):
+    message: str
+
+class CompareRequest(BaseModel):
+    university_ids: list[int]
+
+# Системный промпт для бота
+SYSTEM_PROMPT = """Ты — дружелюбный и умный AI-консультант платформы "DataHub ВУЗ-ов РК". 
+Твоя задача — помогать абитуриентам и студентам выбирать университеты в Казахстане.
+
+Вот данные об университетах, которые ты знаешь:
+{universities_info}
+
+Правила:
+1. Отвечай на русском языке, дружелюбно и информативно
+2. Если спрашивают о конкретном университете — дай подробную информацию
+3. Если нужно сравнить университеты — сравни по ключевым параметрам
+4. Рекомендуй университеты на основе интересов, баллов ЕНТ и бюджета пользователя
+5. Если не знаешь ответ — честно скажи об этом
+6. Используй эмодзи для большей выразительности 🎓
+7. Давай краткие, но полезные ответы
+"""
+
+def get_universities_info():
+    """Подготовка информации о ВУЗах для контекста AI"""
+    info = []
+    for uni in universities_data["universities"]:
+        info.append(f"""
+        - {uni['name_ru']} ({uni['city']})
+          Тип: {uni['focus']}, Рейтинг: {uni['rating']}
+          Стоимость бакалавриата: {uni['tuition_kzt_year']:,} тг/год
+          Мин. балл ЕНТ: {uni['ent_min_score']}
+          Программы: {', '.join(uni['programs_bachelor'][:5])}...
+        """)
+    return "\n".join(info)
+
+# Роуты
+@app.get("/", response_class=HTMLResponse)
+async def home(request: Request):
+    return templates.TemplateResponse("index.html", {
+        "request": request,
+        "universities": universities_data["universities"]
+    })
+
+@app.get("/university/{uni_id}", response_class=HTMLResponse)
+async def university_detail(request: Request, uni_id: int):
+    university = next((u for u in universities_data["universities"] if u["id"] == uni_id), None)
+    if not university:
+        return templates.TemplateResponse("404.html", {"request": request}, status_code=404)
+    return templates.TemplateResponse("university.html", {
+        "request": request,
+        "university": university
+    })
+
+@app.get("/compare", response_class=HTMLResponse)
+async def compare_page(request: Request):
+    return templates.TemplateResponse("compare.html", {
+        "request": request,
+        "universities": universities_data["universities"]
+    })
+
+@app.get("/faq", response_class=HTMLResponse)
+async def faq_page(request: Request):
+    return templates.TemplateResponse("faq.html", {"request": request})
+
+@app.get("/api/universities")
+async def get_universities():
+    return universities_data
+
+@app.get("/api/universities/{uni_id}")
+async def get_university(uni_id: int):
+    university = next((u for u in universities_data["universities"] if u["id"] == uni_id), None)
+    return university if university else {"error": "University not found"}
+
+@app.post("/api/chat")
+async def chat_with_ai(chat: ChatMessage):
+    try:
+        # Формируем промпт с контекстом
+        full_prompt = SYSTEM_PROMPT.format(universities_info=get_universities_info())
+
+        # Создаём чат
+        chat_session = model.start_chat(history=[
+            {"role": "user", "parts": [full_prompt]},
+            {"role": "model", "parts": ["Понял! Я готов помогать абитуриентам с выбором университета в Казахстане. Чем могу помочь? 🎓"]}
+        ])
+
+        # Отправляем сообщение пользователя
+        response = chat_session.send_message(chat.message)
+
+        return {"response": response.text}
+    except Exception as e:
+        return {"response": f"Извините, произошла ошибка: {str(e)}. Попробуйте позже."}
+
+@app.post("/api/compare")
+async def compare_universities(request: CompareRequest):
+    selected = [u for u in universities_data["universities"] if u["id"] in request.university_ids]
+    return {"universities": selected}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+

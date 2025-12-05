@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}DataHub ВУЗ-ов РК{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>DataHub <span class="accent">ВУЗ-ов РК</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/" class="{% if request.url.path == '/' %}active{% endif %}"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="/compare" class="{% if request.url.path == '/compare' %}active{% endif %}"><i class="fas fa-balance-scale"></i> Сравнение</a></li>
+                <li><a href="/faq" class="{% if request.url.path == '/faq' %}active{% endif %}"><i class="fas fa-question-circle"></i> FAQ</a></li>
+            </ul>
+            <div class="nav-burger" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Мобильное меню -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="/" onclick="toggleMobileMenu()"><i class="fas fa-home"></i> Главная</a>
+        <a href="/compare" onclick="toggleMobileMenu()"><i class="fas fa-balance-scale"></i> Сравнение</a>
+        <a href="/faq" onclick="toggleMobileMenu()"><i class="fas fa-question-circle"></i> FAQ</a>
+    </div>
+
+    <!-- Основной контент -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3><i class="fas fa-graduation-cap"></i> DataHub ВУЗ-ов РК</h3>
+                <p>Единая платформа для выбора университета вашей мечты в Казахстане</p>
+            </div>
+            <div class="footer-section">
+                <h4>Навигация</h4>
+                <a href="/">Главная</a>
+                <a href="/compare">Сравнение</a>
+                <a href="/faq">FAQ</a>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <p><i class="fas fa-envelope"></i> info@datahub-uni.kz</p>
+                <p><i class="fas fa-phone"></i> +7 (777) 123-45-67</p>
+            </div>
+            <div class="footer-section">
+                <h4>Соцсети</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 DataHub ВУЗ-ов РК. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- AI Чат-бот (скрытый кружок) -->
+    <div class="chatbot-trigger" id="chatbotTrigger" onclick="toggleChatbot()">
+        <i class="fas fa-robot"></i>
+        <div class="pulse-ring"></div>
+    </div>
+
+    <!-- Окно чат-бота -->
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">
+            <div class="chatbot-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="chatbot-info">
+                <h4>AI Консультант</h4>
+                <span class="status">● Онлайн</span>
+            </div>
+            <button class="chatbot-close" onclick="toggleChatbot()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatMessages">
+            <div class="message bot">
+                <div class="message-content">
+                    <p>Привет! 👋 Я AI-консультант DataHub. Помогу выбрать университет, сравнить программы или ответить на вопросы о поступлении. Спрашивай!</p>
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatInput" placeholder="Напишите сообщение..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()" id="sendBtn">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
+

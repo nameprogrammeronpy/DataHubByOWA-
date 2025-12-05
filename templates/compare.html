@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Сравнение университетов — DataHub ВУЗ-ов РК{% endblock %}
+
+{% block content %}
+<!-- Compare Hero -->
+<section class="compare-hero">
+    <div class="container">
+        <h1><i class="fas fa-balance-scale"></i> Сравнение университетов</h1>
+        <p style="opacity: 0.9;">Выберите до 4 университетов для сравнения</p>
+    </div>
+</section>
+
+<!-- University Selector -->
+<section class="compare-selector">
+    <div class="container">
+        <h2 class="section-title">Выберите университеты</h2>
+        <div class="selector-grid">
+            {% for uni in universities %}
+            <div class="selector-card" data-id="{{ uni.id }}" onclick="toggleUniversitySelect({{ uni.id }}, '{{ uni.name_ru }}', this)">
+                <h4 style="margin-bottom: 10px;">{{ uni.name_ru }}</h4>
+                <div style="display: flex; justify-content: center; gap: 15px; font-size: 0.85rem; color: var(--gray);">
+                    <span><i class="fas fa-map-marker-alt"></i> {{ uni.city }}</span>
+                    <span><i class="fas fa-star" style="color: #f59e0b;"></i> {{ uni.rating }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Compare Table -->
+<section class="compare-table-section">
+    <div class="container">
+        <h2 class="section-title">Результаты сравнения</h2>
+        <div id="compareTableContainer">
+            <div class="info-card" style="text-align: center; padding: 60px;">
+                <i class="fas fa-balance-scale" style="font-size: 3rem; color: var(--gray-light); margin-bottom: 20px;"></i>
+                <p style="color: var(--gray);">Выберите минимум 2 университета для сравнения</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Инициализация страницы сравнения
+    document.addEventListener('DOMContentLoaded', () => {
+        initComparePage();
+    });
+</script>
+{% endblock %}
+

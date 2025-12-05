@@ -22,6 +22,9 @@
                 <li><a href="/compare" class="{% if request.url.path == '/compare' %}active{% endif %}"><i class="fas fa-balance-scale"></i> Сравнение</a></li>
                 <li><a href="/faq" class="{% if request.url.path == '/faq' %}active{% endif %}"><i class="fas fa-question-circle"></i> FAQ</a></li>
             </ul>
+            <div class="nav-auth" id="navAuth">
+                <a href="/login" class="btn btn-outline btn-sm" id="loginBtn"><i class="fas fa-sign-in-alt"></i> Войти</a>
+            </div>
             <div class="nav-burger" onclick="toggleMobileMenu()">
                 <span></span>
                 <span></span>
@@ -35,6 +38,7 @@
         <a href="/" onclick="toggleMobileMenu()"><i class="fas fa-home"></i> Главная</a>
         <a href="/compare" onclick="toggleMobileMenu()"><i class="fas fa-balance-scale"></i> Сравнение</a>
         <a href="/faq" onclick="toggleMobileMenu()"><i class="fas fa-question-circle"></i> FAQ</a>
+        <a href="/login" id="mobileLoginBtn"><i class="fas fa-user"></i> Войти</a>
     </div>
 
     <!-- Основной контент -->
@@ -110,6 +114,27 @@
     </div>
 
     <script src="/static/js/main.js"></script>
+    <script>
+        // Проверка авторизации и обновление навигации
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = localStorage.getItem('user');
+            const navAuth = document.getElementById('navAuth');
+            const mobileLoginBtn = document.getElementById('mobileLoginBtn');
+
+            if (user) {
+                const userData = JSON.parse(user);
+                navAuth.innerHTML = `
+                    <a href="/profile" class="btn btn-primary btn-sm">
+                        <i class="fas fa-user"></i> ${userData.username}
+                    </a>
+                `;
+                if (mobileLoginBtn) {
+                    mobileLoginBtn.href = '/profile';
+                    mobileLoginBtn.innerHTML = '<i class="fas fa-user"></i> Профиль';
+                }
+            }
+        });
+    </script>
     {% block extra_js %}{% endblock %}
 </body>
 </html>

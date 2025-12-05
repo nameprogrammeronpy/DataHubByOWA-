@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+
+{% block title %}Регистрация — DataHub ВУЗ-ов РК{% endblock %}
+
+{% block content %}
+<section class="auth-section">
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <i class="fas fa-user-plus"></i>
+                <h1>Регистрация</h1>
+                <p>Создайте аккаунт для подачи заявок</p>
+            </div>
+
+            <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                    <label for="username"><i class="fas fa-user"></i> Логин</label>
+                    <input type="text" id="username" name="username" placeholder="Придумайте логин" required minlength="3">
+                </div>
+
+                <div class="form-group">
+                    <label for="password"><i class="fas fa-lock"></i> Пароль</label>
+                    <input type="password" id="password" name="password" placeholder="Придумайте пароль" required minlength="4">
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword"><i class="fas fa-lock"></i> Подтвердите пароль</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Повторите пароль" required>
+                </div>
+
+                <div id="errorMessage" class="error-message" style="display: none;"></div>
+                <div id="successMessage" class="success-message" style="display: none;"></div>
+
+                <button type="submit" class="btn btn-primary btn-full">
+                    <i class="fas fa-user-plus"></i> Зарегистрироваться
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Уже есть аккаунт? <a href="/login">Войти</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.auth-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 420px;
+}
+
+.auth-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: var(--shadow-lg);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-header i {
+    font-size: 3rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+}
+
+.auth-header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.auth-header p {
+    color: var(--gray);
+}
+
+.auth-form .form-group {
+    margin-bottom: 20px;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--dark);
+}
+
+.auth-form label i {
+    margin-right: 8px;
+    color: var(--primary);
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid var(--light);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.error-message {
+    background: #fee2e2;
+    color: #dc2626;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.success-message {
+    background: #d1fae5;
+    color: #059669;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.auth-footer a {
+    color: var(--primary);
+    font-weight: 500;
+}
+</style>
+
+<script>
+document.getElementById('registerForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    const errorDiv = document.getElementById('errorMessage');
+    const successDiv = document.getElementById('successMessage');
+
+    errorDiv.style.display = 'none';
+    successDiv.style.display = 'none';
+
+    if (password !== confirmPassword) {
+        errorDiv.textContent = 'Пароли не совпадают';
+        errorDiv.style.display = 'block';
+        return;
+    }
+
+    try {
+        const response = await fetch('/api/auth/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            successDiv.textContent = 'Регистрация успешна! Перенаправление...';
+            successDiv.style.display = 'block';
+            setTimeout(() => {
+                window.location.href = '/login';
+            }, 1500);
+        } else {
+            errorDiv.textContent = data.error;
+            errorDiv.style.display = 'block';
+        }
+    } catch (error) {
+        errorDiv.textContent = 'Ошибка подключения к серверу';
+        errorDiv.style.display = 'block';
+    }
+});
+</script>
+{% endblock %}
+

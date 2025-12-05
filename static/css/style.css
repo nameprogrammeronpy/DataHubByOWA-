@@ -120,6 +120,17 @@ img {
     background: rgba(99, 102, 241, 0.1);
 }
 
+.nav-auth {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-auth .btn-sm {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+}
+
 .nav-burger {
     display: none;
     flex-direction: column;

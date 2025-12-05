@@ -1,11 +1,97 @@
 // ===== ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ =====
 let compareList = JSON.parse(localStorage.getItem('compareList')) || [];
+let allUniversities = [];
 
 // ===== ИНИЦИАЛИЗАЦИЯ =====
 document.addEventListener('DOMContentLoaded', () => {
     updateComparePanel();
     loadCompareFromStorage();
+    initHeroSearch();
 });
+
+// ===== ПОИСК В HERO С АВТОДОПОЛНЕНИЕМ =====
+function initHeroSearch() {
+    const searchInput = document.getElementById('searchInput');
+    if (!searchInput) return;
+
+    // Получаем данные университетов из карточек
+    const cards = document.querySelectorAll('.university-card');
+    cards.forEach(card => {
+        allUniversities.push({
+            id: card.querySelector('a[href^="/university/"]')?.href.split('/').pop(),
+            name: card.dataset.name,
+            city: card.dataset.city,
+            element: card
+        });
+    });
+
+    // Создаём dropdown для подсказок
+    const searchWrapper = searchInput.closest('.hero-search');
+    if (searchWrapper) {
+        const dropdown = document.createElement('div');
+        dropdown.className = 'search-dropdown';
+        dropdown.id = 'searchDropdown';
+        searchWrapper.appendChild(dropdown);
+    }
+
+    // Обработчик ввода
+    searchInput.addEventListener('input', handleHeroSearch);
+    searchInput.addEventListener('focus', handleHeroSearch);
+
+    // Закрытие dropdown при клике вне
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.hero-search')) {
+            const dropdown = document.getElementById('searchDropdown');
+            if (dropdown) dropdown.style.display = 'none';
+        }
+    });
+}
+
+function handleHeroSearch(e) {
+    const query = e.target.value.toLowerCase().trim();
+    const dropdown = document.getElementById('searchDropdown');
+    if (!dropdown) return;
+
+    if (query.length < 1) {
+        dropdown.style.display = 'none';
+        filterUniversities();
+        return;
+    }
+
+    // Фильтруем университеты
+    const matches = allUniversities.filter(uni =>
+        uni.name.includes(query) || uni.city.toLowerCase().includes(query)
+    ).slice(0, 6);
+
+    if (matches.length > 0) {
+        dropdown.innerHTML = matches.map(uni => {
+            const uniId = uni.element.querySelector('a[href^="/university/"]')?.href.split('/').pop() || '1';
+            return `<div class="search-item" onclick="goToUniversity(${uniId})">
+                <i class="fas fa-university"></i>
+                <div>
+                    <span class="search-item-name">${highlightMatch(uni.name, query)}</span>
+                    <span class="search-item-city">${uni.city}</span>
+                </div>
+            </div>`;
+        }).join('');
+        dropdown.style.display = 'block';
+    } else {
+        dropdown.innerHTML = '<div class="search-item no-results"><i class="fas fa-search"></i> Ничего не найдено</div>';
+        dropdown.style.display = 'block';
+    }
+
+    // Также фильтруем карточки
+    filterUniversities();
+}
+
+function highlightMatch(text, query) {
+    const regex = new RegExp(`(${query})`, 'gi');
+    return text.replace(regex, '<mark>$1</mark>');
+}
+
+function goToUniversity(id) {
+    window.location.href = `/university/${id}`;
+}
 
 // ===== МОБИЛЬНОЕ МЕНЮ =====
 function toggleMobileMenu() {

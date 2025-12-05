@@ -235,6 +235,7 @@ img {
 }
 
 .hero-search {
+    position: relative;
     display: flex;
     align-items: center;
     background: var(--white);
@@ -257,6 +258,71 @@ img {
     padding: 15px;
     font-size: 1rem;
     font-family: inherit;
+}
+
+/* Search Dropdown */
+.search-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    margin-top: 10px;
+    display: none;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.search-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: var(--transition);
+    border-bottom: 1px solid var(--light);
+}
+
+.search-item:last-child {
+    border-bottom: none;
+}
+
+.search-item:hover {
+    background: var(--light);
+}
+
+.search-item i {
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+.search-item-name {
+    display: block;
+    font-weight: 500;
+    color: var(--dark);
+}
+
+.search-item-name mark {
+    background: rgba(99, 102, 241, 0.2);
+    color: var(--primary);
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
+.search-item-city {
+    font-size: 0.85rem;
+    color: var(--gray);
+}
+
+.search-item.no-results {
+    color: var(--gray);
+    cursor: default;
+}
+
+.search-item.no-results:hover {
+    background: var(--white);
 }
 
 .hero-stats {

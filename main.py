@@ -31,6 +31,7 @@ app.add_middleware(
 # Статика и шаблоны
 app.mount("/static", StaticFiles(directory="static"), name="static")
 app.mount("/assets", StaticFiles(directory="assets"), name="assets")
+app.mount("/preview", StaticFiles(directory="data/PREVIEW"), name="preview")
 templates = Jinja2Templates(directory="templates")
 
 # Загрузка данных университетов

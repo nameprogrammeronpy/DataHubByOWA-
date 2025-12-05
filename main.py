@@ -4,7 +4,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 import json
 import os
 from dotenv import load_dotenv
@@ -79,6 +79,9 @@ class ApplicationUpdate(BaseModel):
     phone: str
     ent_score: Optional[int] = None
     message: Optional[str] = None
+
+class CareerTestSubmit(BaseModel):
+    answers: dict
 
 # Системный промпт для бота
 SYSTEM_PROMPT = """Ты — дружелюбный и умный AI-консультант платформы "DataHub ВУЗ-ов РК". 
@@ -228,6 +231,81 @@ async def withdraw_application(app_id: int, user_id: int):
 async def delete_application(app_id: int, user_id: int):
     result = db.delete_application(app_id, user_id)
     return result
+
+# ===== CAREER TEST ROUTES =====
+@app.get("/career-test", response_class=HTMLResponse)
+async def career_test_page(request: Request):
+    return templates.TemplateResponse("career_test.html", {"request": request})
+
+@app.post("/api/career-test/analyze")
+async def analyze_career_test(test: CareerTestSubmit):
+    try:
+        # Формируем промпт для анализа
+        answers_text = "\n".join([f"- {q}: {a}" for q, a in test.answers.items()])
+
+        analysis_prompt = f"""Ты — профессиональный карьерный консультант и психолог. 
+Проанализируй ответы абитуриента на профориентационный тест и дай рекомендации.
+
+Ответы на тест:
+{answers_text}
+
+Дай ответ СТРОГО в формате JSON:
+{{
+    "personality_type": "Краткое описание типа личности (1-2 предложения)",
+    "strengths": ["сильная сторона 1", "сильная сторона 2", "сильная сторона 3"],
+    "recommended_fields": ["направление 1", "направление 2", "направление 3"],
+    "career_paths": ["профессия 1", "профессия 2", "профессия 3", "профессия 4", "профессия 5"],
+    "skills_scores": {{
+        "Аналитика": число от 0 до 100,
+        "Креативность": число от 0 до 100,
+        "Коммуникация": число от 0 до 100,
+        "Лидерство": число от 0 до 100,
+        "Техника": число от 0 до 100,
+        "Исследования": число от 0 до 100
+    }},
+    "university_types": ["тип вуза 1", "тип вуза 2"],
+    "advice": "Персональный совет абитуриенту (2-3 предложения)"
+}}
+
+Отвечай ТОЛЬКО JSON, без markdown и пояснений!"""
+
+        response = model.generate_content(analysis_prompt)
+        result_text = response.text.strip()
+
+        # Убираем markdown если есть
+        if result_text.startswith("```"):
+            result_text = result_text.split("```")[1]
+            if result_text.startswith("json"):
+                result_text = result_text[4:]
+
+        result = json.loads(result_text)
+
+        # Находим подходящие университеты
+        recommended_unis = []
+        for uni in universities_data["universities"]:
+            for uni_type in result.get("university_types", []):
+                if uni_type.lower() in uni["focus"].lower() or uni["focus"].lower() in uni_type.lower():
+                    if uni not in recommended_unis:
+                        recommended_unis.append(uni)
+                        if len(recommended_unis) >= 5:
+                            break
+            if len(recommended_unis) >= 5:
+                break
+
+        # Добавляем топовые если мало
+        if len(recommended_unis) < 5:
+            for uni in sorted(universities_data["universities"], key=lambda x: x["rating"], reverse=True):
+                if uni not in recommended_unis:
+                    recommended_unis.append(uni)
+                    if len(recommended_unis) >= 5:
+                        break
+
+        result["recommended_universities"] = recommended_unis[:5]
+
+        return {"success": True, "result": result}
+
+    except Exception as e:
+        return {"success": False, "error": str(e)}
 
 # ===== PAGE ROUTES =====
 @app.get("/login", response_class=HTMLResponse)

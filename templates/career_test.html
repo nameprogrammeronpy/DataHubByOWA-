@@ -1,0 +1,932 @@
+{% extends "base.html" %}
+
+{% block title %}Профориентационный тест — DataHub ВУЗ-ов РК{% endblock %}
+
+{% block content %}
+<section class="test-hero">
+    <div class="container">
+        <div class="test-hero-content">
+            <span class="badge-free">🎁 Бесплатно</span>
+            <h1><i class="fas fa-brain"></i> Профориентационный тест</h1>
+            <p>Узнай свои сильные стороны и получи персональные рекомендации по выбору профессии и университета с помощью AI</p>
+            <div class="test-features">
+                <div class="feature"><i class="fas fa-clock"></i> 5-7 минут</div>
+                <div class="feature"><i class="fas fa-robot"></i> AI-анализ</div>
+                <div class="feature"><i class="fas fa-chart-bar"></i> Подробный отчёт</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="test-container">
+    <div class="container">
+        <!-- Прогресс -->
+        <div class="test-progress">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+            <span class="progress-text" id="progressText">Вопрос 1 из 15</span>
+        </div>
+
+        <!-- Вопросы теста -->
+        <div id="testQuestions" class="test-questions">
+            <!-- Вопросы будут генерироваться JS -->
+        </div>
+
+        <!-- Результаты -->
+        <div id="testResults" class="test-results" style="display: none;">
+            <!-- Результаты будут здесь -->
+        </div>
+
+        <!-- Платные тесты -->
+        <div id="premiumTests" class="premium-tests" style="display: none;">
+            <h2><i class="fas fa-crown"></i> Углублённые тесты</h2>
+            <p>Получите ещё более детальный анализ с расширенными рекомендациями</p>
+
+            <div class="premium-grid">
+                <div class="premium-card">
+                    <div class="premium-badge">Популярный</div>
+                    <h3>Тест на тип личности</h3>
+                    <p>60 вопросов • MBTI методология</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Полный психологический портрет</li>
+                        <li><i class="fas fa-check"></i> Совместимость с профессиями</li>
+                        <li><i class="fas fa-check"></i> PDF-отчёт на 10 страниц</li>
+                    </ul>
+                    <div class="premium-price">1 000 ₸</div>
+                    <button class="btn btn-primary btn-full" onclick="showPaymentModal('personality')">
+                        <i class="fas fa-lock"></i> Пройти тест
+                    </button>
+                </div>
+
+                <div class="premium-card">
+                    <h3>Карьерный компас</h3>
+                    <p>45 вопросов • Профессиограмма</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 20+ карьерных путей</li>
+                        <li><i class="fas fa-check"></i> Анализ рынка труда</li>
+                        <li><i class="fas fa-check"></i> Roadmap развития</li>
+                    </ul>
+                    <div class="premium-price">1 500 ₸</div>
+                    <button class="btn btn-primary btn-full" onclick="showPaymentModal('career')">
+                        <i class="fas fa-lock"></i> Пройти тест
+                    </button>
+                </div>
+
+                <div class="premium-card">
+                    <div class="premium-badge gold">VIP</div>
+                    <h3>Полный анализ</h3>
+                    <p>Все тесты + консультация</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Все тесты платформы</li>
+                        <li><i class="fas fa-check"></i> 30 мин с консультантом</li>
+                        <li><i class="fas fa-check"></i> Персональный план</li>
+                    </ul>
+                    <div class="premium-price">5 000 ₸</div>
+                    <button class="btn btn-accent btn-full" onclick="showPaymentModal('vip')">
+                        <i class="fas fa-crown"></i> Получить VIP
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Payment Modal -->
+<div id="paymentModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2><i class="fas fa-lock"></i> Оплата</h2>
+            <button class="modal-close" onclick="closePaymentModal()">&times;</button>
+        </div>
+        <div class="modal-body" style="text-align: center; padding: 40px;">
+            <i class="fas fa-tools" style="font-size: 4rem; color: var(--primary); margin-bottom: 20px;"></i>
+            <h3>Функция в разработке</h3>
+            <p style="color: var(--gray); margin: 15px 0;">Оплата будет доступна в ближайшее время. Следите за обновлениями!</p>
+            <button class="btn btn-primary" onclick="closePaymentModal()">Понятно</button>
+        </div>
+    </div>
+</div>
+
+<style>
+.test-hero {
+    padding: 120px 20px 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+}
+
+.badge-free {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.test-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.test-hero h1 i {
+    margin-right: 15px;
+}
+
+.test-hero p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.test-features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.test-features .feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.15);
+    padding: 10px 20px;
+    border-radius: 25px;
+}
+
+.test-container {
+    padding: 50px 0 80px;
+}
+
+.test-progress {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.progress-bar {
+    height: 8px;
+    background: var(--light);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--gradient);
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.test-questions {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.question-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    display: none;
+}
+
+.question-card.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.question-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.question-card h3 .q-number {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background: var(--gradient);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    font-size: 0.9rem;
+    margin-right: 12px;
+}
+
+.answers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.answer-option {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border: 2px solid var(--light);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.answer-option:hover {
+    border-color: var(--primary-light);
+    background: rgba(99, 102, 241, 0.05);
+}
+
+.answer-option.selected {
+    border-color: var(--primary);
+    background: rgba(99, 102, 241, 0.1);
+}
+
+.answer-option input {
+    display: none;
+}
+
+.answer-option .radio-custom {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--gray);
+    border-radius: 50%;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.answer-option.selected .radio-custom {
+    border-color: var(--primary);
+    background: var(--primary);
+}
+
+.answer-option.selected .radio-custom::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+}
+
+.question-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+/* Results */
+.test-results {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.results-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.results-header h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.result-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 25px;
+    box-shadow: var(--shadow);
+}
+
+.result-card h4 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+.result-card.full-width {
+    grid-column: 1 / -1;
+}
+
+.personality-badge {
+    background: var(--gradient);
+    color: white;
+    padding: 15px 25px;
+    border-radius: var(--radius);
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.skills-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.skill-bar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.skill-bar .label {
+    width: 100px;
+    font-size: 0.9rem;
+}
+
+.skill-bar .bar {
+    flex: 1;
+    height: 12px;
+    background: var(--light);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-bar .fill {
+    height: 100%;
+    background: var(--gradient);
+    border-radius: 10px;
+    transition: width 1s ease;
+}
+
+.skill-bar .value {
+    width: 40px;
+    text-align: right;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.careers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.career-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    background: var(--light);
+    border-radius: 8px;
+}
+
+.career-item i {
+    color: var(--secondary);
+}
+
+.advice-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--dark);
+}
+
+.uni-recommendations {
+    margin-top: 40px;
+}
+
+.uni-recommendations h3 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.uni-rec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.uni-rec-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    border: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.uni-rec-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+}
+
+.uni-rec-card h4 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.uni-rec-card .city {
+    color: var(--gray);
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.uni-rec-card .focus-tag {
+    display: inline-block;
+    background: var(--light);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin-bottom: 12px;
+}
+
+.uni-rec-card .btn {
+    width: 100%;
+}
+
+/* Premium Tests */
+.premium-tests {
+    margin-top: 60px;
+    padding-top: 60px;
+    border-top: 2px solid var(--light);
+    text-align: center;
+}
+
+.premium-tests h2 {
+    margin-bottom: 10px;
+}
+
+.premium-tests h2 i {
+    color: #f59e0b;
+}
+
+.premium-tests > p {
+    color: var(--gray);
+    margin-bottom: 30px;
+}
+
+.premium-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.premium-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 30px;
+    box-shadow: var(--shadow);
+    position: relative;
+    text-align: left;
+}
+
+.premium-badge {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: var(--primary);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.premium-badge.gold {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.premium-card h3 {
+    margin-bottom: 5px;
+}
+
+.premium-card > p {
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.premium-card ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.premium-card ul li {
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+
+.premium-card ul li i {
+    color: var(--secondary);
+}
+
+.premium-price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.btn-accent {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    border-radius: var(--radius);
+    max-width: 400px;
+    width: 90%;
+}
+
+.modal-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--gray);
+}
+
+/* Loading */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+}
+
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid var(--light);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading-text {
+    font-size: 1.2rem;
+    color: var(--dark);
+}
+
+@media (max-width: 900px) {
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .premium-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .test-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .question-card {
+        padding: 25px;
+    }
+}
+</style>
+
+<script>
+const questions = [
+    {
+        q: "Как вы предпочитаете проводить свободное время?",
+        options: ["Читать книги, изучать новое", "Общаться с друзьями", "Заниматься спортом или творчеством", "Играть в компьютерные игры или программировать", "Помогать другим людям"]
+    },
+    {
+        q: "Какой школьный предмет вам нравился больше всего?",
+        options: ["Математика и физика", "Литература и языки", "Биология и химия", "История и обществознание", "Информатика и технологии"]
+    },
+    {
+        q: "Как вы принимаете важные решения?",
+        options: ["Анализирую факты и данные", "Прислушиваюсь к интуиции", "Советуюсь с близкими", "Ищу креативные решения", "Следую установленным правилам"]
+    },
+    {
+        q: "В командной работе вы обычно...",
+        options: ["Беру на себя лидерство", "Генерирую идеи", "Выполняю конкретные задачи", "Помогаю наладить коммуникацию", "Анализирую и планирую"]
+    },
+    {
+        q: "Какая рабочая среда вам ближе?",
+        options: ["Тихий офис с компьютером", "Активное общение с людьми", "Творческая мастерская", "Лаборатория или исследовательский центр", "Работа на свежем воздухе"]
+    },
+    {
+        q: "Что для вас важнее в будущей профессии?",
+        options: ["Высокий доход", "Творческая реализация", "Помощь людям", "Стабильность и уверенность", "Постоянное развитие"]
+    },
+    {
+        q: "Как вы относитесь к публичным выступлениям?",
+        options: ["Люблю быть в центре внимания", "Нормально, если подготовлюсь", "Предпочитаю избегать", "Могу, если тема мне интересна", "Лучше работать за кулисами"]
+    },
+    {
+        q: "Какой тип задач вам интереснее?",
+        options: ["Решать сложные логические задачи", "Создавать что-то новое", "Организовывать и планировать", "Исследовать и экспериментировать", "Общаться и убеждать"]
+    },
+    {
+        q: "Как вы справляетесь со стрессом?",
+        options: ["Составляю план действий", "Занимаюсь спортом или хобби", "Общаюсь с близкими", "Ищу творческое решение", "Даю себе время успокоиться"]
+    },
+    {
+        q: "Что вас больше мотивирует?",
+        options: ["Признание и успех", "Интересные задачи", "Денежное вознаграждение", "Возможность помогать", "Свобода и независимость"]
+    },
+    {
+        q: "Как вы относитесь к работе с цифрами и данными?",
+        options: ["Это мне нравится, я в этом силён", "Нормально, когда нужно", "Предпочитаю избегать", "Интересно, если есть смысл", "Мне ближе работа с людьми"]
+    },
+    {
+        q: "Какой формат обучения вам подходит?",
+        options: ["Самостоятельное изучение", "Лекции и семинары", "Практические занятия", "Групповые проекты", "Менторство один на один"]
+    },
+    {
+        q: "Что бы вы выбрали в качестве хобби?",
+        options: ["Программирование или робототехника", "Рисование или музыка", "Волонтёрство", "Спорт или путешествия", "Чтение или научные исследования"]
+    },
+    {
+        q: "Как вы видите себя через 10 лет?",
+        options: ["Руководителем компании", "Известным специалистом в своей области", "Предпринимателем", "Учёным или исследователем", "Счастливым человеком с балансом работы и жизни"]
+    },
+    {
+        q: "Какая отрасль вас привлекает больше всего?",
+        options: ["IT и технологии", "Медицина и здоровье", "Бизнес и финансы", "Искусство и дизайн", "Образование и наука"]
+    }
+];
+
+let currentQuestion = 0;
+let answers = {};
+
+document.addEventListener('DOMContentLoaded', () => {
+    renderQuestions();
+    showQuestion(0);
+});
+
+function renderQuestions() {
+    const container = document.getElementById('testQuestions');
+
+    questions.forEach((q, index) => {
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = `question-${index}`;
+
+        card.innerHTML = `
+            <h3><span class="q-number">${index + 1}</span>${q.q}</h3>
+            <div class="answers-list">
+                ${q.options.map((opt, optIndex) => `
+                    <label class="answer-option" onclick="selectAnswer(${index}, '${opt.replace(/'/g, "\\'")}')">
+                        <input type="radio" name="q${index}" value="${opt}">
+                        <span class="radio-custom"></span>
+                        <span>${opt}</span>
+                    </label>
+                `).join('')}
+            </div>
+            <div class="question-nav">
+                ${index > 0 ? `<button class="btn btn-outline" onclick="prevQuestion()"><i class="fas fa-arrow-left"></i> Назад</button>` : '<div></div>'}
+                ${index < questions.length - 1
+                    ? `<button class="btn btn-primary" onclick="nextQuestion()" id="nextBtn-${index}" disabled><i class="fas fa-arrow-right"></i> Далее</button>`
+                    : `<button class="btn btn-primary" onclick="submitTest()" id="submitBtn" disabled><i class="fas fa-check"></i> Получить результат</button>`
+                }
+            </div>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+function showQuestion(index) {
+    document.querySelectorAll('.question-card').forEach(card => card.classList.remove('active'));
+    document.getElementById(`question-${index}`).classList.add('active');
+
+    // Update progress
+    const progress = ((index + 1) / questions.length) * 100;
+    document.getElementById('progressFill').style.width = `${progress}%`;
+    document.getElementById('progressText').textContent = `Вопрос ${index + 1} из ${questions.length}`;
+
+    currentQuestion = index;
+}
+
+function selectAnswer(questionIndex, answer) {
+    answers[questions[questionIndex].q] = answer;
+
+    // Mark selected
+    document.querySelectorAll(`#question-${questionIndex} .answer-option`).forEach(opt => opt.classList.remove('selected'));
+    event.currentTarget.classList.add('selected');
+
+    // Enable next button
+    const nextBtn = document.getElementById(`nextBtn-${questionIndex}`) || document.getElementById('submitBtn');
+    if (nextBtn) nextBtn.disabled = false;
+}
+
+function nextQuestion() {
+    if (currentQuestion < questions.length - 1) {
+        showQuestion(currentQuestion + 1);
+    }
+}
+
+function prevQuestion() {
+    if (currentQuestion > 0) {
+        showQuestion(currentQuestion - 1);
+    }
+}
+
+async function submitTest() {
+    // Show loading
+    const loading = document.createElement('div');
+    loading.className = 'loading-overlay';
+    loading.innerHTML = `
+        <div class="loading-spinner"></div>
+        <div class="loading-text">AI анализирует ваши ответы...</div>
+    `;
+    document.body.appendChild(loading);
+
+    try {
+        const response = await fetch('/api/career-test/analyze', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ answers })
+        });
+
+        const data = await response.json();
+        loading.remove();
+
+        if (data.success) {
+            showResults(data.result);
+        } else {
+            alert('Ошибка анализа: ' + data.error);
+        }
+    } catch (error) {
+        loading.remove();
+        alert('Ошибка подключения к серверу');
+    }
+}
+
+function showResults(result) {
+    document.getElementById('testQuestions').style.display = 'none';
+    document.querySelector('.test-progress').style.display = 'none';
+
+    const resultsDiv = document.getElementById('testResults');
+    resultsDiv.style.display = 'block';
+
+    resultsDiv.innerHTML = `
+        <div class="results-header">
+            <h2>🎉 Ваши результаты готовы!</h2>
+            <p>AI проанализировал ваши ответы и подготовил персональные рекомендации</p>
+        </div>
+
+        <div class="results-grid">
+            <div class="result-card full-width">
+                <h4><i class="fas fa-user"></i> Ваш тип личности</h4>
+                <div class="personality-badge">${result.personality_type}</div>
+            </div>
+
+            <div class="result-card">
+                <h4><i class="fas fa-chart-bar"></i> Профиль навыков</h4>
+                <div class="skills-chart">
+                    ${Object.entries(result.skills_scores).map(([skill, value]) => `
+                        <div class="skill-bar">
+                            <span class="label">${skill}</span>
+                            <div class="bar"><div class="fill" style="width: ${value}%"></div></div>
+                            <span class="value">${value}%</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+
+            <div class="result-card">
+                <h4><i class="fas fa-star"></i> Ваши сильные стороны</h4>
+                <div class="tags-list">
+                    ${result.strengths.map(s => `<span class="tag">${s}</span>`).join('')}
+                </div>
+            </div>
+
+            <div class="result-card">
+                <h4><i class="fas fa-graduation-cap"></i> Рекомендуемые направления</h4>
+                <div class="tags-list">
+                    ${result.recommended_fields.map(f => `<span class="tag">${f}</span>`).join('')}
+                </div>
+            </div>
+
+            <div class="result-card">
+                <h4><i class="fas fa-briefcase"></i> Подходящие профессии</h4>
+                <div class="careers-list">
+                    ${result.career_paths.map(c => `
+                        <div class="career-item"><i class="fas fa-check-circle"></i> ${c}</div>
+                    `).join('')}
+                </div>
+            </div>
+
+            <div class="result-card full-width">
+                <h4><i class="fas fa-lightbulb"></i> Персональный совет</h4>
+                <p class="advice-text">${result.advice}</p>
+            </div>
+        </div>
+
+        <div class="uni-recommendations">
+            <h3><i class="fas fa-university"></i> Рекомендуемые университеты для вас</h3>
+            <div class="uni-rec-grid">
+                ${result.recommended_universities.map(uni => `
+                    <div class="uni-rec-card">
+                        <h4>${uni.name_ru}</h4>
+                        <div class="city"><i class="fas fa-map-marker-alt"></i> ${uni.city}</div>
+                        <span class="focus-tag">${uni.focus}</span>
+                        <a href="/university/${uni.id}" class="btn btn-outline btn-sm">Подробнее</a>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+
+    // Show premium tests
+    document.getElementById('premiumTests').style.display = 'block';
+
+    // Animate skill bars
+    setTimeout(() => {
+        document.querySelectorAll('.skill-bar .fill').forEach(fill => {
+            fill.style.width = fill.style.width;
+        });
+    }, 100);
+}
+
+function showPaymentModal(testType) {
+    document.getElementById('paymentModal').classList.add('active');
+}
+
+function closePaymentModal() {
+    document.getElementById('paymentModal').classList.remove('active');
+}
+</script>
+{% endblock %}
+

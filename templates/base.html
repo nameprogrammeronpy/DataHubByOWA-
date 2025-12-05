@@ -19,6 +19,7 @@
             </a>
             <ul class="nav-links">
                 <li><a href="/" class="{% if request.url.path == '/' %}active{% endif %}"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="/career-test" class="{% if request.url.path == '/career-test' %}active{% endif %}"><i class="fas fa-brain"></i> Тест</a></li>
                 <li><a href="/compare" class="{% if request.url.path == '/compare' %}active{% endif %}"><i class="fas fa-balance-scale"></i> Сравнение</a></li>
                 <li><a href="/faq" class="{% if request.url.path == '/faq' %}active{% endif %}"><i class="fas fa-question-circle"></i> FAQ</a></li>
             </ul>
@@ -36,6 +37,7 @@
     <!-- Мобильное меню -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="/" onclick="toggleMobileMenu()"><i class="fas fa-home"></i> Главная</a>
+        <a href="/career-test" onclick="toggleMobileMenu()"><i class="fas fa-brain"></i> Тест</a>
         <a href="/compare" onclick="toggleMobileMenu()"><i class="fas fa-balance-scale"></i> Сравнение</a>
         <a href="/faq" onclick="toggleMobileMenu()"><i class="fas fa-question-circle"></i> FAQ</a>
         <a href="/login" id="mobileLoginBtn"><i class="fas fa-user"></i> Войти</a>

@@ -98,18 +98,23 @@ SYSTEM_PROMPT = """Ты — дружелюбный и умный AI-консул
 5. Если не знаешь ответ — честно скажи об этом
 6. Используй эмодзи для большей выразительности 🎓
 7. Давай краткие, но полезные ответы
+8. При рекомендации архитектуры — советуй КазГАСА, для IT — КБТУ, IITU, Astana IT
+9. Учитывай требования IELTS если абитуриент спрашивает про международные программы
 """
 
 def get_universities_info():
     """Подготовка информации о ВУЗах для контекста AI"""
     info = []
     for uni in universities_data["universities"]:
+        ielts_info = f", IELTS: {uni.get('ielts_min_score', 'не требуется')}" if uni.get('ielts_required') else ""
+        accreditation = f", Аккредитация: {uni.get('accreditation', 'н/д')}" if uni.get('accreditation') else ""
+        languages = f", Языки: {', '.join(uni.get('language_of_instruction', []))}" if uni.get('language_of_instruction') else ""
+
         info.append(f"""
         - {uni['name_ru']} ({uni['city']})
-          Тип: {uni['focus']}, Рейтинг: {uni['rating']}
-          Стоимость бакалавриата: {uni['tuition_kzt_year']:,} тг/год
-          Мин. балл ЕНТ: {uni['ent_min_score']}
-          Программы: {', '.join(uni['programs_bachelor'][:5])}...
+          Тип: {uni['focus']}, Рейтинг: {uni['rating']}{ielts_info}{languages}
+          Стоимость: {uni['tuition_kzt_year']:,} тг/год, Мин. ЕНТ: {uni['ent_min_score']}{accreditation}
+          Программы: {', '.join(uni['programs_bachelor'][:7])}
         """)
     return "\n".join(info)
 
@@ -280,17 +285,62 @@ async def analyze_career_test(test: CareerTestSubmit):
 
         result = json.loads(result_text)
 
-        # Находим подходящие университеты
+        # Маппинг профессий на типы вузов и программы
+        career_to_uni_mapping = {
+            "архитектор": ["Архитектура", "Строительство", "Дизайн"],
+            "дизайнер": ["Дизайн", "Архитектура", "Творческий"],
+            "программист": ["IT", "Computer Science", "Информатика", "Информационные системы"],
+            "врач": ["Медицина", "Медицинский"],
+            "юрист": ["Юриспруденция", "Право", "Юридический"],
+            "экономист": ["Экономика", "Финансы", "Бизнес"],
+            "инженер": ["Инженерия", "Технический", "Engineering"],
+            "учитель": ["Педагогика", "Педагогический", "Образование"],
+            "журналист": ["Журналистика", "Филология", "Гуманитарный"],
+            "психолог": ["Психология", "Педагогический"],
+            "музыкант": ["Музыка", "Творческий", "Искусство"],
+            "художник": ["Живопись", "Дизайн", "Творческий"],
+        }
+
+        # Находим подходящие университеты на основе карьерных путей
         recommended_unis = []
-        for uni in universities_data["universities"]:
-            for uni_type in result.get("university_types", []):
-                if uni_type.lower() in uni["focus"].lower() or uni["focus"].lower() in uni_type.lower():
-                    if uni not in recommended_unis:
-                        recommended_unis.append(uni)
-                        if len(recommended_unis) >= 5:
-                            break
+        career_paths = [c.lower() for c in result.get("career_paths", [])]
+
+        # Сначала ищем по карьерным путям
+        for career in career_paths:
+            for keyword, programs in career_to_uni_mapping.items():
+                if keyword in career:
+                    for uni in universities_data["universities"]:
+                        # Проверяем фокус и программы
+                        uni_match = False
+                        for prog in programs:
+                            if prog.lower() in uni["focus"].lower():
+                                uni_match = True
+                                break
+                            for uni_prog in uni.get("programs_bachelor", []):
+                                if prog.lower() in uni_prog.lower():
+                                    uni_match = True
+                                    break
+
+                        if uni_match and uni not in recommended_unis:
+                            recommended_unis.append(uni)
+                            if len(recommended_unis) >= 5:
+                                break
+                    if len(recommended_unis) >= 5:
+                        break
             if len(recommended_unis) >= 5:
                 break
+
+        # Если мало — добавляем по типу вуза
+        if len(recommended_unis) < 5:
+            for uni in universities_data["universities"]:
+                for uni_type in result.get("university_types", []):
+                    if uni_type.lower() in uni["focus"].lower() or uni["focus"].lower() in uni_type.lower():
+                        if uni not in recommended_unis:
+                            recommended_unis.append(uni)
+                            if len(recommended_unis) >= 5:
+                                break
+                if len(recommended_unis) >= 5:
+                    break
 
         # Добавляем топовые если мало
         if len(recommended_unis) < 5:

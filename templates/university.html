@@ -66,10 +66,64 @@
                 <div class="info-card">
                     <h2><i class="fas fa-clipboard-list"></i> Требования для поступления</h2>
                     <p>{{ university.admission_requirements }}</p>
+
+                    {% if university.ielts_required %}
+                    <div style="margin-top: 15px; padding: 15px; background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1)); border-radius: 8px; border-left: 4px solid var(--primary);">
+                        <strong><i class="fas fa-language"></i> Требуется IELTS:</strong> минимум {{ university.ielts_min_score }} баллов
+                    </div>
+                    {% endif %}
+
+                    {% if university.language_of_instruction %}
+                    <div style="margin-top: 15px;">
+                        <strong><i class="fas fa-chalkboard-teacher"></i> Языки обучения:</strong>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px;">
+                            {% for lang in university.language_of_instruction %}
+                            <span class="program-tag">{{ lang }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if university.admission_exams %}
+                    <div style="margin-top: 15px;">
+                        <strong><i class="fas fa-file-alt"></i> Вступительные экзамены:</strong>
+                        <ul style="margin-top: 8px; margin-left: 20px;">
+                            {% for exam in university.admission_exams %}
+                            <li>{{ exam }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+
+                    {% if university.documents_required %}
+                    <div style="margin-top: 15px;">
+                        <strong><i class="fas fa-folder-open"></i> Необходимые документы:</strong>
+                        <ul style="margin-top: 8px; margin-left: 20px;">
+                            {% for doc in university.documents_required %}
+                            <li>{{ doc }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+
                     <div style="margin-top: 20px; padding: 15px; background: var(--light); border-radius: 8px;">
                         <strong><i class="fas fa-calendar-alt"></i> Дедлайн подачи документов:</strong> {{ university.admission_deadline_month }}
                     </div>
+
+                    {% if university.grant_available and university.grant_ent_score %}
+                    <div style="margin-top: 15px; padding: 15px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.1)); border-radius: 8px; border-left: 4px solid #10b981;">
+                        <strong><i class="fas fa-gift"></i> Грант:</strong> доступен при ЕНТ от {{ university.grant_ent_score }} баллов
+                    </div>
+                    {% endif %}
                 </div>
+
+                {% if university.accreditation %}
+                <!-- Аккредитация -->
+                <div class="info-card">
+                    <h2><i class="fas fa-certificate"></i> Аккредитация</h2>
+                    <p>{{ university.accreditation }}</p>
+                </div>
+                {% endif %}
 
                 <!-- Стипендии -->
                 <div class="info-card">

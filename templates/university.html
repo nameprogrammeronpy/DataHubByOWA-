@@ -65,19 +65,6 @@
                     {% endif %}
                 </div>
 
-                <!-- 3D Тур -->
-                <div class="info-card">
-                    <h2><i class="fas fa-vr-cardboard"></i> Виртуальный 3D-тур</h2>
-                    {% if university.tour_url %}
-                    <iframe class="tour-frame" src="{{ university.tour_url }}" allowfullscreen></iframe>
-                    {% else %}
-                    <div class="tour-placeholder">
-                        <i class="fas fa-cube"></i>
-                        <p>3D-тур скоро будет доступен</p>
-                        <small style="opacity: 0.7; margin-top: 10px;">Мы работаем над добавлением виртуальных туров для всех университетов</small>
-                    </div>
-                    {% endif %}
-                </div>
 
                 <!-- Программы бакалавриата -->
                 <div class="info-card">
@@ -205,6 +192,15 @@
                 </div>
                 {% endif %}
 
+                <!-- 3D Тур (только если есть) -->
+                {% if university.tour_url %}
+                <div class="info-card">
+                    <h2><i class="fas fa-vr-cardboard"></i> Виртуальный 3D-тур</h2>
+                    <p style="margin-bottom: 15px; color: var(--gray);">Исследуйте кампус университета не выходя из дома</p>
+                    <iframe class="tour-frame" src="{{ university.tour_url }}" allowfullscreen></iframe>
+                </div>
+                {% endif %}
+
                 <!-- Отзывы -->
                 <div class="info-card">
                     <h2><i class="fas fa-comments"></i> Отзывы студентов</h2>
@@ -226,9 +222,17 @@
                     <h3><i class="fas fa-money-bill-wave"></i> Стоимость обучения</h3>
                     <div style="margin-bottom: 20px;">
                         <small style="color: var(--gray);">Бакалавриат</small>
-                        {% if university.tuition_kzt_year == 0 %}
-                        <span class="price-big" style="color: #10b981;">Бесплатно</span>
-                        <small style="color: var(--gray);">100% грантовое обучение</small>
+                        {% if university.tuition_kzt_year == 0 and university.grant_available %}
+                        <span class="price-big" style="color: #10b981;">Грант 100%</span>
+                        <small style="color: var(--gray);">Бесплатное обучение для граждан РК</small>
+                        {% elif university.tuition_kzt_year > 0 %}
+                        <span class="price-big">{{ "{:,.0f}".format(university.tuition_kzt_year).replace(",", " ") }} ₸</span>
+                        <small style="color: var(--gray);">в год</small>
+                        {% if university.grant_available %}
+                        <div style="margin-top: 10px; padding: 10px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.15)); border-radius: 8px;">
+                            <small style="color: #059669;"><i class="fas fa-gift"></i> Доступны гранты и скидки</small>
+                        </div>
+                        {% endif %}
                         {% else %}
                         <span class="price-big">{{ "{:,.0f}".format(university.tuition_kzt_year).replace(",", " ") }} ₸</span>
                         <small style="color: var(--gray);">в год</small>

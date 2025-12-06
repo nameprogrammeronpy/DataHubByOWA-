@@ -7,7 +7,73 @@ document.addEventListener('DOMContentLoaded', () => {
     updateComparePanel();
     loadCompareFromStorage();
     initHeroSearch();
+    initScrollAnimations();
+    initCounterAnimations();
 });
+
+// ===== АНИМАЦИИ ПРИ СКРОЛЛЕ =====
+function initScrollAnimations() {
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+    if (!animatedElements.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 100);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    animatedElements.forEach(el => observer.observe(el));
+}
+
+// ===== АНИМАЦИЯ СЧЁТЧИКОВ =====
+function initCounterAnimations() {
+    const counters = document.querySelectorAll('.stat-number[data-count]');
+
+    if (!counters.length) return;
+
+    // Сразу показываем начальное значение и запускаем анимацию
+    counters.forEach(counter => {
+        counter.textContent = '0+';
+        // Небольшая задержка чтобы DOM обновился
+        setTimeout(() => animateCounter(counter), 50);
+    });
+}
+
+function animateCounter(element) {
+    const target = parseInt(element.dataset.count);
+    if (!target) return;
+
+    const duration = 1500; // Ускорил анимацию
+    const startTime = performance.now();
+
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Easing function for smooth animation
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(easeOut * target);
+
+        element.textContent = current + '+';
+
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        } else {
+            element.textContent = target + '+';
+        }
+    }
+
+    requestAnimationFrame(update);
+}
 
 // ===== ПОИСК В HERO С АВТОДОПОЛНЕНИЕМ =====
 function initHeroSearch() {
@@ -241,19 +307,22 @@ function updateComparePanel() {
 let chatbotOpen = false;
 
 function toggleChatbot() {
-    const window = document.getElementById('chatbotWindow');
-    const trigger = document.getElementById('chatbotTrigger');
+    const modal = document.getElementById('chatModal');
+    const fab = document.getElementById('chatFab');
 
     chatbotOpen = !chatbotOpen;
 
     if (chatbotOpen) {
-        window.classList.add('active');
-        trigger.style.display = 'none';
+        modal.classList.add('active');
         document.getElementById('chatInput')?.focus();
     } else {
-        window.classList.remove('active');
-        trigger.style.display = 'flex';
+        modal.classList.remove('active');
     }
+}
+
+function quickQuestion(question) {
+    document.getElementById('chatInput').value = question;
+    sendMessage();
 }
 
 function handleKeyPress(event) {
@@ -276,13 +345,14 @@ async function sendMessage() {
 
     // Показываем индикатор загрузки
     sendBtn.disabled = true;
-    sendBtn.innerHTML = '<div class="loading"></div>';
+    sendBtn.innerHTML = '<div class="loading-spinner" style="width:20px;height:20px;border-width:2px;"></div>';
 
     // Добавляем индикатор печатания
     const typingId = 'typing-' + Date.now();
     messagesContainer.innerHTML += `
-        <div class="message bot" id="${typingId}">
-            <div class="message-content">
+        <div class="chat-message bot" id="${typingId}">
+            <div class="chat-message-avatar"><i class="fas fa-brain"></i></div>
+            <div class="chat-message-content">
                 <div class="typing-indicator">
                     <span></span>
                     <span></span>
@@ -327,9 +397,12 @@ function addMessage(text, sender) {
         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
         .replace(/\n/g, '<br>');
 
+    const icon = sender === 'bot' ? '<i class="fas fa-brain"></i>' : '<i class="fas fa-user"></i>';
+
     const messageHTML = `
-        <div class="message ${sender}">
-            <div class="message-content">
+        <div class="chat-message ${sender}">
+            <div class="chat-message-avatar">${icon}</div>
+            <div class="chat-message-content">
                 <p>${formattedText}</p>
             </div>
         </div>

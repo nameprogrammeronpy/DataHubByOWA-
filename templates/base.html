@@ -6,7 +6,7 @@
     <title>{% block title %}DataHub ВУЗ-ов РК{% endblock %}</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css?v=4.0">
     {% block extra_css %}{% endblock %}
 </head>
 <body>
@@ -50,72 +50,86 @@
 
     <!-- Футер -->
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3><i class="fas fa-graduation-cap"></i> DataHub ВУЗ-ов РК</h3>
-                <p>Единая платформа для выбора университета вашей мечты в Казахстане</p>
-            </div>
-            <div class="footer-section">
-                <h4>Навигация</h4>
-                <a href="/">Главная</a>
-                <a href="/compare">Сравнение</a>
-                <a href="/faq">FAQ</a>
-            </div>
-            <div class="footer-section">
-                <h4>Контакты</h4>
-                <p><i class="fas fa-envelope"></i> info@datahub-uni.kz</p>
-                <p><i class="fas fa-phone"></i> +7 (777) 123-45-67</p>
-            </div>
-            <div class="footer-section">
-                <h4>Соцсети</h4>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-telegram"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3><i class="fas fa-graduation-cap"></i> DataHub</h3>
+                    <p>Единая платформа для выбора университета в Казахстане. Данные, аналитика, AI-рекомендации.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Платформа</h4>
+                    <a href="/">Каталог вузов</a>
+                    <a href="/compare">Сравнение</a>
+                    <a href="/career-test">Профтест</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Поддержка</h4>
+                    <a href="/faq">FAQ</a>
+                    <a href="#">Обратная связь</a>
+                    <a href="#">Документация</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <a href="#">info@datahub.kz</a>
+                    <a href="#">Астана, Казахстан</a>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 DataHub ВУЗ-ов РК. Все права защищены.</p>
+            <div class="footer-bottom">
+                <p>2025 DataHub. Hackathon Project. Made with AI.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- AI Чат-бот (скрытый кружок) -->
-    <div class="chatbot-trigger" id="chatbotTrigger" onclick="toggleChatbot()">
-        <i class="fas fa-robot"></i>
-        <div class="pulse-ring"></div>
-    </div>
+    <!-- AI Чат-бот -->
+    <button class="chat-fab" onclick="toggleChatbot()" id="chatFab">
+        <i class="fas fa-comments"></i>
+    </button>
 
     <!-- Окно чат-бота -->
-    <div class="chatbot-window" id="chatbotWindow">
-        <div class="chatbot-header">
-            <div class="chatbot-avatar">
-                <i class="fas fa-robot"></i>
+    <div class="chat-modal" id="chatModal">
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <div class="chat-avatar">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div>
+                    <h4>DataHub AI</h4>
+                    <span>Интеллектуальный помощник</span>
+                </div>
             </div>
-            <div class="chatbot-info">
-                <h4>AI Консультант</h4>
-                <span class="status">● Онлайн</span>
-            </div>
-            <button class="chatbot-close" onclick="toggleChatbot()">
+            <button class="chat-close" onclick="toggleChatbot()">
                 <i class="fas fa-times"></i>
             </button>
         </div>
-        <div class="chatbot-messages" id="chatMessages">
-            <div class="message bot">
-                <div class="message-content">
-                    <p>Привет! 👋 Я AI-консультант DataHub. Помогу выбрать университет, сравнить программы или ответить на вопросы о поступлении. Спрашивай!</p>
+        <div class="chat-messages" id="chatMessages">
+            <div class="chat-message bot">
+                <div class="chat-message-avatar">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="chat-message-content">
+                    <p>Добро пожаловать в DataHub AI. Я помогу подобрать университет, сравнить программы и ответить на вопросы о поступлении.</p>
                 </div>
             </div>
         </div>
-        <div class="chatbot-input">
-            <input type="text" id="chatInput" placeholder="Напишите сообщение..." onkeypress="handleKeyPress(event)">
-            <button onclick="sendMessage()" id="sendBtn">
+        <div class="chat-quick-actions">
+            <button class="quick-action" onclick="quickQuestion('Какой вуз лучше для IT?')">IT-направление</button>
+            <button class="quick-action" onclick="quickQuestion('Расскажи про гранты')">Гранты</button>
+            <button class="quick-action" onclick="quickQuestion('Топ университетов')">ТОП вузов</button>
+        </div>
+        <div class="chat-input-wrapper">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Задайте вопрос..." onkeypress="handleKeyPress(event)">
+            <button class="chat-send" onclick="sendMessage()" id="sendBtn">
                 <i class="fas fa-paper-plane"></i>
             </button>
         </div>
     </div>
 
-    <script src="/static/js/main.js"></script>
+    <script src="/static/js/main.js?v=3.0"></script>
     <script>
         // Проверка авторизации и обновление навигации
         document.addEventListener('DOMContentLoaded', () => {

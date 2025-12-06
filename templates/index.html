@@ -7,68 +7,63 @@
 <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
-        <h1>Найди свой <span class="gradient-text">идеальный университет</span></h1>
-        <p>Сравнивай, выбирай и поступай в лучшие ВУЗы Казахстана с помощью AI-ассистента</p>
+        <h1>Твоё будущее начинается с <span class="gradient-text">правильного выбора</span></h1>
+        <p>Единая платформа для выбора университета в Казахстане. Сравнивай, анализируй и принимай решения на основе данных</p>
         <div class="hero-search">
             <i class="fas fa-search"></i>
-            <input type="text" id="searchInput" placeholder="Поиск по названию, городу или программе..." oninput="filterUniversities()">
+            <input type="text" id="searchInput" placeholder="Поиск по названию, городу или специальности..." oninput="filterUniversities()">
         </div>
         <div class="hero-stats">
             <div class="stat">
-                <span class="stat-number">60+</span>
+                <span class="stat-number" data-count="55">0</span>
                 <span class="stat-label">Университетов</span>
             </div>
             <div class="stat">
-                <span class="stat-number">500+</span>
-                <span class="stat-label">Программ</span>
+                <span class="stat-number" data-count="500">0</span>
+                <span class="stat-label">Программ обучения</span>
             </div>
             <div class="stat">
                 <span class="stat-number">AI</span>
-                <span class="stat-label">Консультант</span>
+                <span class="stat-label">Интеллектуальный помощник</span>
             </div>
         </div>
-    </div>
-    <div class="hero-decoration">
-        <div class="floating-card card-1">🎓</div>
-        <div class="floating-card card-2">📚</div>
-        <div class="floating-card card-3">🏛️</div>
     </div>
 </section>
 
 <!-- Features Section -->
 <section class="features-section">
     <div class="container">
-        <h2 class="section-title">Что мы предлагаем</h2>
+        <h2 class="section-title">Возможности <span class="gradient-text">платформы</span></h2>
         <div class="features-grid">
-            <div class="feature-card">
+            <div class="feature-card animate-on-scroll">
                 <div class="feature-icon"><i class="fas fa-university"></i></div>
-                <h3>Об университете</h3>
-                <p>Информация о миссии, истории, лидерстве и достижениях университета</p>
+                <h3>Детальная информация</h3>
+                <p>История, миссия, руководство и ключевые достижения каждого университета</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-book-open"></i></div>
-                <h3>Академ. программы</h3>
-                <p>Перечень и подробная информация о предлагаемых учебных программах</p>
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h3>Образовательные программы</h3>
+                <p>Полный каталог специальностей бакалавриата и магистратуры с описанием</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-user-graduate"></i></div>
-                <h3>Приём и поступление</h3>
-                <p>Требования к поступлению, сроки, стипендии и финансовая помощь</p>
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon"><i class="fas fa-file-alt"></i></div>
+                <h3>Требования и поступление</h3>
+                <p>Минимальные баллы ЕНТ, документы, дедлайны и процедура подачи заявки</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-vr-cardboard"></i></div>
-                <h3>3D-тур</h3>
-                <p>Виртуальное путешествие для исследования кампуса</p>
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon"><i class="fas fa-cube"></i></div>
+                <h3>Виртуальные 3D-туры</h3>
+                <p>Исследуй кампусы университетов не выходя из дома</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-globe"></i></div>
-                <h3>Международное сотрудничество</h3>
-                <p>Программы обмена и партнёрские университеты</p>
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon"><i class="fas fa-globe-americas"></i></div>
+                <h3>Международные программы</h3>
+                <p>Партнёрские вузы, программы обмена и двойные дипломы</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-balance-scale"></i></div>
-                <h3>Функция сравнения</h3>
-                <p>Возможность сравнивать ВУЗы и их программы</p>
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
+                <h3>Умное сравнение</h3>
+                <p>Сравнивай университеты по ключевым параметрам в один клик</p>
             </div>
         </div>
     </div>
@@ -132,7 +127,7 @@
 <!-- Universities Grid -->
 <section class="universities-section">
     <div class="container">
-        <h2 class="section-title">Университеты Казахстана</h2>
+        <h2 class="section-title">Университеты <span class="gradient-text">Казахстана</span></h2>
         <div class="universities-grid" id="universitiesGrid">
             {% for uni in universities %}
             <div class="university-card"
@@ -147,13 +142,23 @@
                         <span class="card-city"><i class="fas fa-map-marker-alt"></i> {{ uni.city }}</span>
                         <span class="card-rating"><i class="fas fa-star"></i> {{ uni.rating }}</span>
                     </div>
+                    {% if uni.image_url and uni.image_url.startswith('/preview') %}
+                    <img src="{{ uni.image_url }}" alt="{{ uni.name_ru }}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="card-placeholder" style="display:none;">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    {% else %}
                     <div class="card-placeholder">
                         <i class="fas fa-university"></i>
                     </div>
+                    {% endif %}
+                    {% if uni.tour_url %}
+                    <span class="uni-3d-badge"><i class="fas fa-cube"></i> 3D тур</span>
+                    {% endif %}
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">{{ uni.name_ru }}</h3>
-                    <p class="card-description">{{ uni.description[:120] }}...</p>
+                    <p class="card-description">{{ uni.description[:100] }}...</p>
                     <div class="card-tags">
                         <span class="tag">{{ uni.focus }}</span>
                         <span class="tag">ЕНТ от {{ uni.ent_min_score }}</span>

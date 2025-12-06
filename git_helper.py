@@ -1,18 +1,20 @@
 import subprocess
 import os
-import sys
 
 os.chdir(r'C:\Users\Almaz\PycharmProjects\Dat')
 
-# Добавляем все файлы
-result = subprocess.run(['git', 'add', '-A'], capture_output=True, text=True)
-print("git add:", result.returncode)
+with open('git_result.txt', 'w', encoding='utf-8') as f:
+    # Добавляем все файлы
+    result = subprocess.run(['git', 'add', '-A'], capture_output=True, text=True)
+    f.write(f"git add: {result.returncode}\n{result.stdout}\n{result.stderr}\n\n")
 
-# Коммит
-result = subprocess.run(['git', 'commit', '-m', 'Add GZip compression and lazy loading for speed'], capture_output=True, text=True)
-print("git commit:", result.returncode, result.stdout[:200] if result.stdout else "", result.stderr[:200] if result.stderr else "")
+    # Коммит
+    result = subprocess.run(['git', 'commit', '-m', 'Add GZip compression and lazy loading for speed'], capture_output=True, text=True)
+    f.write(f"git commit: {result.returncode}\n{result.stdout}\n{result.stderr}\n\n")
 
-# Пуш
-result = subprocess.run(['git', 'push', 'origin', 'main'], capture_output=True, text=True)
-print("git push:", result.returncode, result.stdout[:200] if result.stdout else "", result.stderr[:200] if result.stderr else "")
+    # Пуш
+    result = subprocess.run(['git', 'push', 'origin', 'main'], capture_output=True, text=True)
+    f.write(f"git push: {result.returncode}\n{result.stdout}\n{result.stderr}\n")
+
+print("Done! Check git_result.txt")
 

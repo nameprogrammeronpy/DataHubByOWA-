@@ -1256,37 +1256,68 @@
       "city": "Караганда",
       "focus": "Технический",
       "website": "https://kstu.kz",
-      "description": "Ведущий технический университет Центрального Казахстана. Специализация на горном деле и металлургии.",
+      "description": "Ведущий технический университет Центрального Казахстана, основан в 1953 году. Специализация на горном деле, металлургии и машиностроении. Тесные связи с промышленными предприятиями региона — ArcelorMittal, Казахмыс, ERG. Более 10 000 студентов.",
+      "founded_year": 1953,
+      "rector": "Арыстан Аубакиров",
+      "achievements": [
+        "70+ лет подготовки инженеров",
+        "Партнёрство с ArcelorMittal и ERG",
+        "Собственные производственные мастерские",
+        "Высокий процент трудоустройства в промышленности"
+      ],
       "image_url": "/preview/KARTU.jpg",
       "tour_url": null,
       "address": "бул. Мира, 56, Караганда",
       "phone": "+7 (7212) 56-59-00",
       "email": "info@kstu.kz",
       "rating": 4.4,
+      "accreditation": "IQAA, EUR-ACE (инженерные программы)",
+      "ielts_required": false,
+      "ielts_min_score": null,
+      "language_of_instruction": ["Казахский", "Русский"],
+      "admission_exams": ["ЕНТ"],
+      "documents_required": ["Аттестат", "Сертификат ЕНТ", "Медсправка 086-У", "Фото 3x4", "Удостоверение личности"],
       "reviews": [
         "Сильная инженерная школа.",
-        "Связи с промышленностью."
+        "Связи с промышленностью.",
+        "Гарантированная практика на заводах."
       ],
       "programs_bachelor": [
         "Горное дело",
         "Металлургия",
         "Машиностроение",
         "IT",
-        "Энергетика"
+        "Энергетика",
+        "Автоматизация",
+        "Строительство"
       ],
       "programs_master": [
         "Горная инженерия",
         "IT",
-        "Металлургия"
+        "Металлургия",
+        "Машиностроение"
       ],
       "tuition_kzt_year": 800000,
       "tuition_master_kzt_year": 950000,
-      "ent_min_score": 80,
-      "admission_requirements": "ЕНТ от 80 баллов",
+      "ent_min_score": 75,
+      "grant_available": true,
+      "grant_ent_score": 95,
+      "admission_requirements": "ЕНТ от 75 баллов (платное), гранты — от 95+ ЕНТ. Профильные предметы: математика, физика.",
       "admission_deadline_month": "Август",
-      "scholarships": "Гранты, стипендии предприятий",
+      "scholarships": "Государственные гранты, стипендии от ArcelorMittal и Казахмыс",
+      "financial_aid": [
+        "Государственный грант",
+        "Стипендии промышленных компаний",
+        "Целевые гранты от ERG",
+        "Социальные стипендии"
+      ],
+      "exchange_programs": [
+        "Обмен с техническими вузами России",
+        "Практика на предприятиях Германии",
+        "Erasmus+ (ограниченно)"
+      ],
       "international_exchange": true,
-      "partner_universities": "40+ партнеров",
+      "partner_universities": "40+ партнёров: вузы России, Германии, Польши",
       "foreign_students_welcome": true,
       "dormitory": true,
       "military_department": true,
@@ -1303,16 +1334,31 @@
       "city": "Шымкент",
       "focus": "Классический",
       "website": "https://auezov.edu.kz",
-      "description": "Крупнейший университет Южного Казахстана, основан в 1943 году. Более 20 000 студентов.",
+      "description": "Крупнейший университет Южного Казахстана, основан в 1943 году. Назван в честь классика казахской литературы Мухтара Ауэзова. Более 20 000 студентов, 80+ специальностей. Сильные программы по химии, нефтехимии и педагогике.",
+      "founded_year": 1943,
+      "rector": "Есмурза Елюбаев",
+      "achievements": [
+        "80+ лет истории",
+        "Крупнейший вуз Южного Казахстана",
+        "Собственный технопарк",
+        "Научно-исследовательский институт химии"
+      ],
       "image_url": "/preview/UKAZU_M_AUEZOV.jpeg",
       "tour_url": null,
       "address": "пр. Тауке хана, 5, Шымкент",
       "phone": "+7 (7252) 21-01-00",
       "email": "info@auezov.edu.kz",
       "rating": 4.4,
+      "accreditation": "IQAA, ASIIN (химия)",
+      "ielts_required": false,
+      "ielts_min_score": null,
+      "language_of_instruction": ["Казахский", "Русский"],
+      "admission_exams": ["ЕНТ"],
+      "documents_required": ["Аттестат", "Сертификат ЕНТ", "Медсправка 086-У", "Фото 3x4", "Удостоверение личности"],
       "reviews": [
         "Крупнейший вуз юга.",
-        "Много специальностей."
+        "Много специальностей.",
+        "Доступные цены."
       ],
       "programs_bachelor": [
         "Информатика",
@@ -1320,21 +1366,37 @@
         "Нефтехимия",
         "Экономика",
         "Юриспруденция",
-        "Педагогика"
+        "Педагогика",
+        "Строительство",
+        "Машиностроение"
       ],
       "programs_master": [
         "Химические технологии",
         "IT",
-        "Экономика"
+        "Экономика",
+        "Педагогика"
       ],
       "tuition_kzt_year": 750000,
       "tuition_master_kzt_year": 900000,
-      "ent_min_score": 80,
-      "admission_requirements": "ЕНТ от 80 баллов",
+      "ent_min_score": 70,
+      "grant_available": true,
+      "grant_ent_score": 90,
+      "admission_requirements": "ЕНТ от 70 баллов (платное), гранты — от 90+ ЕНТ.",
       "admission_deadline_month": "Август",
-      "scholarships": "Государственные гранты",
+      "scholarships": "Государственные гранты, стипендия ректора",
+      "financial_aid": [
+        "Государственный грант",
+        "Стипендия ректора",
+        "Социальные стипендии",
+        "Скидки для отличников до 25%"
+      ],
+      "exchange_programs": [
+        "Erasmus+ (Европа)",
+        "Обмен с вузами Турции и России",
+        "Практика на химических предприятиях"
+      ],
       "international_exchange": true,
-      "partner_universities": "60+ партнеров",
+      "partner_universities": "60+ партнёров: вузы России, Турции, Китая, Кореи",
       "foreign_students_welcome": true,
       "dormitory": true,
       "military_department": true,
@@ -1351,36 +1413,67 @@
       "city": "Астана",
       "focus": "Аграрный",
       "website": "https://kazatu.edu.kz",
-      "description": "Ведущий аграрный университет страны. Специализация на сельском хозяйстве и ветеринарии.",
+      "description": "Ведущий аграрный университет Казахстана, основан в 1957 году. Назван в честь поэта Сакена Сейфуллина. Специализация на сельском хозяйстве, ветеринарии и пищевых технологиях. Собственные учебные фермы и лаборатории.",
+      "founded_year": 1957,
+      "rector": "Кенжегали Сагадиев",
+      "achievements": [
+        "Лучший аграрный вуз РК",
+        "Собственные учебные фермы",
+        "Партнёрство с агрохолдингами",
+        "Аккредитация программ ветеринарии"
+      ],
       "image_url": "/preview/KAZAITU.jpeg",
       "tour_url": null,
       "address": "пр. Женис, 62, Астана",
       "phone": "+7 (7172) 31-74-00",
       "email": "info@kazatu.edu.kz",
       "rating": 4.3,
+      "accreditation": "IQAA, EAEVE (ветеринария)",
+      "ielts_required": false,
+      "ielts_min_score": null,
+      "language_of_instruction": ["Казахский", "Русский"],
+      "admission_exams": ["ЕНТ"],
+      "documents_required": ["Аттестат", "Сертификат ЕНТ", "Медсправка 086-У", "Фото 3x4", "Удостоверение личности"],
       "reviews": [
         "Лучший аграрный вуз.",
-        "Практика на реальных фермах."
+        "Практика на реальных фермах.",
+        "Востребованные специальности."
       ],
       "programs_bachelor": [
         "Агрономия",
         "Ветеринария",
         "Зоотехния",
         "Пищевые технологии",
-        "Агроинженерия"
+        "Агроинженерия",
+        "Лесное хозяйство",
+        "Землеустройство"
       ],
       "programs_master": [
         "Агрономия",
-        "Ветеринария"
+        "Ветеринария",
+        "Пищевая безопасность"
       ],
       "tuition_kzt_year": 700000,
       "tuition_master_kzt_year": 850000,
-      "ent_min_score": 75,
-      "admission_requirements": "ЕНТ от 75 баллов",
+      "ent_min_score": 65,
+      "grant_available": true,
+      "grant_ent_score": 85,
+      "admission_requirements": "ЕНТ от 65 баллов (платное), гранты — от 85+ ЕНТ. Профильные: биология.",
       "admission_deadline_month": "Август",
-      "scholarships": "Аграрные гранты",
+      "scholarships": "Государственные аграрные гранты, стипендии агрохолдингов",
+      "financial_aid": [
+        "Государственный грант (много мест)",
+        "Стипендии от КазАгро",
+        "Целевые гранты агрохолдингов",
+        "Социальные стипендии"
+      ],
+      "exchange_programs": [
+        "Обмен с аграрными вузами России",
+        "Практика в Германии и Нидерландах",
+        "FAO программы"
+      ],
       "international_exchange": true,
-      "partner_universities": "40+ партнеров",
+      "partner_universities": "40+ партнёров: аграрные вузы России, Германии, Нидерландов",
       "foreign_students_welcome": true,
       "dormitory": true,
       "military_department": true,
@@ -1397,16 +1490,31 @@
       "city": "Уральск",
       "focus": "Классический",
       "website": "https://wku.edu.kz",
-      "description": "Ведущий университет Западного Казахстана, основан в 1932 году.",
+      "description": "Ведущий университет Западного Казахстана, основан в 1932 году. Назван в честь поэта Махамбета Утемисова. Классический многопрофильный вуз с сильными гуманитарными и педагогическими программами.",
+      "founded_year": 1932,
+      "rector": "Нурлан Сергазин",
+      "achievements": [
+        "Более 90 лет истории",
+        "Ведущий вуз ЗКО",
+        "Сильные филологические программы",
+        "Аккредитация IQAA"
+      ],
       "image_url": "/preview/MakhambetUtemisovWestKazakhstan.jpg",
       "tour_url": null,
       "address": "пр. Достык, 162, Уральск",
       "phone": "+7 (7112) 51-00-00",
       "email": "info@wku.edu.kz",
       "rating": 4.2,
+      "accreditation": "IQAA",
+      "ielts_required": false,
+      "ielts_min_score": null,
+      "language_of_instruction": ["Казахский", "Русский"],
+      "admission_exams": ["ЕНТ"],
+      "documents_required": ["Аттестат", "Сертификат ЕНТ", "Медсправка 086-У", "Фото 3x4", "Удостоверение личности"],
       "reviews": [
         "Хороший региональный вуз.",
-        "Доступное обучение."
+        "Доступное обучение.",
+        "Сильные гуманитарные программы."
       ],
       "programs_bachelor": [
         "Филология",
@@ -1414,21 +1522,35 @@
         "Математика",
         "Биология",
         "Экономика",
-        "Юриспруденция"
+        "Юриспруденция",
+        "Педагогика",
+        "IT"
       ],
       "programs_master": [
         "Филология",
         "История",
-        "Педагогика"
+        "Педагогика",
+        "Экономика"
       ],
       "tuition_kzt_year": 650000,
       "tuition_master_kzt_year": 800000,
-      "ent_min_score": 75,
-      "admission_requirements": "ЕНТ от 75 баллов",
+      "ent_min_score": 65,
+      "grant_available": true,
+      "grant_ent_score": 85,
+      "admission_requirements": "ЕНТ от 65 баллов (платное), гранты — от 85+ ЕНТ.",
       "admission_deadline_month": "Август",
-      "scholarships": "Государственные гранты",
+      "scholarships": "Государственные гранты, стипендия ректора",
+      "financial_aid": [
+        "Государственный грант",
+        "Стипендия ректора",
+        "Социальные стипендии"
+      ],
+      "exchange_programs": [
+        "Обмен с вузами России",
+        "Erasmus+ (ограниченно)"
+      ],
       "international_exchange": true,
-      "partner_universities": "30+ партнеров",
+      "partner_universities": "30+ партнёров: вузы России, Турции",
       "foreign_students_welcome": true,
       "dormitory": true,
       "military_department": true,
@@ -1445,35 +1567,66 @@
       "city": "Атырау",
       "focus": "Технический",
       "website": "https://aogu.edu.kz",
-      "description": "Специализированный нефтегазовый университет в нефтяной столице Казахстана.",
+      "description": "Специализированный нефтегазовый университет в нефтяной столице Казахстана. Тесные связи с TCO, NCOC, КМГ. Гарантированная практика на месторождениях Тенгиз, Кашаган.",
+      "founded_year": 1999,
+      "rector": "Бакытжан Жумагулов",
+      "achievements": [
+        "Базовый вуз для нефтегазовых компаний",
+        "Практика на Тенгизе и Кашагане",
+        "Партнёрство с TCO и NCOC",
+        "Высокий уровень трудоустройства"
+      ],
       "image_url": "/preview/UTEByev_ATYRAU.jpeg",
       "tour_url": null,
       "address": "ул. Баймуханова, 45, Атырау",
       "phone": "+7 (7122) 32-65-00",
       "email": "info@aogu.edu.kz",
       "rating": 4.3,
+      "accreditation": "IQAA",
+      "ielts_required": false,
+      "ielts_min_score": null,
+      "language_of_instruction": ["Казахский", "Русский", "Английский"],
+      "admission_exams": ["ЕНТ"],
+      "documents_required": ["Аттестат", "Сертификат ЕНТ", "Медсправка 086-У", "Фото 3x4", "Удостоверение личности"],
       "reviews": [
         "Топ для нефтегаза.",
-        "Практика в нефтяных компаниях."
+        "Практика в нефтяных компаниях.",
+        "Высокие зарплаты после выпуска."
       ],
       "programs_bachelor": [
         "Нефтегазовое дело",
         "Химическая инженерия",
         "Экология",
-        "Геология"
+        "Геология",
+        "Автоматизация",
+        "Машиностроение"
       ],
       "programs_master": [
         "Нефтегазовая инженерия",
-        "Экология"
+        "Экология",
+        "Геология нефти и газа"
       ],
       "tuition_kzt_year": 900000,
       "tuition_master_kzt_year": 1100000,
-      "ent_min_score": 85,
-      "admission_requirements": "ЕНТ от 85 баллов",
+      "ent_min_score": 75,
+      "grant_available": true,
+      "grant_ent_score": 95,
+      "admission_requirements": "ЕНТ от 75 баллов (платное), гранты — от 95+ ЕНТ. Профильные: физика, химия.",
       "admission_deadline_month": "Август",
-      "scholarships": "Гранты нефтяных компаний",
+      "scholarships": "Гранты от TCO, NCOC, КМГ, государственные гранты",
+      "financial_aid": [
+        "Гранты нефтяных компаний (TCO, NCOC)",
+        "Государственный грант",
+        "Стипендии КМГ",
+        "Целевые гранты"
+      ],
+      "exchange_programs": [
+        "Стажировки в нефтяных компаниях",
+        "Практика на месторождениях",
+        "Обмен с вузами России и Китая"
+      ],
       "international_exchange": true,
-      "partner_universities": "25+ партнеров",
+      "partner_universities": "25+ партнёров: нефтегазовые вузы России, Китая",
       "foreign_students_welcome": true,
       "dormitory": true,
       "military_department": true,
@@ -1490,16 +1643,31 @@
       "city": "Актобе",
       "focus": "Классический",
       "website": "https://arsu.kz",
-      "description": "Крупнейший университет Актюбинской области, основан в 1966 году.",
+      "description": "Крупнейший университет Актюбинской области, основан в 1966 году. Назван в честь поэта Кудайбергена Жубанова. Многопрофильный вуз с широким выбором специальностей.",
+      "founded_year": 1966,
+      "rector": "Бауржан Смаилов",
+      "achievements": [
+        "Ведущий вуз Актюбинской области",
+        "Более 55 лет истории",
+        "Аккредитация IQAA",
+        "Широкий выбор специальностей"
+      ],
       "image_url": "/preview/ZHUBANOV.jpeg",
       "tour_url": null,
       "address": "пр. А. Молдагуловой, 34, Актобе",
       "phone": "+7 (7132) 56-36-00",
       "email": "info@arsu.kz",
       "rating": 4.2,
+      "accreditation": "IQAA",
+      "ielts_required": false,
+      "ielts_min_score": null,
+      "language_of_instruction": ["Казахский", "Русский"],
+      "admission_exams": ["ЕНТ"],
+      "documents_required": ["Аттестат", "Сертификат ЕНТ", "Медсправка 086-У", "Фото 3x4", "Удостоверение личности"],
       "reviews": [
         "Доступное образование.",
-        "Хороший выбор специальностей."
+        "Хороший выбор специальностей.",
+        "Дружелюбная атмосфера."
       ],
       "programs_bachelor": [
         "Информатика",
@@ -1507,21 +1675,34 @@
         "Юриспруденция",
         "Педагогика",
         "Филология",
-        "История"
+        "История",
+        "Биология",
+        "Химия"
       ],
       "programs_master": [
         "IT",
         "Экономика",
-        "Педагогика"
+        "Педагогика",
+        "Филология"
       ],
       "tuition_kzt_year": 650000,
       "tuition_master_kzt_year": 800000,
-      "ent_min_score": 75,
-      "admission_requirements": "ЕНТ от 75 баллов",
+      "ent_min_score": 65,
+      "grant_available": true,
+      "grant_ent_score": 85,
+      "admission_requirements": "ЕНТ от 65 баллов (платное), гранты — от 85+ ЕНТ.",
       "admission_deadline_month": "Август",
-      "scholarships": "Государственные гранты",
+      "scholarships": "Государственные гранты, стипендия ректора",
+      "financial_aid": [
+        "Государственный грант",
+        "Стипендия ректора",
+        "Социальные стипендии"
+      ],
+      "exchange_programs": [
+        "Обмен с вузами России и Турции"
+      ],
       "international_exchange": true,
-      "partner_universities": "35+ партнеров",
+      "partner_universities": "35+ партнёров",
       "foreign_students_welcome": true,
       "dormitory": true,
       "military_department": true,
@@ -1538,16 +1719,31 @@
       "city": "Павлодар",
       "focus": "Классический",
       "website": "https://psu.kz",
-      "description": "Ведущий университет Павлодарской области, основан в 1960 году.",
+      "description": "Ведущий университет Павлодарской области, основан в 1960 году. Назван в честь поэта Султанмахмута Торайгырова. Сильные технические и гуманитарные программы.",
+      "founded_year": 1960,
+      "rector": "Ахмет Арын",
+      "achievements": [
+        "60+ лет истории",
+        "Ведущий вуз Павлодарской области",
+        "Современный кампус",
+        "Партнёрства с промышленными предприятиями"
+      ],
       "image_url": "/preview/Pavlodargos.jpg",
       "tour_url": null,
       "address": "ул. Ломова, 64, Павлодар",
       "phone": "+7 (7182) 67-36-00",
       "email": "info@psu.kz",
       "rating": 4.3,
+      "accreditation": "IQAA",
+      "ielts_required": false,
+      "ielts_min_score": null,
+      "language_of_instruction": ["Казахский", "Русский"],
+      "admission_exams": ["ЕНТ"],
+      "documents_required": ["Аттестат", "Сертификат ЕНТ", "Медсправка 086-У", "Фото 3x4", "Удостоверение личности"],
       "reviews": [
         "Хороший региональный вуз.",
-        "Современный кампус."
+        "Современный кампус.",
+        "Связи с промышленностью."
       ],
       "programs_bachelor": [
         "IT",
@@ -1555,21 +1751,34 @@
         "Металлургия",
         "Экономика",
         "Юриспруденция",
-        "Педагогика"
+        "Педагогика",
+        "Машиностроение"
       ],
       "programs_master": [
         "Энергетика",
         "IT",
-        "Экономика"
+        "Экономика",
+        "Металлургия"
       ],
       "tuition_kzt_year": 700000,
       "tuition_master_kzt_year": 850000,
-      "ent_min_score": 80,
-      "admission_requirements": "ЕНТ от 80 баллов",
+      "ent_min_score": 70,
+      "grant_available": true,
+      "grant_ent_score": 90,
+      "admission_requirements": "ЕНТ от 70 баллов (платное), гранты — от 90+ ЕНТ.",
       "admission_deadline_month": "Август",
-      "scholarships": "Государственные гранты",
+      "scholarships": "Государственные гранты, стипендии промышленных предприятий",
+      "financial_aid": [
+        "Государственный грант",
+        "Стипендии ERG и других компаний",
+        "Социальные стипендии"
+      ],
+      "exchange_programs": [
+        "Обмен с вузами России",
+        "Практика на предприятиях"
+      ],
       "international_exchange": true,
-      "partner_universities": "45+ партнеров",
+      "partner_universities": "45+ партнёров",
       "foreign_students_welcome": true,
       "dormitory": true,
       "military_department": true,
@@ -1586,16 +1795,31 @@
       "city": "Семей",
       "focus": "Классический",
       "website": "https://semgu.kz",
-      "description": "Крупнейший университет Восточного Казахстана, назван в честь поэта Шакарима.",
+      "description": "Крупнейший университет Восточного Казахстана, назван в честь поэта и мыслителя Шакарима Кудайбердиева. Сильные программы по ветеринарии, агрономии и медицине.",
+      "founded_year": 1934,
+      "rector": "Бексултан Мехетов",
+      "achievements": [
+        "90 лет истории",
+        "Ведущий вуз Семея",
+        "Сильная ветеринарная школа",
+        "Филиал медицинского университета"
+      ],
       "image_url": "/preview/Semeygos.png",
       "tour_url": null,
       "address": "ул. Глинки, 20а, Семей",
       "phone": "+7 (7222) 35-81-00",
       "email": "info@semgu.kz",
       "rating": 4.2,
+      "accreditation": "IQAA",
+      "ielts_required": false,
+      "ielts_min_score": null,
+      "language_of_instruction": ["Казахский", "Русский"],
+      "admission_exams": ["ЕНТ"],
+      "documents_required": ["Аттестат", "Сертификат ЕНТ", "Медсправка 086-У", "Фото 3x4", "Удостоверение личности"],
       "reviews": [
         "Доступное обучение.",
-        "Хорошие преподаватели."
+        "Хорошие преподаватели.",
+        "Сильная ветеринария."
       ],
       "programs_bachelor": [
         "Ветеринария",
@@ -1603,21 +1827,33 @@
         "IT",
         "Экономика",
         "Педагогика",
-        "Медицина"
+        "Медицина",
+        "Биология"
       ],
       "programs_master": [
         "Ветеринария",
         "IT",
-        "Экономика"
+        "Экономика",
+        "Биология"
       ],
       "tuition_kzt_year": 600000,
       "tuition_master_kzt_year": 750000,
-      "ent_min_score": 75,
-      "admission_requirements": "ЕНТ от 75 баллов",
+      "ent_min_score": 65,
+      "grant_available": true,
+      "grant_ent_score": 85,
+      "admission_requirements": "ЕНТ от 65 баллов (платное), гранты — от 85+ ЕНТ.",
       "admission_deadline_month": "Август",
-      "scholarships": "Государственные гранты",
+      "scholarships": "Государственные гранты, стипендия ректора",
+      "financial_aid": [
+        "Государственный грант",
+        "Стипендия ректора",
+        "Социальные стипендии"
+      ],
+      "exchange_programs": [
+        "Обмен с вузами России"
+      ],
       "international_exchange": true,
-      "partner_universities": "30+ партнеров",
+      "partner_universities": "30+ партнёров",
       "foreign_students_welcome": true,
       "dormitory": true,
       "military_department": true,
@@ -1634,16 +1870,31 @@
       "city": "Костанай",
       "focus": "Классический",
       "website": "https://ksu.edu.kz",
-      "description": "Ведущий университет Костанайской области, основан в 1939 году.",
+      "description": "Ведущий университет Костанайской области, основан в 1939 году. Назван в честь просветителя Ахмета Байтурсынова. Сильные аграрные и педагогические программы.",
+      "founded_year": 1939,
+      "rector": "Мурат Битанов",
+      "achievements": [
+        "85+ лет истории",
+        "Ведущий вуз Костанайской области",
+        "Аккредитация IQAA",
+        "Сильные аграрные программы"
+      ],
       "image_url": "/preview/KGU_baitusinov.jpg",
       "tour_url": null,
       "address": "ул. Байтурсынова, 47, Костанай",
       "phone": "+7 (7142) 51-11-00",
       "email": "info@ksu.edu.kz",
       "rating": 4.2,
+      "accreditation": "IQAA",
+      "ielts_required": false,
+      "ielts_min_score": null,
+      "language_of_instruction": ["Казахский", "Русский"],
+      "admission_exams": ["ЕНТ"],
+      "documents_required": ["Аттестат", "Сертификат ЕНТ", "Медсправка 086-У", "Фото 3x4", "Удостоверение личности"],
       "reviews": [
         "Качественное образование.",
-        "Хорошие цены."
+        "Хорошие цены.",
+        "Дружелюбная атмосфера."
       ],
       "programs_bachelor": [
         "Агрономия",
@@ -1651,7 +1902,8 @@
         "IT",
         "Юриспруденция",
         "Педагогика",
-        "Инженерия"
+        "Инженерия",
+        "Ветеринария"
       ],
       "programs_master": [
         "Агрономия",
@@ -1660,12 +1912,22 @@
       ],
       "tuition_kzt_year": 620000,
       "tuition_master_kzt_year": 780000,
-      "ent_min_score": 75,
-      "admission_requirements": "ЕНТ от 75 баллов",
+      "ent_min_score": 65,
+      "grant_available": true,
+      "grant_ent_score": 85,
+      "admission_requirements": "ЕНТ от 65 баллов (платное), гранты — от 85+ ЕНТ.",
       "admission_deadline_month": "Август",
-      "scholarships": "Государственные гранты",
+      "scholarships": "Государственные гранты, стипендия ректора",
+      "financial_aid": [
+        "Государственный грант",
+        "Стипендия ректора",
+        "Социальные стипендии"
+      ],
+      "exchange_programs": [
+        "Обмен с вузами России и Турции"
+      ],
       "international_exchange": true,
-      "partner_universities": "25+ партнеров",
+      "partner_universities": "25+ партнёров",
       "foreign_students_welcome": true,
       "dormitory": true,
       "military_department": true,
@@ -1682,16 +1944,30 @@
       "city": "Тараз",
       "focus": "Классический",
       "website": "https://dulaty.kz",
-      "description": "Крупнейший университет Жамбылской области, основан в 1998 году.",
+      "description": "Крупнейший университет Жамбылской области, основан в 1998 году. Назван в честь поэта Мухаммед-Хайдара Дулати. Многопрофильный вуз с техническими и гуманитарными программами.",
+      "founded_year": 1998,
+      "rector": "Махсат Султаназаров",
+      "achievements": [
+        "Ведущий вуз Жамбылской области",
+        "Партнёрства с предприятиями региона",
+        "Аккредитация IQAA"
+      ],
       "image_url": "/preview/TARAZ.png",
       "tour_url": null,
       "address": "ул. Сулейменова, 7, Тараз",
       "phone": "+7 (7262) 45-36-00",
       "email": "info@dulaty.kz",
       "rating": 4.1,
+      "accreditation": "IQAA",
+      "ielts_required": false,
+      "ielts_min_score": null,
+      "language_of_instruction": ["Казахский", "Русский"],
+      "admission_exams": ["ЕНТ"],
+      "documents_required": ["Аттестат", "Сертификат ЕНТ", "Медсправка 086-У", "Фото 3x4", "Удостоверение личности"],
       "reviews": [
         "Хороший региональный вуз.",
-        "Много технических специальностей."
+        "Много технических специальностей.",
+        "Доступные цены."
       ],
       "programs_bachelor": [
         "IT",
@@ -1699,7 +1975,8 @@
         "Экономика",
         "Химия",
         "Педагогика",
-        "Агрономия"
+        "Агрономия",
+        "Машиностроение"
       ],
       "programs_master": [
         "IT",
@@ -1708,12 +1985,22 @@
       ],
       "tuition_kzt_year": 580000,
       "tuition_master_kzt_year": 720000,
-      "ent_min_score": 75,
-      "admission_requirements": "ЕНТ от 75 баллов",
+      "ent_min_score": 65,
+      "grant_available": true,
+      "grant_ent_score": 85,
+      "admission_requirements": "ЕНТ от 65 баллов (платное), гранты — от 85+ ЕНТ.",
       "admission_deadline_month": "Август",
       "scholarships": "Государственные гранты",
+      "financial_aid": [
+        "Государственный грант",
+        "Стипендия ректора",
+        "Социальные стипендии"
+      ],
+      "exchange_programs": [
+        "Обмен с вузами России и Турции"
+      ],
       "international_exchange": true,
-      "partner_universities": "20+ партнеров",
+      "partner_universities": "20+ партнёров",
       "foreign_students_welcome": true,
       "dormitory": true,
       "military_department": true,
@@ -1730,23 +2017,38 @@
       "city": "Кызылорда",
       "focus": "Классический",
       "website": "https://korkyt.kz",
-      "description": "Ведущий университет Кызылординской области.",
+      "description": "Ведущий университет Кызылординской области. Назван в честь легендарного мыслителя и музыканта Коркыт Ата. Сильные программы по нефтегазу в связи с близостью к месторождениям.",
+      "founded_year": 1937,
+      "rector": "Ержан Амирбекулы",
+      "achievements": [
+        "Ведущий вуз Кызылординской области",
+        "Близость к нефтегазовым месторождениям",
+        "Партнёрства с нефтяными компаниями"
+      ],
       "image_url": "/preview/korkyt0png.png",
       "tour_url": null,
       "address": "ул. Айтеке би, 29а, Кызылорда",
       "phone": "+7 (7242) 26-17-00",
       "email": "info@korkyt.kz",
       "rating": 4.0,
+      "accreditation": "IQAA",
+      "ielts_required": false,
+      "ielts_min_score": null,
+      "language_of_instruction": ["Казахский", "Русский"],
+      "admission_exams": ["ЕНТ"],
+      "documents_required": ["Аттестат", "Сертификат ЕНТ", "Медсправка 086-У", "Фото 3x4", "Удостоверение личности"],
       "reviews": [
         "Доступное обучение.",
-        "Развитие региона."
+        "Развитие региона.",
+        "Возможности в нефтегазе."
       ],
       "programs_bachelor": [
         "IT",
         "Нефтегаз",
         "Экономика",
         "Педагогика",
-        "Филология"
+        "Филология",
+        "Экология"
       ],
       "programs_master": [
         "Нефтегазовое дело",
@@ -1754,12 +2056,22 @@
       ],
       "tuition_kzt_year": 550000,
       "tuition_master_kzt_year": 680000,
-      "ent_min_score": 70,
-      "admission_requirements": "ЕНТ от 70 баллов",
+      "ent_min_score": 65,
+      "grant_available": true,
+      "grant_ent_score": 80,
+      "admission_requirements": "ЕНТ от 65 баллов (платное), гранты — от 80+ ЕНТ.",
       "admission_deadline_month": "Август",
-      "scholarships": "Государственные гранты",
+      "scholarships": "Государственные гранты, гранты нефтяных компаний",
+      "financial_aid": [
+        "Государственный грант",
+        "Гранты от нефтяных компаний",
+        "Социальные стипендии"
+      ],
+      "exchange_programs": [
+        "Обмен с вузами России"
+      ],
       "international_exchange": true,
-      "partner_universities": "15+ партнеров",
+      "partner_universities": "15+ партнёров",
       "foreign_students_welcome": true,
       "dormitory": true,
       "military_department": true,
@@ -1776,22 +2088,38 @@
       "city": "Астана",
       "focus": "Медицинский",
       "website": "https://amu.edu.kz",
-      "description": "Ведущий медицинский университет столицы, готовит врачей всех специальностей.",
+      "description": "Ведущий медицинский университет столицы, готовит врачей всех специальностей. Современное оборудование и клинические базы. Высокий уровень трудоустройства выпускников.",
+      "founded_year": 1964,
+      "rector": "Дайнюс Павалькис",
+      "achievements": [
+        "60 лет подготовки врачей",
+        "Современные клинические базы",
+        "Аккредитация WFME",
+        "Высокий уровень трудоустройства"
+      ],
       "image_url": "/preview/medvuz-astana-e1524630777409.jpg",
       "tour_url": null,
       "address": "ул. Бейбитшилик, 49а, Астана",
       "phone": "+7 (7172) 53-94-00",
       "email": "info@amu.edu.kz",
       "rating": 4.6,
+      "accreditation": "WFME, IQAA",
+      "ielts_required": false,
+      "ielts_min_score": null,
+      "language_of_instruction": ["Казахский", "Русский", "Английский"],
+      "admission_exams": ["ЕНТ"],
+      "documents_required": ["Аттестат", "Сертификат ЕНТ", "Медсправка 086-У", "Фото 3x4", "Удостоверение личности"],
       "reviews": [
         "Престижный медвуз.",
-        "Современное оборудование."
+        "Современное оборудование.",
+        "Много практики."
       ],
       "programs_bachelor": [
         "Общая медицина",
         "Стоматология",
         "Фармация",
-        "Сестринское дело"
+        "Сестринское дело",
+        "Общественное здравоохранение"
       ],
       "programs_master": [
         "Клиническая медицина",
@@ -1799,12 +2127,23 @@
       ],
       "tuition_kzt_year": 2000000,
       "tuition_master_kzt_year": 2300000,
-      "ent_min_score": 105,
-      "admission_requirements": "ЕНТ от 105 баллов (биология, химия)",
+      "ent_min_score": 100,
+      "grant_available": true,
+      "grant_ent_score": 120,
+      "admission_requirements": "ЕНТ от 100 баллов (биология, химия обязательно), гранты — от 120+ ЕНТ.",
       "admission_deadline_month": "Август",
-      "scholarships": "Медицинские гранты",
+      "scholarships": "Государственные медицинские гранты, стипендия ректора",
+      "financial_aid": [
+        "Государственный медицинский грант",
+        "Стипендия ректора",
+        "Социальные стипендии"
+      ],
+      "exchange_programs": [
+        "Клинические стажировки в Европе",
+        "Обмен с медвузами Кореи и Японии"
+      ],
       "international_exchange": true,
-      "partner_universities": "50+ медвузов",
+      "partner_universities": "50+ медвузов мира",
       "foreign_students_welcome": true,
       "dormitory": true,
       "military_department": false,
@@ -1821,16 +2160,31 @@
       "city": "Актобе",
       "focus": "Медицинский",
       "website": "https://zkmu.kz",
-      "description": "Ведущий медицинский университет Западного Казахстана.",
+      "description": "Ведущий медицинский университет Западного Казахстана. Назван в честь известного хирурга Марата Оспанова. Современные клинические базы и высокий уровень подготовки врачей.",
+      "founded_year": 1957,
+      "rector": "Айгуль Садыкова",
+      "achievements": [
+        "65+ лет подготовки врачей",
+        "Аккредитация WFME",
+        "Современные клинические базы",
+        "Высокий уровень трудоустройства"
+      ],
       "image_url": "/preview/OSPANOV.jpeg",
       "tour_url": null,
       "address": "ул. Маресьева, 68, Актобе",
       "phone": "+7 (7132) 56-34-00",
       "email": "info@zkmu.kz",
       "rating": 4.4,
+      "accreditation": "WFME, IQAA",
+      "ielts_required": false,
+      "ielts_min_score": null,
+      "language_of_instruction": ["Казахский", "Русский"],
+      "admission_exams": ["ЕНТ"],
+      "documents_required": ["Аттестат", "Сертификат ЕНТ", "Медсправка 086-У", "Фото 3x4", "Удостоверение личности"],
       "reviews": [
         "Качественное медицинское образование.",
-        "Хорошая клиническая база."
+        "Хорошая клиническая база.",
+        "Сильные преподаватели."
       ],
       "programs_bachelor": [
         "Общая медицина",
@@ -1843,12 +2197,23 @@
       ],
       "tuition_kzt_year": 1700000,
       "tuition_master_kzt_year": 2000000,
-      "ent_min_score": 100,
-      "admission_requirements": "ЕНТ от 100 баллов",
+      "ent_min_score": 95,
+      "grant_available": true,
+      "grant_ent_score": 115,
+      "admission_requirements": "ЕНТ от 95 баллов (биология, химия), гранты — от 115+ ЕНТ.",
       "admission_deadline_month": "Август",
-      "scholarships": "Медицинские гранты",
+      "scholarships": "Государственные медицинские гранты",
+      "financial_aid": [
+        "Государственный медицинский грант",
+        "Стипендия ректора",
+        "Социальные стипендии"
+      ],
+      "exchange_programs": [
+        "Клинические стажировки в России",
+        "Обмен с медвузами Турции"
+      ],
       "international_exchange": true,
-      "partner_universities": "30+ партнеров",
+      "partner_universities": "30+ партнёров",
       "foreign_students_welcome": true,
       "dormitory": true,
       "military_department": false,
@@ -1865,16 +2230,31 @@
       "city": "Караганда",
       "focus": "Медицинский",
       "website": "https://kgmu.kz",
-      "description": "Крупнейший медицинский университет Центрального Казахстана, основан в 1950 году.",
+      "description": "Крупнейший медицинский университет Центрального Казахстана, основан в 1950 году. Один из старейших медвузов страны. Много иностранных студентов из СНГ, Индии, Пакистана.",
+      "founded_year": 1950,
+      "rector": "Вячеслав Муравьёв",
+      "achievements": [
+        "70+ лет истории",
+        "Аккредитация WFME",
+        "Много иностранных студентов",
+        "Собственные клинические базы"
+      ],
       "image_url": "/preview/Здание_Медицинского_Университета_Караганды.jpg",
       "tour_url": null,
       "address": "ул. Гоголя, 40, Караганда",
       "phone": "+7 (7212) 51-34-00",
       "email": "info@kgmu.kz",
       "rating": 4.5,
+      "accreditation": "WFME, IQAA",
+      "ielts_required": false,
+      "ielts_min_score": null,
+      "language_of_instruction": ["Казахский", "Русский", "Английский"],
+      "admission_exams": ["ЕНТ"],
+      "documents_required": ["Аттестат", "Сертификат ЕНТ", "Медсправка 086-У", "Фото 3x4", "Удостоверение личности"],
       "reviews": [
         "Сильная медицинская школа.",
-        "Много иностранных студентов."
+        "Много иностранных студентов.",
+        "Хорошие клиники."
       ],
       "programs_bachelor": [
         "Общая медицина",
@@ -1888,12 +2268,23 @@
       ],
       "tuition_kzt_year": 1800000,
       "tuition_master_kzt_year": 2100000,
-      "ent_min_score": 100,
-      "admission_requirements": "ЕНТ от 100 баллов",
+      "ent_min_score": 95,
+      "grant_available": true,
+      "grant_ent_score": 115,
+      "admission_requirements": "ЕНТ от 95 баллов (биология, химия), гранты — от 115+ ЕНТ.",
       "admission_deadline_month": "Август",
-      "scholarships": "Медицинские гранты",
+      "scholarships": "Государственные медицинские гранты",
+      "financial_aid": [
+        "Государственный медицинский грант",
+        "Стипендия ректора",
+        "Социальные стипендии"
+      ],
+      "exchange_programs": [
+        "Клинические стажировки в Европе",
+        "Обмен с медвузами России и Индии"
+      ],
       "international_exchange": true,
-      "partner_universities": "45+ партнеров",
+      "partner_universities": "45+ партнёров",
       "foreign_students_welcome": true,
       "dormitory": true,
       "military_department": false,
@@ -1910,16 +2301,30 @@
       "city": "Шымкент",
       "focus": "Медицинский",
       "website": "https://skma.edu.kz",
-      "description": "Ведущий медицинский вуз Южного Казахстана.",
+      "description": "Ведущий медицинский вуз Южного Казахстана. Основан в 1979 году. Готовит врачей для крупнейшего региона страны.",
+      "founded_year": 1979,
+      "rector": "Гульнара Ниязова",
+      "achievements": [
+        "45 лет подготовки врачей",
+        "Ведущий медвуз юга РК",
+        "Современные симуляционные центры"
+      ],
       "image_url": "/preview/SOUTHMEDIC.jpg",
       "tour_url": null,
       "address": "пл. Аль-Фараби, 1, Шымкент",
       "phone": "+7 (7252) 40-82-00",
       "email": "info@skma.edu.kz",
       "rating": 4.3,
+      "accreditation": "IQAA",
+      "ielts_required": false,
+      "ielts_min_score": null,
+      "language_of_instruction": ["Казахский", "Русский"],
+      "admission_exams": ["ЕНТ"],
+      "documents_required": ["Аттестат", "Сертификат ЕНТ", "Медсправка 086-У", "Фото 3x4", "Удостоверение личности"],
       "reviews": [
         "Хороший медвуз.",
-        "Доступные цены."
+        "Доступные цены.",
+        "Много практики."
       ],
       "programs_bachelor": [
         "Общая медицина",
@@ -1932,12 +2337,21 @@
       ],
       "tuition_kzt_year": 1600000,
       "tuition_master_kzt_year": 1900000,
-      "ent_min_score": 95,
-      "admission_requirements": "ЕНТ от 95 баллов",
+      "ent_min_score": 90,
+      "grant_available": true,
+      "grant_ent_score": 110,
+      "admission_requirements": "ЕНТ от 90 баллов (биология, химия), гранты — от 110+ ЕНТ.",
       "admission_deadline_month": "Август",
-      "scholarships": "Медицинские гранты",
+      "scholarships": "Государственные медицинские гранты",
+      "financial_aid": [
+        "Государственный медицинский грант",
+        "Социальные стипендии"
+      ],
+      "exchange_programs": [
+        "Обмен с медвузами Турции и России"
+      ],
       "international_exchange": true,
-      "partner_universities": "25+ партнеров",
+      "partner_universities": "25+ партнёров",
       "foreign_students_welcome": true,
       "dormitory": true,
       "military_department": false,
@@ -1949,17 +2363,79 @@
     },
     {
       "id": 31,
-      "name_ru": "Университет Сулеймана Демиреля СДУ)",
+      "name_ru": "Университет Сулеймана Демиреля (СДУ)",
       "name_en": "Suleyman Demirel University",
       "city": "Алматы",
       "focus": "Бизнес",
       "website": "https://sdu.edu.kz",
-      "description": "Казахстанско-турецкий университет с европейскими стандартами образования.",
+      "description": "Казахстанско-турецкий университет с европейскими стандартами образования. Современный кампус в Каскелене. Обучение на казахском, русском и английском языках. Партнёрство с турецкими вузами.",
+      "founded_year": 1996,
+      "rector": "Мехмет Саим Бильгин",
+      "achievements": [
+        "Казахстанско-турецкий вуз",
+        "Современный кампус",
+        "Аккредитация FIBAA",
+        "Партнёрство с турецкими вузами"
+      ],
       "image_url": "/preview/suleyman.jpg",
       "tour_url": null,
       "address": "ул. Абылай хана, 1/1, Каскелен",
       "phone": "+7 (727) 307-95-65",
       "email": "info@sdu.edu.kz",
+      "rating": 4.5,
+      "accreditation": "FIBAA, IQAA",
+      "ielts_required": false,
+      "ielts_min_score": null,
+      "language_of_instruction": ["Казахский", "Русский", "Английский"],
+      "admission_exams": ["ЕНТ"],
+      "documents_required": ["Аттестат", "Сертификат ЕНТ", "Медсправка 086-У", "Фото 3x4", "Удостоверение личности"],
+      "reviews": [
+        "Современный кампус.",
+        "Обучение на английском.",
+        "Хорошие связи с Турцией."
+      ],
+      "programs_bachelor": [
+        "IT",
+        "Бизнес",
+        "Инженерия",
+        "Право",
+        "Педагогика",
+        "Международные отношения"
+      ],
+      "programs_master": [
+        "MBA",
+        "IT Management",
+        "Педагогика"
+      ],
+      "tuition_kzt_year": 1900000,
+      "tuition_master_kzt_year": 2200000,
+      "ent_min_score": 80,
+      "grant_available": true,
+      "grant_ent_score": 100,
+      "admission_requirements": "ЕНТ от 80 баллов (платное), гранты — от 100+ ЕНТ.",
+      "admission_deadline_month": "Август",
+      "scholarships": "Гранты СДУ до 50%, скидки за ЕНТ",
+      "financial_aid": [
+        "Грант СДУ до 50%",
+        "Скидки за высокий ЕНТ",
+        "Турецкие стипендии"
+      ],
+      "exchange_programs": [
+        "Обмен с турецкими вузами",
+        "Erasmus+",
+        "Летние школы"
+      ],
+      "international_exchange": true,
+      "partner_universities": "60+ партнёров: Турция, Европа",
+      "foreign_students_welcome": true,
+      "dormitory": true,
+      "military_department": false,
+      "comparison_feature": {
+        "academic_rating": 4,
+        "infrastructure": 5,
+        "career_prospects": 4
+      }
+    },
       "rating": 4.5,
       "reviews": [
         "Современный кампус.",

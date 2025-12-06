@@ -2436,39 +2436,6 @@
         "career_prospects": 4
       }
     },
-      "rating": 4.5,
-      "reviews": [
-        "Современный кампус.",
-        "Обучение на английском."
-      ],
-      "programs_bachelor": [
-        "IT",
-        "Бизнес",
-        "Инженерия",
-        "Право",
-        "Педагогика"
-      ],
-      "programs_master": [
-        "MBA",
-        "IT Management"
-      ],
-      "tuition_kzt_year": 1900000,
-      "tuition_master_kzt_year": 2200000,
-      "ent_min_score": 90,
-      "admission_requirements": "ЕНТ от 90 баллов",
-      "admission_deadline_month": "Август",
-      "scholarships": "Гранты до 50%",
-      "international_exchange": true,
-      "partner_universities": "60+ партнеров",
-      "foreign_students_welcome": true,
-      "dormitory": true,
-      "military_department": false,
-      "comparison_feature": {
-        "academic_rating": 4,
-        "infrastructure": 5,
-        "career_prospects": 4
-      }
-    },
     {
       "id": 32,
       "name_ru": "Университет Алматы",

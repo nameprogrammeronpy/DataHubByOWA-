@@ -1,0 +1,63 @@
+Файлов PREVIEW в git: 55
+Файлы:
+  data/PREVIEW/ABAI_PED.jpg
+  data/PREVIEW/AITU.jpeg
+  data/PREVIEW/ALAKazAGA.jpeg
+  data/PREVIEW/ALMAU.jpg
+  data/PREVIEW/ALT.jpeg
+  data/PREVIEW/ASPHEN.jpg
+  data/PREVIEW/ATU.jpeg
+  data/PREVIEW/AUES.jpeg
+  data/PREVIEW/BUKETOV_KARAGANDA.jpg
+  data/PREVIEW/ENU.jpg
+  data/PREVIEW/INEY.png
+  data/PREVIEW/JENPU.jpg
+  data/PREVIEW/KARTU.jpg
+  data/PREVIEW/KAZAITU.jpeg
+  data/PREVIEW/KAZGASA.jpeg
+  data/PREVIEW/KAZGUY.png
+  data/PREVIEW/KAZITU.jpeg
+  data/PREVIEW/KAZNARU.jpg
+  data/PREVIEW/KAZNU.jpg
+  data/PREVIEW/KBTU.png
+  data/PREVIEW/KGU_baitusinov.jpg
+  data/PREVIEW/KIMEP.jpg
+  data/PREVIEW/KURMANGAZY.jpg
+  data/PREVIEW/Kaspian.jpg
+  data/PREVIEW/KazakhAblaiKhaUniversityofInternationalRelations.jpg
+  data/PREVIEW/KazakhUniversityOfRailwayTransport.jpeg
+  data/PREVIEW/MIRAS.jpeg
+  data/PREVIEW/MUIT.jpg
+  data/PREVIEW/MakhambetUtemisovWestKazakhstan.jpg
+  data/PREVIEW/NARXOZ.jpeg
+  data/PREVIEW/NU.jpg
+  data/PREVIEW/OAIU.jpeg
+  data/PREVIEW/OSPANOV.jpeg
+  data/PREVIEW/Pavlodargos.jpg
+  data/PREVIEW/SATPAEV.jpg
+  data/PREVIEW/SKO_KOZYBAYEV.jpg
+  data/PREVIEW/SOUTHMEDIC.jpg
+  data/PREVIEW/Semeygos.png
+  data/PREVIEW/TARAZ.png
+  data/PREVIEW/TEmirbek_zhurgenov.jpeg
+  data/PREVIEW/TURAN.jpg
+  data/PREVIEW/TURAN_ASTANA.png
+  data/PREVIEW/UIB.jpg
+  data/PREVIEW/UKAZU_M_AUEZOV.jpeg
+  data/PREVIEW/UTEByev_ATYRAU.jpeg
+  data/PREVIEW/VKO_TECHNO.jpeg
+  data/PREVIEW/Yessenov_University.jpg
+  data/PREVIEW/ZHUBANOV.jpeg
+  data/PREVIEW/Zhangi_han.jpg
+  data/PREVIEW/Zhansigurov.jpeg
+  data/PREVIEW/academyofcivil.jpg
+  data/PREVIEW/korkyt0png.png
+  data/PREVIEW/medvuz-astana-e1524630777409.jpg
+  data/PREVIEW/suleyman.jpg
+  "data/PREVIEW/\320\227\320\264\320\260\320\275\320\270\320\265_\320\234\320\265\320\264\320\270\321\206\320\270\320\275\321\201\320\272\320\276\320\263\320\276_\320\243\320\275\320\270\320\262\320\265\321\200\321\201\320\270\321\202\320\265\321\202\320\260_\320\232\320\260\321\200\320\260\320\263\320\260\320\275\320\264\321\213.jpg"
+
+Локальных файлов PREVIEW: 55
+
+Не в git (2):
+  kazgasa.jpeg
+  Здание_Медицинского_Университета_Караганды.jpg

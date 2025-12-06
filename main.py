@@ -29,6 +29,10 @@ app.add_middleware(
 )
 
 # Статика и шаблоны
+# Создаем папки если их нет
+for folder in ["static", "assets", "data/PREVIEW"]:
+    os.makedirs(folder, exist_ok=True)
+
 app.mount("/static", StaticFiles(directory="static"), name="static")
 app.mount("/assets", StaticFiles(directory="assets"), name="assets")
 app.mount("/preview", StaticFiles(directory="data/PREVIEW"), name="preview")

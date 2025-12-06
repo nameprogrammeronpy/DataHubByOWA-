@@ -2,6 +2,7 @@ from fastapi import FastAPI, Request, Form
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel
 from typing import Optional, List
@@ -18,6 +19,9 @@ genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 model = genai.GenerativeModel('gemini-2.0-flash')
 
 app = FastAPI(title="DataHub ВУЗ-ов РК", version="2.0.0")
+
+# GZip сжатие для быстрой загрузки
+app.add_middleware(GZipMiddleware, minimum_size=500)
 
 # CORS
 app.add_middleware(

@@ -57,11 +57,11 @@ photo_mapping = {
     45: "SKO KOZYBAYEV.jpg",
     47: "Zhansigurov.jpeg",
     48: "TURAN ASTANA.png",
-    49: "kazgasa.jpeg",  # МОК КазГАСА - та же фотка
+    49: "kazgasa.jpeg",
     50: "AUES.jpeg",
     51: "KazakhUniversityOfRailwayTransport.jpeg",
-    53: "MUIT.jpg",  # ЦАУ
-    54: "OAIU.jpeg",  # КИТУ
+    53: "MUIT.jpg",
+    54: "OAIU.jpeg",
     55: "Zhangi han.jpg",
     56: "ALT.jpeg",
     57: "UIB.jpg",

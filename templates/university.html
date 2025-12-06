@@ -4,306 +4,341 @@
 
 {% block content %}
 <!-- University Hero -->
-<section class="university-hero">
+<section class="uni-hero">
     <div class="container">
-        <h1>{{ university.name_ru }}</h1>
-        <p style="opacity: 0.9; margin-bottom: 20px;">{{ university.name_en }}</p>
-        <div class="university-meta">
-            <span><i class="fas fa-map-marker-alt"></i> {{ university.city }}</span>
-            <span><i class="fas fa-star"></i> {{ university.rating }} / 5.0</span>
-            <span><i class="fas fa-graduation-cap"></i> {{ university.focus }}</span>
+        <div class="uni-hero-content">
+            <h1>{{ university.name_ru }}</h1>
+            <p class="uni-hero-en">{{ university.name_en }}</p>
+            <div class="uni-hero-meta">
+                <span><i class="fas fa-map-marker-alt"></i> {{ university.city }}</span>
+                <span><i class="fas fa-star"></i> {{ university.rating }} / 5.0</span>
+                <span><i class="fas fa-graduation-cap"></i> {{ university.focus }}</span>
+                {% if university.founded_year %}
+                <span><i class="fas fa-calendar"></i> с {{ university.founded_year }} г.</span>
+                {% endif %}
+            </div>
         </div>
     </div>
 </section>
 
-<!-- University Content -->
-<section class="university-content">
+<!-- Quick Actions Bar -->
+<section class="uni-quick-bar">
     <div class="container">
-        <div class="university-grid">
-            <!-- Main Content -->
-            <div class="main-content">
-                <!-- Описание -->
-                <div class="info-card">
-                    <h2><i class="fas fa-info-circle"></i> Об университете</h2>
-                    <p>{{ university.description }}</p>
-
-                    {% if university.founded_year or university.rector %}
-                    <div class="uni-details-grid">
-                        {% if university.founded_year %}
-                        <div class="detail-item">
-                            <i class="fas fa-calendar-alt"></i>
-                            <div>
-                                <strong>Год основания</strong>
-                                <span>{{ university.founded_year }}</span>
-                            </div>
-                        </div>
-                        {% endif %}
-                        {% if university.rector %}
-                        <div class="detail-item">
-                            <i class="fas fa-user-tie"></i>
-                            <div>
-                                <strong>Ректор</strong>
-                                <span>{{ university.rector }}</span>
-                            </div>
-                        </div>
-                        {% endif %}
-                    </div>
-                    {% endif %}
-
-                    {% if university.achievements %}
-                    <div class="achievements-section">
-                        <h4><i class="fas fa-trophy"></i> Достижения</h4>
-                        <div class="achievements-list">
-                            {% for achievement in university.achievements %}
-                            <div class="achievement-item">
-                                <i class="fas fa-star"></i>
-                                <span>{{ achievement }}</span>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    {% endif %}
+        <div class="quick-bar-content">
+            <div class="quick-stats">
+                <div class="quick-stat">
+                    <span class="stat-value">{{ "{:,.0f}".format(university.tuition_kzt_year).replace(",", " ") if university.tuition_kzt_year > 0 else 'Грант' }}</span>
+                    <span class="stat-label">₸/год</span>
                 </div>
-
-
-                <!-- Программы бакалавриата -->
-                <div class="info-card">
-                    <h2><i class="fas fa-book-open"></i> Программы бакалавриата</h2>
-                    <div class="programs-list">
-                        {% for program in university.programs_bachelor %}
-                        <span class="program-tag">{{ program }}</span>
-                        {% endfor %}
-                    </div>
+                <div class="quick-stat">
+                    <span class="stat-value">{{ university.ent_min_score }}</span>
+                    <span class="stat-label">мин. ЕНТ</span>
                 </div>
-
-                <!-- Программы магистратуры -->
-                <div class="info-card">
-                    <h2><i class="fas fa-user-graduate"></i> Программы магистратуры</h2>
-                    <div class="programs-list">
-                        {% for program in university.programs_master %}
-                        <span class="program-tag">{{ program }}</span>
-                        {% endfor %}
-                    </div>
-                </div>
-
-                <!-- Требования для поступления -->
-                <div class="info-card">
-                    <h2><i class="fas fa-clipboard-list"></i> Требования для поступления</h2>
-                    <p>{{ university.admission_requirements }}</p>
-
-                    {% if university.ielts_required %}
-                    <div style="margin-top: 15px; padding: 15px; background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1)); border-radius: 8px; border-left: 4px solid var(--primary);">
-                        <strong><i class="fas fa-language"></i> Требуется IELTS:</strong> минимум {{ university.ielts_min_score }} баллов
-                    </div>
-                    {% endif %}
-
-                    {% if university.language_of_instruction %}
-                    <div style="margin-top: 15px;">
-                        <strong><i class="fas fa-chalkboard-teacher"></i> Языки обучения:</strong>
-                        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px;">
-                            {% for lang in university.language_of_instruction %}
-                            <span class="program-tag">{{ lang }}</span>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    {% endif %}
-
-                    {% if university.admission_exams %}
-                    <div style="margin-top: 15px;">
-                        <strong><i class="fas fa-file-alt"></i> Вступительные экзамены:</strong>
-                        <ul style="margin-top: 8px; margin-left: 20px;">
-                            {% for exam in university.admission_exams %}
-                            <li>{{ exam }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    {% endif %}
-
-                    {% if university.documents_required %}
-                    <div style="margin-top: 15px;">
-                        <strong><i class="fas fa-folder-open"></i> Необходимые документы:</strong>
-                        <ul style="margin-top: 8px; margin-left: 20px;">
-                            {% for doc in university.documents_required %}
-                            <li>{{ doc }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    {% endif %}
-
-                    <div style="margin-top: 20px; padding: 15px; background: var(--light); border-radius: 8px;">
-                        <strong><i class="fas fa-calendar-alt"></i> Дедлайн подачи документов:</strong> {{ university.admission_deadline_month }}
-                    </div>
-
-                    {% if university.grant_available and university.grant_ent_score %}
-                    <div style="margin-top: 15px; padding: 15px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.1)); border-radius: 8px; border-left: 4px solid #10b981;">
-                        <strong><i class="fas fa-gift"></i> Грант:</strong> доступен при ЕНТ от {{ university.grant_ent_score }} баллов
-                    </div>
-                    {% endif %}
-                </div>
-
-                {% if university.accreditation %}
-                <!-- Аккредитация -->
-                <div class="info-card">
-                    <h2><i class="fas fa-certificate"></i> Аккредитация</h2>
-                    <p>{{ university.accreditation }}</p>
+                {% if university.ielts_required %}
+                <div class="quick-stat">
+                    <span class="stat-value">{{ university.ielts_min_score }}</span>
+                    <span class="stat-label">IELTS</span>
                 </div>
                 {% endif %}
+            </div>
+            <div class="quick-actions">
+                <a href="{{ university.website }}" target="_blank" class="btn btn-outline btn-sm">
+                    <i class="fas fa-external-link-alt"></i> Сайт
+                </a>
+                <button class="btn btn-primary btn-sm" onclick="openApplyModal()">
+                    <i class="fas fa-paper-plane"></i> Подать заявку
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
 
-                <!-- Стипендии и финансовая помощь -->
-                <div class="info-card">
-                    <h2><i class="fas fa-award"></i> Стипендии и финансовая помощь</h2>
-                    <p>{{ university.scholarships }}</p>
-
-                    {% if university.financial_aid %}
-                    <div class="financial-aid-list">
-                        <h4><i class="fas fa-hand-holding-usd"></i> Виды финансовой поддержки:</h4>
-                        <ul>
-                            {% for aid in university.financial_aid %}
-                            <li><i class="fas fa-check-circle" style="color: #10b981;"></i> {{ aid }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    {% endif %}
-                </div>
-
-                <!-- Международное сотрудничество -->
-                {% if university.international_exchange %}
-                <div class="info-card">
-                    <h2><i class="fas fa-globe"></i> Международное сотрудничество</h2>
-                    <p><strong>Партнёрские университеты:</strong> {{ university.partner_universities }}</p>
-
-                    {% if university.exchange_programs %}
-                    <div class="exchange-programs">
-                        <h4><i class="fas fa-plane"></i> Программы обмена:</h4>
-                        <ul>
-                            {% for program in university.exchange_programs %}
-                            <li><i class="fas fa-arrow-right" style="color: var(--primary);"></i> {{ program }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    {% endif %}
-
-                    <div style="margin-top: 15px; display: flex; gap: 15px; flex-wrap: wrap;">
-                        {% if university.foreign_students_welcome %}
-                        <span class="tag" style="background: #10b981; color: white;"><i class="fas fa-check"></i> Приём иностранных студентов</span>
-                        {% endif %}
-                        <span class="tag" style="background: #6366f1; color: white;"><i class="fas fa-exchange-alt"></i> Программы обмена</span>
-                    </div>
-                </div>
-                {% endif %}
-
-                <!-- 3D Тур (только если есть) -->
-                {% if university.tour_url %}
-                <div class="info-card">
-                    <h2><i class="fas fa-vr-cardboard"></i> Виртуальный 3D-тур</h2>
-                    <p style="margin-bottom: 15px; color: var(--gray);">Исследуйте кампус университета не выходя из дома</p>
-                    <iframe class="tour-frame" src="{{ university.tour_url }}" allowfullscreen></iframe>
-                </div>
-                {% endif %}
-
-                <!-- Отзывы -->
-                <div class="info-card">
-                    <h2><i class="fas fa-comments"></i> Отзывы студентов</h2>
-                    <div class="reviews-list">
-                        {% for review in university.reviews %}
-                        <div class="review-item">
-                            <i class="fas fa-quote-left" style="color: var(--primary); margin-right: 10px;"></i>
-                            {{ review }}
+<!-- Main Content -->
+<section class="uni-main">
+    <div class="container">
+        <!-- About Card - Full Width -->
+        <div class="uni-card uni-card-full">
+            <h3><i class="fas fa-info-circle"></i> О вузе</h3>
+            <div class="about-content">
+                <p class="about-description">{{ university.description }}</p>
+                <div class="about-details">
+                    {% if university.rector %}
+                    <div class="about-detail-item">
+                        <i class="fas fa-user-tie"></i>
+                        <div>
+                            <span class="detail-label">Ректор</span>
+                            <span class="detail-value">{{ university.rector }}</span>
                         </div>
-                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% if university.founded_year %}
+                    <div class="about-detail-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div>
+                            <span class="detail-label">Год основания</span>
+                            <span class="detail-value">{{ university.founded_year }}</span>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if university.accreditation %}
+                    <div class="about-detail-item">
+                        <i class="fas fa-certificate"></i>
+                        <div>
+                            <span class="detail-label">Аккредитация</span>
+                            <span class="detail-value">{{ university.accreditation }}</span>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="about-detail-item">
+                        <i class="fas fa-globe-americas"></i>
+                        <div>
+                            <span class="detail-label">Сайт</span>
+                            <a href="{{ university.website }}" target="_blank" class="detail-link">{{ university.website }}</a>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <!-- Стоимость -->
-                <div class="sidebar-card">
-                    <h3><i class="fas fa-money-bill-wave"></i> Стоимость обучения</h3>
-                    <div style="margin-bottom: 20px;">
-                        <small style="color: var(--gray);">Бакалавриат</small>
-                        {% if university.tuition_kzt_year == 0 and university.grant_available %}
-                        <span class="price-big" style="color: #10b981;">Грант 100%</span>
-                        <small style="color: var(--gray);">Бесплатное обучение для граждан РК</small>
-                        {% elif university.tuition_kzt_year > 0 %}
-                        <span class="price-big">{{ "{:,.0f}".format(university.tuition_kzt_year).replace(",", " ") }} ₸</span>
-                        <small style="color: var(--gray);">в год</small>
-                        {% if university.grant_available %}
-                        <div style="margin-top: 10px; padding: 10px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.15)); border-radius: 8px;">
-                            <small style="color: #059669;"><i class="fas fa-gift"></i> Доступны гранты и скидки</small>
-                        </div>
-                        {% endif %}
-                        {% else %}
-                        <span class="price-big">{{ "{:,.0f}".format(university.tuition_kzt_year).replace(",", " ") }} ₸</span>
-                        <small style="color: var(--gray);">в год</small>
-                        {% endif %}
+        <!-- Info Grid - 6 карточек в 2 ряда -->
+        <div class="uni-info-grid-compact">
+            <!-- Row 1 -->
+            <!-- Admission Card -->
+            <div class="uni-card">
+                <h3><i class="fas fa-clipboard-list"></i> Поступление</h3>
+                <div class="admission-info">
+                    <div class="adm-row">
+                        <span class="adm-label">Мин. ЕНТ:</span>
+                        <span class="adm-value">{{ university.ent_min_score }} баллов</span>
                     </div>
-                    <div>
-                        <small style="color: var(--gray);">Магистратура</small>
-                        <span class="price-big" style="font-size: 1.5rem;">{{ "{:,.0f}".format(university.tuition_master_kzt_year).replace(",", " ") }} ₸</span>
-                        <small style="color: var(--gray);">в год</small>
+                    {% if university.grant_available and university.grant_ent_score %}
+                    <div class="adm-row">
+                        <span class="adm-label">Грант от:</span>
+                        <span class="adm-value highlight">{{ university.grant_ent_score }} баллов</span>
                     </div>
-                </div>
-
-                <!-- Мин. балл ЕНТ -->
-                <div class="sidebar-card">
-                    <h3><i class="fas fa-chart-line"></i> Мин. балл ЕНТ</h3>
-                    <span class="price-big">{{ university.ent_min_score }}</span>
-                    <small style="color: var(--gray);">баллов</small>
-                </div>
-
-                <!-- Возможности -->
-                <div class="sidebar-card">
-                    <h3><i class="fas fa-check-circle"></i> Возможности</h3>
-                    <div style="display: flex; flex-direction: column; gap: 10px;">
-                        {% if university.dormitory %}
-                        <span style="color: #10b981;"><i class="fas fa-check"></i> Общежитие</span>
-                        {% else %}
-                        <span style="color: var(--gray);"><i class="fas fa-times"></i> Общежитие</span>
-                        {% endif %}
-
-                        {% if university.military_department %}
-                        <span style="color: #10b981;"><i class="fas fa-check"></i> Военная кафедра</span>
-                        {% else %}
-                        <span style="color: var(--gray);"><i class="fas fa-times"></i> Военная кафедра</span>
-                        {% endif %}
-
-                        {% if university.international_exchange %}
-                        <span style="color: #10b981;"><i class="fas fa-check"></i> Обмен студентами</span>
-                        {% endif %}
+                    {% endif %}
+                    {% if university.ielts_required %}
+                    <div class="adm-row">
+                        <span class="adm-label">IELTS:</span>
+                        <span class="adm-value">{{ university.ielts_min_score }}+</span>
+                    </div>
+                    {% endif %}
+                    <div class="adm-row">
+                        <span class="adm-label">Дедлайн:</span>
+                        <span class="adm-value">{{ university.admission_deadline_month }}</span>
                     </div>
                 </div>
+                {% if university.language_of_instruction %}
+                <div class="lang-tags">
+                    {% for lang in university.language_of_instruction %}
+                    <span class="lang-tag">{{ lang }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
 
-                <!-- Контакты -->
-                <div class="sidebar-card">
-                    <h3><i class="fas fa-address-book"></i> Контакты</h3>
-                    <div class="contact-item">
+            <!-- Cost Card -->
+            <div class="uni-card">
+                <h3><i class="fas fa-money-bill-wave"></i> Стоимость</h3>
+                <div class="cost-info">
+                    <div class="cost-item">
+                        <span class="cost-label">Бакалавриат</span>
+                        {% if university.tuition_kzt_year == 0 %}
+                        <span class="cost-value free">100% Грант</span>
+                        {% else %}
+                        <span class="cost-value">{{ "{:,.0f}".format(university.tuition_kzt_year).replace(",", " ") }} ₸</span>
+                        {% endif %}
+                    </div>
+                    <div class="cost-item">
+                        <span class="cost-label">Магистратура</span>
+                        <span class="cost-value">{{ "{:,.0f}".format(university.tuition_master_kzt_year).replace(",", " ") }} ₸</span>
+                    </div>
+                </div>
+                {% if university.scholarships %}
+                <div class="scholarship-note">
+                    <i class="fas fa-gift"></i> {{ university.scholarships }}
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Facilities Card -->
+            <div class="uni-card">
+                <h3><i class="fas fa-building"></i> Возможности</h3>
+                <div class="facilities-list">
+                    <div class="facility-item {{ 'active' if university.dormitory else '' }}">
+                        <i class="fas fa-{{ 'check' if university.dormitory else 'times' }}"></i>
+                        <span>Общежитие</span>
+                    </div>
+                    <div class="facility-item {{ 'active' if university.military_department else '' }}">
+                        <i class="fas fa-{{ 'check' if university.military_department else 'times' }}"></i>
+                        <span>Военная кафедра</span>
+                    </div>
+                    <div class="facility-item {{ 'active' if university.international_exchange else '' }}">
+                        <i class="fas fa-{{ 'check' if university.international_exchange else 'times' }}"></i>
+                        <span>Обмен студентами</span>
+                    </div>
+                    {% if university.tour_url %}
+                    <div class="facility-item active">
+                        <i class="fas fa-check"></i>
+                        <span>3D-тур</span>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Row 2 -->
+            <!-- Contact Card -->
+            <div class="uni-card">
+                <h3><i class="fas fa-address-book"></i> Контакты</h3>
+                <div class="contact-list">
+                    <div class="contact-row">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>{{ university.address }}</span>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-row">
                         <i class="fas fa-phone"></i>
                         <span>{{ university.phone }}</span>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-row">
                         <i class="fas fa-envelope"></i>
                         <span>{{ university.email }}</span>
                     </div>
-                    <a href="{{ university.website }}" target="_blank" class="btn btn-primary btn-full" style="margin-top: 15px;">
-                        <i class="fas fa-external-link-alt"></i> Официальный сайт
-                    </a>
                 </div>
-
-                <!-- Кнопка подачи заявки -->
-                <button class="btn btn-accent btn-full" onclick="openApplyModal()" style="margin-bottom: 10px;">
-                    <i class="fas fa-paper-plane"></i> Подать заявку онлайн
-                </button>
-
-                <!-- Кнопка сравнения -->
-                <button class="btn btn-outline btn-full" onclick="addToCompare({{ university.id }}, '{{ university.name_ru }}')">
-                    <i class="fas fa-balance-scale"></i> Добавить к сравнению
-                </button>
             </div>
+
+            <!-- Achievements Card -->
+            <div class="uni-card">
+                <h3><i class="fas fa-trophy"></i> Достижения</h3>
+                <div class="achievements-compact">
+                    {% if university.achievements %}
+                    {% for ach in university.achievements[:4] %}
+                    <div class="ach-item">
+                        <i class="fas fa-star"></i>
+                        <span>{{ ach }}</span>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <div class="ach-item">
+                        <i class="fas fa-star"></i>
+                        <span>Рейтинг {{ university.rating }}/5.0</span>
+                    </div>
+                    <div class="ach-item">
+                        <i class="fas fa-star"></i>
+                        <span>{{ university.focus }} вуз</span>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Financial Aid Card -->
+            <div class="uni-card">
+                <h3><i class="fas fa-hand-holding-usd"></i> Финансовая помощь</h3>
+                {% if university.financial_aid %}
+                <div class="financial-list">
+                    {% for aid in university.financial_aid[:4] %}
+                    <div class="financial-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>{{ aid }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="financial-list">
+                    {% if university.grant_available %}
+                    <div class="financial-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Государственные гранты</span>
+                    </div>
+                    {% endif %}
+                    <div class="financial-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>{{ university.scholarships or 'Стипендии доступны' }}</span>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Programs Section -->
+        <div class="uni-programs-section">
+            <div class="programs-row">
+                <div class="programs-col">
+                    <h3><i class="fas fa-book-open"></i> Бакалавриат</h3>
+                    <div class="programs-tags">
+                        {% for prog in university.programs_bachelor %}
+                        <span class="prog-tag">{{ prog }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="programs-col">
+                    <h3><i class="fas fa-user-graduate"></i> Магистратура</h3>
+                    <div class="programs-tags">
+                        {% for prog in university.programs_master %}
+                        <span class="prog-tag">{{ prog }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- International Section -->
+        {% if university.international_exchange %}
+        <div class="uni-international-section">
+            <h3><i class="fas fa-globe"></i> Международное сотрудничество</h3>
+            <div class="intl-content">
+                <div class="intl-partners">
+                    <strong>Партнёры:</strong> {{ university.partner_universities }}
+                </div>
+                {% if university.exchange_programs %}
+                <div class="exchange-list">
+                    {% for prog in university.exchange_programs %}
+                    <span class="exchange-tag"><i class="fas fa-plane"></i> {{ prog }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- 3D Tour Section - БОЛЬШОЙ -->
+        {% if university.tour_url %}
+        <div class="uni-tour-section">
+            <div class="tour-header">
+                <h2><i class="fas fa-vr-cardboard"></i> Виртуальный 3D-тур по кампусу</h2>
+                <p>Исследуйте университет не выходя из дома. Используйте мышь для навигации.</p>
+            </div>
+            <div class="tour-container" id="tourContainer">
+                <iframe src="{{ university.tour_url }}" allowfullscreen></iframe>
+                <div class="tour-hint">
+                    <i class="fas fa-mouse"></i> Наведите и используйте мышь для навигации
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Reviews Section -->
+        {% if university.reviews %}
+        <div class="uni-reviews-section">
+            <h3><i class="fas fa-comments"></i> Отзывы студентов</h3>
+            <div class="reviews-grid">
+                {% for review in university.reviews %}
+                <div class="review-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p>{{ review }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Bottom Actions -->
+        <div class="uni-bottom-actions">
+            <button class="btn btn-outline" onclick="addToCompare({{ university.id }}, '{{ university.name_ru }}')">
+                <i class="fas fa-balance-scale"></i> Добавить к сравнению
+            </button>
+            <button class="btn btn-primary" onclick="openApplyModal()">
+                <i class="fas fa-paper-plane"></i> Подать заявку онлайн
+            </button>
         </div>
     </div>
 </section>
@@ -576,6 +611,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const userData = localStorage.getItem('user');
     if (userData) {
         currentUser = JSON.parse(userData);
+    }
+
+    // 3D Tour scroll lock
+    const tourContainer = document.getElementById('tourContainer');
+    if (tourContainer) {
+        tourContainer.addEventListener('mouseenter', () => {
+            document.body.classList.add('tour-active');
+        });
+        tourContainer.addEventListener('mouseleave', () => {
+            document.body.classList.remove('tour-active');
+        });
+        // For touch devices
+        tourContainer.addEventListener('touchstart', () => {
+            document.body.classList.add('tour-active');
+        });
     }
 });
 

@@ -452,19 +452,61 @@ function toggleUniversitySelect(id, name, element) {
         element.classList.add('selected');
     }
 
+    updateSelectedCount();
     updateCompareTable();
+
+    // Обновляем плавающую кнопку
+    if (typeof updateFloatingButton === 'function') {
+        updateFloatingButton();
+    }
+}
+
+function updateSelectedCount() {
+    const countEl = document.getElementById('selectedCount');
+    if (countEl) {
+        countEl.textContent = compareList.length;
+    }
+}
+
+function clearAllSelection() {
+    compareList = [];
+    saveCompareToStorage();
+    document.querySelectorAll('.selector-card.selected').forEach(card => {
+        card.classList.remove('selected');
+    });
+    updateSelectedCount();
+    updateCompareTable();
+
+    // Обновляем плавающую кнопку
+    if (typeof updateFloatingButton === 'function') {
+        updateFloatingButton();
+    }
 }
 
 async function updateCompareTable() {
+    const container = document.getElementById('compareTableContainer');
+    if (!container) return;
+
     if (compareList.length < 2) {
-        document.getElementById('compareTableContainer').innerHTML = `
-            <div class="info-card" style="text-align: center; padding: 60px;">
-                <i class="fas fa-balance-scale" style="font-size: 3rem; color: var(--gray-light); margin-bottom: 20px;"></i>
-                <p style="color: var(--gray);">Выберите минимум 2 университета для сравнения</p>
+        container.innerHTML = `
+            <div class="compare-empty-state">
+                <div class="empty-icon">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <h3>Выберите университеты для сравнения</h3>
+                <p>Нажмите на карточки университетов выше, чтобы добавить их к сравнению (минимум 2)</p>
             </div>
         `;
         return;
     }
+
+    // Показываем загрузку
+    container.innerHTML = `
+        <div class="compare-empty-state">
+            <div class="loading-spinner"></div>
+            <p style="margin-top: 20px;">Загрузка данных...</p>
+        </div>
+    `;
 
     try {
         const ids = compareList.map(item => item.id);
@@ -479,6 +521,15 @@ async function updateCompareTable() {
 
     } catch (error) {
         console.error('Error loading comparison:', error);
+        container.innerHTML = `
+            <div class="compare-empty-state">
+                <div class="empty-icon" style="background: rgba(239, 68, 68, 0.1);">
+                    <i class="fas fa-exclamation-triangle" style="color: #ef4444;"></i>
+                </div>
+                <h3>Ошибка загрузки</h3>
+                <p>Не удалось загрузить данные. Попробуйте обновить страницу.</p>
+            </div>
+        `;
     }
 }
 
@@ -486,39 +537,94 @@ function renderCompareTable(universities) {
     const container = document.getElementById('compareTableContainer');
     if (!container || !universities || universities.length === 0) return;
 
-    const rows = [
-        { label: 'Город', key: 'city' },
-        { label: 'Направление', key: 'focus' },
-        { label: 'Рейтинг', key: 'rating', format: v => `⭐ ${v}` },
-        { label: 'Стоимость (бакалавр)', key: 'tuition_kzt_year', format: v => v === 0 ? 'Бесплатно (грант)' : `${v.toLocaleString()} ₸/год` },
-        { label: 'Мин. балл ЕНТ', key: 'ent_min_score' },
-        { label: 'Общежитие', key: 'dormitory', format: v => v ? '✅ Есть' : '❌ Нет' },
-        { label: 'Военная кафедра', key: 'military_department', format: v => v ? '✅ Есть' : '❌ Нет' },
-        { label: 'Обмен студентами', key: 'international_exchange', format: v => v ? '✅ Есть' : '❌ Нет' },
-        { label: 'Дедлайн поступления', key: 'admission_deadline_month' },
+    const colCount = universities.length + 1;
+
+    // Функции форматирования
+    const formatPrice = (v) => v === 0 ? '<span class="compare-badge badge-success">Бесплатно (грант)</span>' : `<span class="compare-value">${v?.toLocaleString() || 'н/д'} ₸</span>`;
+    const formatBool = (v) => v ? '<span class="compare-yes">✓ Есть</span>' : '<span class="compare-no">✗ Нет</span>';
+    const formatRating = (v) => `<span class="compare-value">${v}</span> / 5.0`;
+    const formatIelts = (u) => {
+        if (!u.ielts_required) return '<span class="compare-no">Не требуется</span>';
+        return `<span class="compare-badge badge-info">IELTS ${u.ielts_min_score || '6.0'}+</span>`;
+    };
+    const formatLangs = (langs) => {
+        if (!langs || !langs.length) return 'н/д';
+        return langs.map(l => `<span class="compare-badge badge-info">${l}</span>`).join(' ');
+    };
+
+    const sections = [
+        {
+            title: 'Основная информация',
+            rows: [
+                { label: 'Город', getValue: u => u.city },
+                { label: 'Направление', getValue: u => `<span class="compare-badge badge-warning">${u.focus}</span>` },
+                { label: 'Рейтинг', getValue: u => formatRating(u.rating) },
+                { label: 'Год основания', getValue: u => u.founded_year || 'н/д' },
+                { label: 'Аккредитация', getValue: u => u.accreditation || 'н/д' },
+            ]
+        },
+        {
+            title: 'Стоимость обучения',
+            rows: [
+                { label: 'Бакалавриат (год)', getValue: u => formatPrice(u.tuition_kzt_year) },
+                { label: 'Магистратура (год)', getValue: u => formatPrice(u.tuition_master_kzt_year) },
+                { label: 'Стипендии/Гранты', getValue: u => u.scholarships || 'н/д' },
+            ]
+        },
+        {
+            title: 'Требования к поступлению',
+            rows: [
+                { label: 'Мин. балл ЕНТ', getValue: u => `<span class="compare-value">${u.ent_min_score || 'н/д'}</span>` },
+                { label: 'Балл ЕНТ для гранта', getValue: u => u.grant_ent_score ? `<span class="compare-value">${u.grant_ent_score}+</span>` : 'н/д' },
+                { label: 'Требуется IELTS', getValue: formatIelts },
+                { label: 'Языки обучения', getValue: u => formatLangs(u.language_of_instruction) },
+                { label: 'Дедлайн поступления', getValue: u => u.admission_deadline_month || 'н/д' },
+            ]
+        },
+        {
+            title: 'Инфраструктура и возможности',
+            rows: [
+                { label: 'Общежитие', getValue: u => formatBool(u.dormitory) },
+                { label: 'Военная кафедра', getValue: u => formatBool(u.military_department) },
+                { label: 'Международный обмен', getValue: u => formatBool(u.international_exchange) },
+                { label: 'Партнёры', getValue: u => u.partner_universities || 'н/д' },
+                { label: '3D-тур', getValue: u => u.tour_url ? '<span class="compare-yes">✓ Доступен</span>' : '<span class="compare-no">✗ Нет</span>' },
+            ]
+        },
     ];
 
     let tableHTML = `
-        <table class="compare-table">
-            <thead>
-                <tr>
-                    <th>Параметр</th>
-                    ${universities.map(u => `<th>${u.name_ru}</th>`).join('')}
-                </tr>
-            </thead>
-            <tbody>
-                ${rows.map(row => `
+        <div class="compare-table-wrapper">
+            <table class="compare-table">
+                <thead>
                     <tr>
-                        <td><strong>${row.label}</strong></td>
-                        ${universities.map(u => {
-                            const value = u[row.key];
-                            const displayValue = row.format ? row.format(value) : value;
-                            return `<td>${displayValue}</td>`;
-                        }).join('')}
+                        <th>Параметр</th>
+                        ${universities.map(u => `<th>${u.name_ru}</th>`).join('')}
                     </tr>
-                `).join('')}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+    `;
+
+    sections.forEach(section => {
+        tableHTML += `
+            <tr class="compare-section-divider">
+                <td colspan="${colCount}">${section.title}</td>
+            </tr>
+        `;
+        section.rows.forEach(row => {
+            tableHTML += `
+                <tr>
+                    <td>${row.label}</td>
+                    ${universities.map(u => `<td>${row.getValue(u)}</td>`).join('')}
+                </tr>
+            `;
+        });
+    });
+
+    tableHTML += `
+                </tbody>
+            </table>
+        </div>
     `;
 
     container.innerHTML = tableHTML;

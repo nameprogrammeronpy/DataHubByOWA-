@@ -36,7 +36,7 @@ templates = Jinja2Templates(directory="templates")
 
 # Загрузка данных университетов
 def load_universities():
-    with open("data/universities.json", "r", encoding="utf-8") as f:
+    with open("data/universities.json", "r", encoding="utf-8-sig") as f:
         return json.load(f)
 
 universities_data = load_universities()
